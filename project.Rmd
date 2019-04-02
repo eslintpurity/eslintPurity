@@ -1,0 +1,54 @@
+---
+title: ""
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: TRUE
+    theme: cosmo
+---
+
+</br>
+
+## **Web and Mobile App Technologies**
+
+Listed below are application types I major in with link to some completed projects. 
+
+* Single Page/Progressive Web Applications (SPA/PWA)
+* Database Driven Apps (e-commerce, Hotel, Job and forum discussion board)
+* College and University Portal System with Payment Gateway Integration
+* Content Management Systems
+* In addition, I offer Business Rebrading, Digital Marketing Integration and cloud deployment services
+
+<button class="w3-button w3-black w3-margin-bottom">[view projects](about.html#webmobileproj)
+</button>
+
+</br>
+
+## **Data Science and Modelling**
+
+You can use flexdashboard to publish groups of related data visualizations as a dashboard. A wide variety of components:
+
+* Apache spark to perform numerous dig data analytics including clustering and hiving
+* Requisite experitise in Econometrics and Financial analysis
+* Tabular data (with optional sorting, filtering, and paging).
+* Value boxes for highlighting important summary data.
+* Gauges for displaying values on a meter within a specified range.
+
+<button class="w3-button w3-black w3-margin-bottom">[view projects](about.html)
+</button>
+
+</br>
+
+## **Machine Learning**
+
+You can use flexdashboard to publish groups of related data visualizations as a dashboard. A wide variety of components:
+
+* Interactive JavaScript data visualizations based on htmlwidgets.
+* R graphical output including base, lattice, and grid graphics.
+* Tabular data (with optional sorting, filtering, and paging).
+* Value boxes for highlighting important summary data.
+* Gauges for displaying values on a meter within a specified range.
+
+<button class="w3-button w3-black w3-margin-bottom">[view projects](about.html#machinelearningproj)
+</button>

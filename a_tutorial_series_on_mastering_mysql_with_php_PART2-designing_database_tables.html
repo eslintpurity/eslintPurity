@@ -1,0 +1,3530 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>MySQL Tutorial</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="w3.css" type="text/css" />
+<link rel="stylesheet" href="bootstrap44.css" type="text/css" />
+<link rel="stylesheet" href="pure.css" type="text/css" />
+<link rel="stylesheet" href="particles.css" type="text/css" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="stylesheet" href="bulma.css" type="text/css" />
+<link rel="stylesheet" href="semantic.css" type="text/css" />
+<link rel="stylesheet" href="foundation.css" type="text/css" />
+<link rel="stylesheet" href="materialize.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">eslintPurity</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="glyphicon glyphicon glyphicon glyphicon-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="glyphicon glyphicon glyphicon glyphicon-grain"></span>
+     
+    About Me
+  </a>
+</li>
+<li>
+  <a href="project.html">
+    <span class="glyphicon glyphicon glyphicon glyphicon-cog"></span>
+     
+    My Works
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon glyphicon glyphicon-menu-hamburger"></span>
+     
+    Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">WEB DEVELOPMENT</li>
+    <li>
+      <a href="javascript.html">JavaScript + Its Frameworks</a>
+    </li>
+    <li>
+      <a href="ror.html">Clojure, Golang and RoR</a>
+    </li>
+    <li>
+      <a href="laravel.html">Laravel (PHP Framework)</a>
+    </li>
+    <li>
+      <a href="django.html">Django and Flask</a>
+    </li>
+    <li>
+      <a href="nodejs.html">Node.js + Frameworks</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MACHINE LEARNING</li>
+    <li>
+      <a href="r-ml.html">R Statistical</a>
+    </li>
+    <li>
+      <a href="python-ml.html">Python</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOBILE APPS DEVELOPMENT</li>
+    <li>
+      <a href="reactnative.html">ReactNative</a>
+    </li>
+    <li>
+      <a href="android.html">Java Android</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">OTHERS</li>
+    <li>
+      <a href="gis.html">GIS and Spatial Modelling</a>
+    </li>
+    <li>
+      <a href="datascience.html">Data Science</a>
+    </li>
+    <li>
+      <a href="random.html">Pure Tech &amp; Random Posts</a>
+    </li>
+    <li>
+      <a href="security.html">Security, Testing, Tooling &amp; Deployment</a>
+    </li>
+    <li>
+      <a href="database.html">Database</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon glyphicon glyphicon-plane"></span>
+     
+    Book
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ml_with_sklearn_and_spark_mllib.html">ML with SKLearn and Spark MLlib</a>
+    </li>
+    <li>
+      <a href="travelling_into_the_future_with_angular.html">Travelling into the future with Angular</a>
+    </li>
+    <li>
+      <a href="laravel_integrated.html">Laravel Integrated</a>
+    </li>
+    <li>
+      <a href="mastering_ruby_on_rails_in_a_week.html">Mastering Ruby on Rails in a Week</a>
+    </li>
+    <li>
+      <a href="mastering_mysql_database_with_php.html">Mastering MySQL Database with PHP</a>
+    </li>
+    <li>
+      <a href="snippets.html">Snippets</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">Hire Me</a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/doyin-elugbadebo/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.twitter.com/eslintpurity">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/eslintpurity">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://pantheon.com/eslintpurity">
+    <span class="fa fa-support"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">MySQL Tutorial</h1>
+
+</div>
+
+
+<hr />
+<p><strong>Disclaimer:</strong> This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to <a href="mailto:eslintpurity@gmail.com">eslintpurity@gmail.com</a> or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs.</p>
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;">
+<div class="row">
+<div class="col-lg-2">
+<img src="images/doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/>
+</div>
+<div class="col-lg-10">
+<h4 style="font-size: 29px;">
+Introduction to MySQL Relational Database Management System
+</h4>
+<span style="font-size: 13.5px; padding-top:100px;">Series: Mastering MySQL Database with PHP - PART 1</span><span style = "float:right;"> Author: <span style="color:red;">Doyin-Elugbadebo…31st August, 2017</span><span>
+</div>
+</div>
+</div>
+<button class="accordion">
+Outline
+</button>
+<div class="panel-accordion">
+<p>
+<ul>
+<li>Introduction</br></li>
+<li>What is Flask?</br></li>
+<li>Why use Flask?</br></li>
+<li>Installation</br> – Requirements</br> – Installing pip, virtualenv and virtualenvwrapper</br> – Installing Flask</br> – Launching Flask</br></li>
+<li>Templating</br></li>
+<li>Common Installation Hitches</br></li>
+<li>Resources</li>
+</ul>
+</p>
+</div>
+<p></br></p>
+<div style="float: right;">
+<a href="http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW">[Download full code]</a>
+</div>
+<div id="introduction" class="section level2">
+<h2><span style="color: purple;">Introduction</span></h2>
+<hr />
+<p>I the begining of the tutorial, I told you, we’ll be using phpMyAdmin, well that was a truthful-lie to get you install our next to be development environment so as we’ll be accessing and quering our database from a GUI interface.</p>
+</div>
+<div id="accessing-mysql-via-phpmyadmin" class="section level2">
+<h2>Accessing MySQL via phpMyAdmin</h2>
+<p>In the lefthand pane of the main phpMyAdmin screen, you can click on the drop-down menu that says “(Databases)” to select any database you wish to work with. This will open the database and display its tables. From here you can perform all the main operations, such as creating new databases, adding tables, creating indexes, and much more. To read the supporting documentation for phpMyAdmin, visit <a href="https://docs.phpmyadmin.net" class="uri">https://docs.phpmyadmin.net</a>.</p>
+<p>In the next chapter, we’ll start looking at how to approach efficient database design, advanced SQL techniques, and MySQL functions and transactions.</p>
+<p>MYSQL Clauses</p>
+<hr />
+<div id="mysql-where-clause" class="section level4">
+<h4>1. MySQL WHERE Clause</h4>
+<p>The WHERE clause allows you to specify the search condition for the rows returned by the query. The following shows the syntax of the WHERE clause:</p>
+<pre class="r"><code>SELECT select_list FROM table_name WHERE search_condition;</code></pre>
+</div>
+</div>
+<div id="mysql-data-types" class="section level1">
+<h1>MYSQL DATA TYPES</h1>
+<p>I decided to make this a new series, cos understanding MYSQL datatypes is often misleading for beginniers. Having a solid foundation will go a long way in easy your pains and you’ll thank me later. I’ll cover the most commonly used data types so that you can quickly apply them effectively in designing database tables.</p>
+<p>lets get started..</p>
+<div id="understanding-data-types" class="section level4">
+<h4>Understanding Data Types</h4>
+<p>A data type specifies a particular type of data, such as integer, floating-point, Boolean etc. A data type also specifies the possible values for that type, the operations that can be performed on that type and the way the values of that type are stored.</p>
+<p>MYSQL datatye is broadly divided into three categories viz-a-viz</p>
+<ul>
+<li><ol style="list-style-type: lower-roman">
+<li>MySQL Numeric Types (ii) MySQL Date and Time and (iii) MySQL String Types</li>
+</ol></li>
+</ul>
+</div>
+<div id="mysql-numeric-types" class="section level4">
+<h4>MySQL Numeric Types</h4>
+<hr />
+<p>The numeric datatypes take care of Integer types, Floating-Point Types, Fixed-Point Types and Bit Value Types. Integer types include INTEGER, SMALLINT. As an extension to the standard, MySQL also supports the integer types TINYINT, MEDIUMINT, and BIGINT. The keyword INT is a synonym for INTEGER. The FLOAT and DOUBLE types represent approximate numeric data values. MySQL uses four bytes for single-precision values and eight bytes for double-precision values.</p>
+<p>Following table shows the required storage and range (maximum and minimum value for signed and unsigned integer) for each integer type.</p>
+<hr />
+<table>
+<colgroup>
+<col width="6%" />
+<col width="21%" />
+<col width="19%" />
+<col width="15%" />
+<col width="19%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Length in Bytes</th>
+<th>Min Value (Signed)</th>
+<th>Max Value (Signed)</th>
+<th>Min Value (Unsigned)</th>
+<th>Max Value (Unsigned)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TINYINT</td>
+<td>1</td>
+<td>-128</td>
+<td>127</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td>SMALLINT</td>
+<td>2</td>
+<td>-32768</td>
+<td>32767</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="odd">
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>-8388608</td>
+<td>8388607 to</td>
+<td>0</td>
+<td>16777215</td>
+</tr>
+<tr class="even">
+<td>INT</td>
+<td>4</td>
+<td>-2147483648</td>
+<td>2147483647</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td>BIGINT</td>
+<td>8</td>
+<td>-9223372036854775808</td>
+<td>9223372036854775807</td>
+<td>0</td>
+<td>18446744073709551615</td>
+</tr>
+<tr class="even">
+<td>FLOAT</td>
+<td>4</td>
+<td>-3.402823466E+38</td>
+<td>-1.175494351E-38</td>
+<td>1.175494351E-38</td>
+<td>3.402823466E+38</td>
+</tr>
+<tr class="odd">
+<td>DOUBLE</td>
+<td>8</td>
+<td>-1.7976931348623157E+308</td>
+<td>-2.2250738585072014E-308</td>
+<td>0, and 2.2250738585072014E-308</td>
+<td>1.7976931348623157E+308</td>
+</tr>
+</tbody>
+</table>
+<p>adapted from <a href="https://www.w3resource.com/mysql/mysql-data-types.php" class="uri">https://www.w3resource.com/mysql/mysql-data-types.php</a></p>
+</div>
+<div id="datetime-date-and-timestamp-types" class="section level4">
+<h4>DATETIME, DATE, and TIMESTAMP Types</h4>
+<hr />
+<p>The date and time types represent DATE, TIME, DATETIME, TIMESTAMP, and YEAR. Each type has a range of valid values, as well as a “zero” value. Recall MySQL uses yyyy-mm-dd format for storing a date value. This format is fixed and it is not possible to change it. However, custom settings could be achieved using DATE_FORMAT function.</p>
+<table style="width:54%;">
+<colgroup>
+<col width="8%" />
+<col width="18%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Types</th>
+<th>Description</th>
+<th>Display Format</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DATETIME</td>
+<td>Use when you need values containing both date and time information.</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>‘1000-01-01 00:00:00’ to ‘9999-12-31 23:59:59’.</td>
+</tr>
+<tr class="even">
+<td>DATE</td>
+<td>Use when you need only date information.</td>
+<td>YYYY-MM-DD</td>
+<td>‘1000-01-01’ to ‘9999-12-31’.</td>
+</tr>
+<tr class="odd">
+<td>TIMESTAMP</td>
+<td>Values are converted from the current time zone to UTC while storing and converted back from UTC to the current time zone when retrieved.</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>‘1970-01-01 00:00:01’ UTC to ‘2038-01-19 03:14:07’ UTC</td>
+</tr>
+</tbody>
+</table>
+<p>adapted from <a href="https://www.w3resource.com/mysql/mysql-data-types.php" class="uri">https://www.w3resource.com/mysql/mysql-data-types.php</a></p>
+<p>CHAR and VARCHAR Types</p>
+<p>In Example 8-3, you may have noticed that three of the table’s fields were given the data type of VARCHAR, and one was given the type CHAR. The term VARCHAR stands for VARiable length CHARacter string, and the command takes a numeric value that tells MySQL the maximum length allowed for a string stored in this field.</p>
+<p>The CHAR and VARCHAR types are similar but differ in the way they are stored and retrieved. They also differ in maximum length and in whether trailing spaces are retained.</p>
+<p>Types Description Display Format Range in characters CHAR Contains non-binary strings. Length is fixed as you declare while creating a table. When stored, they are right-padded with spaces to the specified length. Trailing spaces are removed. The length can be any value from 0 to 255. VARCHAR Contains non-binary strings. Columns are variable-length strings. As stored. A value from 0 to 255 before MySQL 5.0.3, and 0 to 65,535 in 5.0.3 and later versions.</p>
+<p>adapted from <a href="https://www.w3resource.com/mysql/mysql-data-types.php" class="uri">https://www.w3resource.com/mysql/mysql-data-types.php</a></p>
+<p>BLOB and TEXT Types</p>
+<p>A BLOB is a binary large object that can hold a variable amount of data. There are four types of BLOB, TINYBLOB, BLOB, MEDIUMBLOB, and LONGBLOB. These differ only in the maximum length of the values they can hold. The four TEXT types are TINYTEXT, TEXT, MEDIUMTEXT, and LONGTEXT. These correspond to the four BLOB types and have the same maximum lengths and storage requirements.</p>
+<table style="width:50%;">
+<colgroup>
+<col width="6%" />
+<col width="16%" />
+<col width="15%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Types</th>
+<th>Description</th>
+<th>Categories</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BLOB</td>
+<td>Large binary object that containing a variable amount of data. Values are treated as binary strings.You don’t need to specify length while creating a column.</td>
+</tr>
+</tbody>
+</table>
+<p>TINYBLOB Maximum length of 255 characters. MEDIUMBLOB Maximum length of 16777215 characters. LONGBLOB Maximum length of 4294967295 characters TEXT Values are treated as character strings having a character set. TINYBLOB Maximum length of 255 characters. MEDIUMBLOB Maximum length of 16777215 characters. LONGBLOB Maximum length of 4294967295 characters</p>
+<p>adapted from <a href="https://www.w3resource.com/mysql/mysql-data-types.php" class="uri">https://www.w3resource.com/mysql/mysql-data-types.php</a></p>
+<p>Difference between MySQL Datetime and Timestamp data Types</p>
+<p>The DATETIME type is used when you need values containing both date and time information. MySQL retrieves and displays DATETIME values in ‘YYYY-MM-DD HH:MM:SS’ format. The supported range is 1000-01-01 00:00:00’ to ‘9999-12-31 23:59:59’.</p>
+<p>The TIMESTAMP data type is also used when you need values containing both date and time information. TIMESTAMP has a range of ‘1970-01-01 00:00:01’ UTC to ‘2038-01-19 03:14:07’ UTC</p>
+<p>The major difference between DATETIME and TIMESTAMP is that TIMESTAMP values are converted from the current time zone to UTC while storing, and converted back from UTC to the current time zone when retrieved. The datetime data type value is unchanged.</p>
+<p>See the following example :</p>
+<p>The following command displays current time zone information :</p>
+<p><strong>Section 12. MySQL data types</strong></p>
+<p>INT – show you how to use integer data type. We also show you how to use ZEROFILL and display width attributes of the integer column. DECIMAL – show you how to use DECIMAL data type to store exact values in decimal format. BIT – introduce you BIT data type and how to store bit values in MySQL. BOOLEAN – explain to you how MySQL handles Boolean values by using TINYINT(1) internally. CHAR – guide to CHAR data type for storing the fixed-length string. VARCHAR – give you the essential guide to VARCHAR data type. TEXT – show you how to store text data using TEXT data type. DATE – introduce you to the DATE data type and show you some date functions to handle the date data effectively. TIME – walk you through the features of TIME data type and show you how to use some useful temporal functions to handle time data. DATETIME – introduce you to the DATETIME data type and some useful functions to manipulate DATETIME values. TIMESTAMP – introduce you to TIMESTAMP and its features called automatic initialization and automatic update that allows you to define auto-initialized and auto-updated columns for a table. JSON – show you how to use JSON data type to store JSON documents. ENUM – learn how to use ENUM data type correctly to store enumeration values.</p>
+</div>
+</div>
+<div id="mysql-import-export" class="section level1">
+<h1>MYSQL IMPORT &amp; EXPORT</h1>
+<p>Import a CSV File Into a Table</p>
+<p>This tutorial shows you how to use the LOAD DATA INFILE statement to import CSV file into MySQL table.</p>
+<p>The LOAD DATA INFILE statement allows you to read data from a text file and import the file’s data into a database table very fast.</p>
+<p>Before importing the file, you need to prepare the following:</p>
+<p>A database table to which the data from the file will be imported. A CSV file with data that matches with the number of columns of the table and the type of data in each column. The account, which connects to the MySQL database server, has FILE and INSERT privileges. Suppose we have a table named discounts with the following structure:</p>
+<p>discounts table</p>
+<p>We use CREATE TABLE statement to create the discounts table as follows:</p>
+<p>CREATE TABLE discounts ( id INT NOT NULL AUTO_INCREMENT, title VARCHAR(255) NOT NULL, expired_date DATE NOT NULL, amount DECIMAL(10 , 2 ) NULL, PRIMARY KEY (id) ); The following discounts.csv file contains the first line as column headings and other three lines of data.</p>
+<p>discount csv file</p>
+<p>The following statement imports data from the c:.csv file into the discounts table.</p>
+<p>LOAD DATA INFILE ‘c:/tmp/discounts.csv’ INTO TABLE discounts FIELDS TERMINATED BY ‘,’ ENCLOSED BY ’“‘LINES TERMINATED BY’‘IGNORE 1 ROWS; The field of the file is terminated by a comma indicated by FIELD TERMINATED BY’,‘and enclosed by double quotation marks specified by ENCLOSED BY’” ‘.</p>
+<p>Each line of the CSV file is terminated by a newline character indicated by LINES TERMINATED BY ‘’ .</p>
+<p>Because the file has the first line that contains the column headings, which should not be imported into the table, therefore we ignore it by specifying IGNORE 1 ROWS option.</p>
+<p>Now, we can check the discounts table to see whether the data is imported.</p>
+<p>SELECT * FROM discounts; discounts table data</p>
+<p>Transforming data while importing Sometimes the format of the data does not match the target columns in the table. In simple cases, you can transform it by using the SET clause in the LOAD DATA INFILE statement.</p>
+<p>Suppose the expired date column in the discount_2.csv file is in mm/dd/yyyy format.</p>
+<p>discount_2.csv file</p>
+<p>When importing data into the discounts table, we have to transform it into MySQL date format by using str_to_date() function as follows:</p>
+<p>LOAD DATA INFILE ‘c:/tmp/discounts_2.csv’ INTO TABLE discounts FIELDS TERMINATED BY ‘,’ ENCLOSED BY ’“‘LINES TERMINATED BY’‘IGNORE 1 ROWS (title,<span class="citation">@expired_date</span>,amount) SET expired_date = STR_TO_DATE(<span class="citation">@expired_date</span>,’%m/%d/%Y’); Importing file from client to a remote MySQL database server It is possible to import data from client (local computer) to a remote MySQL database server using the LOAD DATA INFILE statement.</p>
+<p>When you use the LOCAL option in the LOAD DATA INFILE , the client program reads the file on the client and sends it to the MySQL server. The file will be uploaded into the database server operating system’s temporary folder e.g., C:on Windows or /tmp on Linux. This folder is not configurable or determined by MySQL.</p>
+<p>Let’s take a look at the following example:</p>
+<p>LOAD DATA LOCAL INFILE ‘c:/tmp/discounts.csv’ INTO TABLE discounts FIELDS TERMINATED BY ‘,’ ENCLOSED BY ’“‘LINES TERMINATED BY’’ IGNORE 1 ROWS; The only difference is the LOCAL option in the statement. If you load a big CSV file, you will see that with the LOCAL option, it will be a little bit slower to load the file because it takes time to transfer the file to the database server.</p>
+<p>The account that connects to MySQL server doesn’t need to have the FILE privilege to import the file when you use the LOCAL option.</p>
+<p>Importing the file from client to a remote database server using LOAD DATA LOCAL has some security issues that you should be aware of to avoid potential security risks.</p>
+<p>Importing CSV file using MySQL Workbench MySQL workbench provides a tool to import data into a table. It allows you to edit data before making changes.</p>
+<p>The following are steps that you want to import data into a table:</p>
+<p>Open table to which the data is loaded.</p>
+<p>mysql workbench import csv</p>
+<p>Click Import button, choose a CSV file and click Open button</p>
+<p>import csv into mysql</p>
+<p>Review the data, click Apply button.</p>
+<p>edit table content</p>
+<p>Review Data</p>
+<p>MySQL workbench will display a dialog “Apply SQL Script to Database”, click Apply button to insert data into the table.</p>
+<p>We have shown you how to import CSV into MySQL table using LOAD DATA LOCAL and using MySQL Workbench. With these techniques, you can load data from other text file formats such as tab-delimited.</p>
+<p>Export a Table to a CSV File</p>
+<p>Summary: in this tutorial, you will learn various techniques of how to export a MySQL table to a CSV file.</p>
+<p>The CSV stands for comma separated values. You often use the CSV file format to exchange data between applications such as Microsoft Excel, Open Office, Google Docs, etc.</p>
+<p>It will be useful to have data from MySQL database in CSV file format because you can analyze and format the data in the way you want.</p>
+<p>MySQL provides an easy way to export the query’s result into a CSV file that resides in the database server.</p>
+<p>Before exporting data, you must ensure that:</p>
+<p>The MySQL server’s process has the write access to the target folder that contains the target CSV file. The target CSV file must not exist. The following query selects cancelled orders from the orders table:</p>
+<p>SELECT orderNumber, status, orderDate, requiredDate, comments FROM orders WHERE status = ‘Cancelled’; To export this result set into a CSV file, you add some clauses to the query above as follows:</p>
+<p>SELECT orderNumber, status, orderDate, requiredDate, comments FROM orders WHERE status = ‘Cancelled’ INTO OUTFILE ‘C:/tmp/cancelled_orders.csv’ FIELDS ENCLOSED BY ‘“’ TERMINATED BY ’;’ ESCAPED BY ’”’ LINES TERMINATED BY ‘’; The statement created a CSV file named cancelled_orders.csv in the C:folder that contains the result set.</p>
+<p>The CSV file contains lines of rows in the result set. Each line is terminated by a sequence of carriage return and a line feed character specified by the LINES TERMINATED BY ‘’ clause. Each line contains values of each column of the row in the result set.</p>
+<p>Each value is enclosed by double quotation marks indicated by FIELDS ENCLOSED BY ‘”’ clause. This prevents the value that may contain a comma (,) will be interpreted as the field separator. When enclosing the values by the double quotation marks, the commas inside the value are not recognized as the field separators.</p>
+<p>Exporting data to a CSV file whose filename contains timestamp You often need to export data into a CSV file whose name contains timestamp at which the file is created. To do so, you need to use the MySQL prepared statement.</p>
+<p>The following commands export the whole orders table into a CSV file with timestamp as a part of the file name.</p>
+<p>SET <span class="citation">@TS</span> = DATE_FORMAT(NOW(),‘<em>%Y</em>%m_%d_%H_%i_%s’);</p>
+<p>SET <span class="citation">@FOLDER</span> = ‘c:/tmp/’; SET <span class="citation">@PREFIX</span> = ‘orders’; SET <span class="citation">@EXT</span> = ‘.csv’;</p>
+<p>SET <span class="citation">@CMD</span> = CONCAT(“SELECT * FROM orders INTO OUTFILE ‘“,<span class="citation">@FOLDER</span>,<span class="citation">@PREFIX</span>,<span class="citation">@TS</span>,<span class="citation">@EXT</span>,”’ FIELDS ENCLOSED BY ‘&quot;’ TERMINATED BY ‘;’ ESCAPED BY ‘&quot;’”, &quot; LINES TERMINATED BY ‘’;“);</p>
+<p>PREPARE statement FROM <span class="citation">@CMD</span>;</p>
+<p>EXECUTE statement; Let’s examine the commands above in more detail.</p>
+<p>First, we constructed a query with current timestamp as a part of the file name. Second, we prepared the statement for execution by using PREPARE statement FROM command. Third, we executed the statement by using the EXECUTE command. You can wrap the command by an event and schedule the event run periodically if needed.</p>
+<p>Exporting data with column headings It would be convenient if the CSV file contains the first line as the column headings so that the file is more understandable.</p>
+<p>To add the column headings, you need to use the UNION statement as follows:</p>
+<p>(SELECT ‘Order Number’,‘Order Date’,‘Status’) UNION (SELECT orderNumber,orderDate, status FROM orders INTO OUTFILE ‘C:/tmp/orders.csv’ FIELDS ENCLOSED BY ‘“’ TERMINATED BY ’;’ ESCAPED BY ’”’ LINES TERMINATED BY ‘’); As the query showed, you need to include the column heading of every column.</p>
+<p>Handling NULL values In case the values in the result set contain NULL values, the target file will contain “N instead of NULL. To fix this issue, you need to replace the NULL value by another value e.g., not applicable ( N/A ) by using the IFNULL function as the following query:</p>
+<p>SELECT orderNumber, orderDate, IFNULL(shippedDate, ‘N/A’) FROM orders INTO OUTFILE ‘C:/tmp/orders2.csv’ FIELDS ENCLOSED BY ‘“’ TERMINATED BY ’;’ ESCAPED BY ’”’ LINES TERMINATED BY ‘’; We replaced NULL values in the shippedDate column by the N/A strings. The CSV file shows N/A instead of NULL values.</p>
+<p>Exporting data to CSV file using MySQL Workbench In case you don’t have access to the database server to get the exported CSV file, you can use MySQL Workbench to export the result set of a query to a CSV file in your local computer as follows:</p>
+<p>First, execute a query get its result set. Second, from the result panel, click “export recordset to an external file”. The result set is also known as a recordset. Third, a new dialog displays. It asks you for a filename and file format. Enter the file name, choose CSV as the file format and click Save button. MySQL Export Table to CSV</p>
+<p>The CSV file exported by MySQL Workbench supports column headings, NULL values and other great features.</p>
+<p>Related Tutorials Import CSV File Into MySQL Table</p>
+</div>
+<div id="part-2" class="section level1">
+<h1>PART 2</h1>
+<div id="basic-mysql-tutorial" class="section level2">
+<h2>Basic MySQL Tutorial</h2>
+<p>This basic MySQL tutorial explains some of the basic SQL statements. If this is the first time you have used a relational database management system, this tutorial gives you everything you need to know to work with MySQL such as querying data, updating data, managing databases, and creating tables.</p>
+<p>If you are already familiar with other relational database management systems such as PostgreSQL, Oracle, and Microsoft SQL Server. you can use this tutorial to refresh your knowledge and understand how SQL dialect of MySQL is different from other systems.</p>
+<p><strong>Section 1. Getting started with MySQL</strong></p>
+<p>This section helps you get started with MySQL. We will start installing MySQL, downloading a sample database, and loading data into the MySQL server for practicing.</p>
+<p>Installing MySQL database server – show you step by step how to install MySQL database server on your computer. Downloading MySQL sample database – introduce you to a MySQL sample database named classicmodels. We also provide you links for downloading the sample database and its diagrams. Loading the sample database into your own MySQL database server – walk you through steps of how to load the classicmodels sample database into your MySQL database server for practicing.</p>
+<p><strong>Section 2. Querying data</strong></p>
+<p>This section helps you learn how to query data from the MySQL database server. We will start with a simple SELECT statement that allows you to query data from a single table. SELECT – show you how to use simple SELECT statement to query the data from a single table. SELECT DISTINCT – learn how to use the DISTINCT operator in the SELECT statement to eliminate duplicate rows in a result set.</p>
+<p><strong>Section 3. Filtering data</strong></p>
+<p>WHERE – learn how to use the WHERE clause to filter rows based on specified conditions. AND – introduce you to the AND operator to combine Boolean expressions to form a complex condition for filtering data. OR– introduce you to the OR operator and show you how to combine the OR operator with the AND operator to filter data. IN – show you how to use the IN operator in the WHERE clause to determine if a value matches any value in a list or a subquery. BETWEEN – show you how to query data based on a range using BETWEEN operator. LIKE – provide you with technique to query data based on a specific pattern. LIMIT – use LIMIT to constrain the number of rows returned by SELECT statement IS NULL – test whether a value is NULL or not by using IS NULL operator.</p>
+<p><strong>Section 4. Sorting data</strong></p>
+<p>ORDER BY – show you how to sort the result set using ORDER BY clause. The custom sort order with the FIELD function will be also covered. Natural sorting using ORDER BY clause – walk you through various natural sorting techniques in MySQL by using the ORDER BY clause.</p>
+<p><strong>Section 5. Joining tables</strong></p>
+<p>MySQL alias – introduce you to table alias and aliases to improve the readability of complex queries. MySQL Join – give you an overview of joins supported in MySQL including cross join, inner join, left join, and right join. INNER JOIN – use inner join clause to query data from multiple related tables. LEFT JOIN – learn how to apply left join clause in various contexts. RIGHT JOIN – show you how to use right join to query data from two or more tables. CROSS JOIN – make a Cartesian product of rows from multiple tables. Self-join – joins a table to itself using table alias, and connects rows within the same table using other kinds of joins including inner join and left join.</p>
+<p><strong>Section 6. Grouping data</strong></p>
+<p>GROUP BY – show you how to group rows into groups based on columns or expressions. HAVING – filter the groups by a specific condition. ROLLUP – generate multiple grouping sets considering a hierarchy between columns specified in the GROUP BY clause.</p>
+<p><strong>Section 7. MySQL subquery, derived table, and CTE</strong></p>
+<p>MySQL subquery – show you how to nest a query (inner query) within another query (outer query) and use the result of the inner query for the outer query. MySQL derived table – introduce you the derived table concept and show you how to use it to simplify complex queries. MySQL CTE – explain you the common table expression concept and show you how to use CTE for querying data from tables. Recursive CTE – guide you how to use the recursive CTE to traverse the hierarchical data.</p>
+<p><strong>Section 8. Using Set operators</strong></p>
+<p>UNION and UNION ALL – combine two or more result sets of multiple queries into a single result set. INTERSECT – show you a couple of ways to simulate the INTERSECT operator in MySQL. MINUS – explain to you the SQL MINUS operator and show you how to simulate it in MySQL.</p>
+<p><strong>Section 9. Modifying data in MySQL</strong></p>
+<p>In this section, you will learn how to insert, update, and delete data from tables using various MySQL statements.</p>
+<p>INSERT – use various forms of the INSERT statement to insert data into a table. INSERT INTO SELECT – insert data into a table from the result set of a query. INSERT IGNORE – explain you the INSERT IGNORE statement that inserts rows into a table and ignore rows that cause errors. UPDATE – learn how to use UPDATE statement and its options to update data in database tables. UPDATE JOIN – show you how to perform cross table update using UPDATE JOIN statement with INNER JOIN and LEFT JOIN. DELETE – show you how to use the DELETE statement to remove data from one or more tables. ON DELETE CASCADE – learn how to use ON DELETE CASCADE referential action for a foreign key to delete data from a child table automatically when you delete data from a parent table. DELETE JOIN – show you how to delete data from multiple tables. REPLACE – learn how to insert or update data depends on whether data exists in the table or not. Prepared Statement – show you how to use the prepared statement to execute a query.</p>
+<p><strong>Section 10. MySQL transaction</strong></p>
+<p>MySQL transaction – learn about MySQL transactions, and how to use COMMIT and ROLLBACK to manage transactions in MySQL. MySQL table locking – learn how to use MySQL locking for cooperating table access between sessions.</p>
+<p><strong>Section 11. Managing MySQL databases and tables</strong></p>
+<p>This section shows you how to manage the most important database objects in MySQL including database and tables. Selecting a MySQL database – show you how to use the USE statement to select a MySQL database via the mysql program and MySQL Workbench. Managing databases – you will learn various statements to manage MySQL databases including creating a new database, removing an existing database, selecting a database, and listing all databases. CREATE DATABASE – show you how to create a new database in MySQL Server. DROP DATABASE – learn how to delete an existing database. MySQL storage engines– it is essential to understand the features of each storage engine so that you can use them effectively to maximize the performance of your databases. CREATE TABLE – show you how to create new tables in a database using CREATE TABLE statement. MySQL sequence – show you how to use a sequence to generate unique numbers automatically for the primary key column of a table. ALTER TABLE – learn how to use the ALTER TABLE statement to change existing table’s structure. Renaming table – show you how to rename a table using RENAME TABLE statement. Removing a column from a table – show you how to use the ALTER TABLE DROP COLUMN statement to remove one or more columns from a table. Adding a new column to a table – show you how to add one or more columns to an existing table using ALTER TABLE ADD COLUMN statement. DROP TABLE – show you how to remove existing tables using DROP TABLE statement. MySQL temporary table – discuss MySQL temporary table and show you how to manage temporary tables. TRUNCATE TABLE – show you how to use the TRUNCATE TABLE statement to delete all data in a table fast.</p>
+<p><strong>Section 12. MySQL data types</strong></p>
+<p>MySQL data types – show you various data types in MySQL so that you can apply them effectively in designing database tables. INT – show you how to use integer data type. We also show you how to use ZEROFILL and display width attributes of the integer column. DECIMAL – show you how to use DECIMAL data type to store exact values in decimal format. BIT – introduce you BIT data type and how to store bit values in MySQL. BOOLEAN – explain to you how MySQL handles Boolean values by using TINYINT(1) internally. CHAR – guide to CHAR data type for storing the fixed-length string. VARCHAR – give you the essential guide to VARCHAR data type. TEXT – show you how to store text data using TEXT data type. DATE – introduce you to the DATE data type and show you some date functions to handle the date data effectively. TIME – walk you through the features of TIME data type and show you how to use some useful temporal functions to handle time data. DATETIME – introduce you to the DATETIME data type and some useful functions to manipulate DATETIME values. TIMESTAMP – introduce you to TIMESTAMP and its features called automatic initialization and automatic update that allows you to define auto-initialized and auto-updated columns for a table. JSON – show you how to use JSON data type to store JSON documents. ENUM – learn how to use ENUM data type correctly to store enumeration values.</p>
+<p><strong>Section 13. MySQL constraints</strong></p>
+<p>NOT NULL constraint – introduce you to the NOT NULL constraint and show you how to define a NOT NULL constraint for a column or add the NOT NULL constraint to an existing column. Primary key constraint – guide you how to use primary key constraint to create the primary key for a table. Foreign key constraint – introduce you to the foreign key and show you step by step how to create and drop foreign keys. UNIQUE constraint – show you how to use UNIQUE constraint to enforce the uniqueness of values in a column or a group of columns in a table. CHECK constraint emulation – walk you through various ways to emulate the CHECK constraint in MySQL.</p>
+<p><strong>Section 14. MySQL globalization</strong></p>
+<p>MySQL character Set – discuss MySQL character set and show you step by step how to perform various operations on character sets. MySQL collation – discuss MySQL collation and show you how to set character set and collations for the MySQL server, database, tables, and columns. Section 15. MySQL import &amp; export Import CSV File Into MySQL Table – show you how to use LOAD DATA INFILE statement to import CSV file into a MySQL table. MySQL Export Table to CSV – learn various techniques of how to export MySQL table to a CSV file format.</p>
+</div>
+</div>
+<div id="mysql-views" class="section level1">
+<h1>MYSQL VIEWS</h1>
+<p>A database view is known as a “virtual table” that allows you to query the data in it. Understanding the database views and using them correctly are very important. In this section, we will discuss the database views, how they are implemented in MySQL, and how to use them more effectively.</p>
+<p>Introduction to Database View: In this tutorial, you will learn about a new database object called database view. We will discuss the advantages and disadvantages of using database views.</p>
+<p><strong>Views in MySQL:</strong> In this tutorial, you are going to learn about MySQL View. We will explain how MySQL implements views.</p>
+<p><strong>Creating Views in MySQL:</strong> This tutorial shows you how to create view in MySQL by using CREATE VIEW statement.</p>
+<p><strong>Creating MySQL Updatable Views:</strong> MySQL views are not only query-able but also updatable. In this tutorial, you will learn how to create updatable views and use INSERT, UPDATE, DELETE statements to update data.</p>
+<p><strong>Ensuring Views Consistency Using WITH CHECK OPTION Clause:</strong> In this tutorial, you will learn how to ensure consistency of the views using WITH CHECK OPTION clause.</p>
+<p><strong>Understanding LOCAL &amp; CASCADED in WITH CHECK OPTION Clause:</strong> This tutorial helps you understand the differences between LOCAL and CASCADED in WITH CHECK OPTION clause through examples and clear explanation.</p>
+<p><strong>Managing Views in MySQL:</strong> This tutorial shows you how to manage views in MySQL including displaying, modifying and removing views.</p>
+</div>
+<div id="mysql-administration" class="section level1">
+<h1>MySQL Administration</h1>
+<p>In this section, you will find a lot of useful MySQL administration tutorials including MySQL server startup and shutdown, MySQL server security, MySQL database maintenance, and backup.</p>
+<p><strong>Getting Started with MySQL Access Control System:</strong> MySQL implemented a sophisticated access control and privilege system to allow you to create comprehensive access rules for handling client operations and prevent unauthorized clients from accessing the database system.</p>
+<p><strong>How To Create User Accounts Using MySQL CREATE USER Statement:</strong> In this tutorial, you will learn how to create user in MySQL by using CREATE USER and INSERT statements.</p>
+<p><strong>3 Best Ways to Change MySQL User Password By Examples:</strong> In this tutorial you will learn how to change or reset password for MySQL account in various ways by using the UPDATE, SET PASSWORD and GRANT statements.</p>
+<p><strong>How To Use MySQL GRANT Statement To Grant Privileges To a User:</strong> In this tutorial, you will learn how to use MySQL GRANT statement to grant privileges to accounts.</p>
+<p><strong>Revoking Privileges From Users Using MySQL REVOKE:</strong> In this tutorial, you will learn how to use MySQL REVOKE statement to revoke privileges from MySQL accounts.</p>
+<p><strong>The Ultimate Guide To MySQL Roles By Examples:</strong> In this tutorial, you will learn how to use MySQL roles to simplify the privilege managements.</p>
+<p><strong>How To Remove User Accounts Using MySQL DROP USER Statement:</strong> This tutorial shows you how to remove MySQL user accounts in the database server by using the DROP USER statement.</p>
+<p><strong>Maintaining MySQL Database Tables:</strong> MySQL provides several useful statements that allows you to maintain database tables to increase the efficiency of table access. Those statements includes analyze, optimize, check, and repair tables.</p>
+<p><strong>How To Backup Databases Using mysqldump Tool:</strong> In this tutorial you will learn how to use mysqldump tool back up MySQL databases.</p>
+<p><strong>MySQL SHOW DATABASES:</strong> List All Databases in MySQL: In this tutorial, you will learn how to use the MySQL SHOW DATABASES command to list databases in a MySQL database server.</p>
+<p><strong>MySQL SHOW TABLES:</strong> List Tables In a MySQL Database: In this tutorial, you will learn how to use the MySQL SHOW TABLES command to query tables in a particular database.</p>
+<p><strong>MySQL SHOW COLUMNS and DESCRIBE:</strong> List All Columns in a Table: In this tutorial, you will learn how to show columns of a table by using the DESCRIBE statement and MySQL SHOW COLUMNS command.</p>
+<p><strong>MySQL SHOW USERS:</strong> List All Users in a MySQL Database Server: Are you looking for the MySQL SHOW USERS command? Unfortunately, MySQL does not have the SHOW USERS command but you can get all users in a MySQL database with a simple query.</p>
+<p><strong>MySQL SHOW PROCESSLIST:</strong> This tutorial shows you how to use the SHOW PROCESSLIST command to find the currently running threads.</p>
+</div>
+<div id="mysql-stored-procedure" class="section level1">
+<h1>MySQL Stored Procedure</h1>
+<p>In this section, you will learn step by step how to develop stored procedures in MySQL. First, we introduce you to the stored procedure concept and discuss when you should use it. Then, we show you how to use the basic elements of the procedure code such as create procedure statement, if-else, case, loop, stored procedure’s parameters.</p>
+<p>Each tutorial is packed with easy-to-understand examples and detailed explanations. If you go through the entire tutorials, you can develop from simple to complex stored procedures in MySQL.</p>
+<p><strong>Introduction to MySQL Stored Procedures:</strong> This tutorial introduces to you MySQL stored procedures, their advantages and disadvantages.</p>
+<p><strong>Getting Started with MySQL Stored Procedures:</strong> In this tutorial, we will show you step by step how to develop the first MySQL stored procedure by using the CREATE PROCEDURE statement. In addition, we will show you how to call the stored procedure from SQL statements.</p>
+<p><strong>MySQL Stored Procedure Variables:</strong> You will learn about variables in MySQL stored procedure, how to declare and use variables. In addition, scope of variable is also covered</p>
+<p><strong>MySQL Stored Procedure Parameters:</strong> This tutorial shows you how to define parameters in stored procedure and introduces you to different parameter modes including IN, OUT and INOUT.</p>
+<p><strong>MySQL Stored Procedures That Return Multiple Values:</strong> This tutorial shows you how to develop stored procedures that return multiple values.</p>
+<p><strong>MySQL IF Statement:</strong> This tutorial shows you how to use MySQL IF statement to execute a block of SQL code based on conditions.</p>
+<p><strong>MySQL CASE Statement:</strong> You will learn how to use MySQL CASE statements to construct complex conditionals. We will show you how to use both simple and searched CASE statements.</p>
+<p><strong>Hints for Choosing Between IF and CASE Statements:</strong> We will give you some hints so that you can choose between IF and CASE statement in stored procedures.</p>
+<p><strong>MySQL Loop in Stored Procedures:</strong> In this tutorial, you will learn how to use various loop statements in stored procedure to execute a block of code repeatedly based on a given Boolean condition.</p>
+<p><strong>MySQL Cursor:</strong> Shows you how to use MySQL cursor in stored procedures to loop over a result set and process each row at a time.</p>
+<p><strong>Listing Stored Procedures in a MySQL Database:</strong> In this tutorial, we will show you how to list all stored procedures in a MySQL database. We also provide you with a statement that displays stored procedure’s code.</p>
+<p><strong>MySQL Error Handling in Stored Procedures:</strong> This tutorial shows you how to use MySQL handler to handle exceptions or errors encountered in stored procedures.</p>
+<p><strong>Raising Error Conditions with MySQL SIGNAL/RESIGNAL Statements:</strong> In this tutorial, you will learn how to use MySQL SIGNAL and RESIGNAL statements to raise error conditions inside stored procedures.</p>
+<p><strong>MySQL Stored Function:</strong> In this tutorial, you will learn how to create MySQL stored functions using CREATE FUNCTION statement.</p>
+</div>
+<div id="mysql-triggers" class="section level1">
+<h1>MySQL Triggers</h1>
+<p>In this section, you will learn how to work with the MySQL triggers. By definition, a trigger or database trigger is a stored program executed automatically to respond to a specific event e.g., insert, update or delete occurred in a table. The database trigger is powerful tool for protecting the integrity of the data in your MySQL databases. In addition, it is useful to automate some database operations such as logging, auditing, etc.</p>
+<p><strong>Introduction to SQL Trigger:</strong> A SQL trigger is a set of SQL statements stored in the database catalog. A SQL trigger is executed or fired whenever an event that is associated with a table occurs e.g., insert, update or delete.</p>
+<p><strong>MySQL Triggers Implementation:</strong> This tutorial introduces you to MySQL triggers implementation. In addition, we will show you how MySQL stores trigger definitions and the limitations of triggers in MySQL.</p>
+<p><strong>Create Trigger in MySQL:</strong> This tutorial shows you how to create a simple trigger in MySQL to audit the changes of a table. We will explain the syntax of the CREATE TRIGGER statement in detail.</p>
+<p><strong>Create Multiple Triggers For The Same Trigger Event And Action Time:</strong> This tutorial shows you how to create multiple triggers for the same trigger event and action time in MySQL.</p>
+<p><strong>Managing Triggers in MySQL:</strong> You will learn how to manage triggers including displaying, modifying, and removing triggers in MySQL databases.</p>
+<p><strong>Working with MySQL Scheduled Event:</strong> A MySQL event is a task that runs based on a predefined schedule therefore sometimes it is referred to as a scheduled event. MySQL event is also known as “temporal trigger” because it is triggered by time, not by table update like trigger.</p>
+<p><strong>Modifying MySQL Events:</strong> This tutorial shows you how modify existing MySQL events by using the ALTER EVENT statement. After the tutorial, you will know how to modify schedule of an event, how to enable or disable an event, and how to rename an event.</p>
+<pre class="r"><code>Tables
+- Registration
+- Customer
+- Movies
+- Locations
+- Orders
+- OrderDetail
+- Payments
+- Employees
+- Offices</code></pre>
+<p>Categories [Now Playing, Advanced Booking, New Releases]</p>
+<div id="features-of-mongodb" class="section level3">
+<h3><em>Features of MongoDB</em></h3>
+<pre class="r"><code>  -- Document-Oriented Storage
+  -- Full Index Support
+  -- Replication and High Availability
+  -- Auto-Sharding
+  -- Querying
+  -- Fast In-Place Updates
+  -- Map/Reduce
+  -- GridFS
+  -- Professional Support by  MongoDB</code></pre>
+<pre class="r"><code>function CustomerBooking (booking_id, username, firstname, lastname, mobile, movie, booking_date, show_date)
+{
+this.booking_id = booking_id;
+this.username = username;
+this.firstname = firstname;
+this.lastname = lastname;
+this.mobile = mobile;
+this.movie = movie
+this.booking_date = booking_date;
+this.show_date = show_date;
+}</code></pre>
+<p>We will use the DVD rental database for demonstrating the features of PostgreSQL.</p>
+<p>The DVD rental database was ported from the sakila sample database for PostgreSQL with some adjustments. The DVD rental database represents business processes of a DVD rental store. The DVD rental database has many objects including:</p>
+<p>15 tables 1 trigger 7 views 8 functions 1 domain 13 sequences DVD Rental ER Model PostgreSQL Sample Database Diagram PostgreSQL Sample Database Tables There are 15 tables in the DVD Rental database:</p>
+<p>actor – stores actors data including first name and last name. film – stores films data such as title, release year, length, rating, etc. film_actor – stores the relationships between films and actors. category – stores film’s categories data. film_category- stores the relationships between films and categories. store – contains the store data including manager staff and address. inventory – stores inventory data. rental – stores rental data. payment – stores customer’s payments. staff – stores staff data. customer – stores customers data. address – stores address data for staff and customers city – stores the city names. country – stores the country names. Download PostgreSQL sample database You can download the PostgreSQL DVD Rental sample database via the following link:</p>
+<p>MySQL Workbench username - Doyin password - aerospace1982mardoyin root password</p>
+<p>MySQL Workbench Database Roles and Privileges</p>
+<table style="width:81%;">
+<colgroup>
+<col width="16%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Priviledges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DB Admin</td>
+<td>Grants the right to perform all tasks</td>
+</tr>
+<tr class="even">
+<td>Backup Admin</td>
+<td>minimal rights needed to backup any database</td>
+</tr>
+<tr class="odd">
+<td>DB Designer</td>
+<td>rights to create and reverse engineer any database schema</td>
+</tr>
+<tr class="even">
+<td>DB Manager</td>
+<td>Grants full right on all databases</td>
+</tr>
+<tr class="odd">
+<td>Instance Manager</td>
+<td>Grants rights needed to maintain server</td>
+</tr>
+<tr class="even">
+<td>Monitor Admin</td>
+<td>Minimum set of rights needed to monitor server</td>
+</tr>
+<tr class="odd">
+<td>Process Admin</td>
+<td>Rights needed to assess, monitor, and kill any user process running in server</td>
+</tr>
+<tr class="even">
+<td>Replicate Admin</td>
+<td>Rights needed to setup and manage replication</td>
+</tr>
+<tr class="odd">
+<td>Security Admin</td>
+<td>Rights to manage logins and grant and revoke server and database level permission</td>
+</tr>
+<tr class="even">
+<td>User Admin</td>
+<td>Grants rights to create users logins and reset passwords</td>
+</tr>
+</tbody>
+</table>
+<div id="take-your-database-experience-with-nosql-graph-database-by-buying-my-comprehesive-book---neo4j-made-easy" class="section level4">
+<h4>Take your Database experience with NoSQL Graph database by buying my comprehesive book - “Neo4j Made Easy”</h4>
+<div class="alert alert-info">
+<div>
+<h4 class="text-center" style="font-size: 16px;">
+Neo4j Made Easy…Available on
+<button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style="margin-top: 1.%;">
+Leanpub
+</button>
+</h4>
+</div>
+</div>
+<p><a href="http://justlearnwp.com/make-money-writing-articles-websites/" class="uri">http://justlearnwp.com/make-money-writing-articles-websites/</a></p>
+<p><br></p>
+</div>
+<div id="about-the-author" class="section level4">
+<h4><span style="float: left; color: purple;">About the Author</span></h4>
+<hr />
+<section>
+<div class="alert alert-info">
+<img itemprop='image' src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
+align='left' width="160" height=250" caption = "Freelancer"  class = "img-circle img-responsive" style="padding-top: 17px; padding-bottom: 20px; padding-right: 20px; padding-left: 20px;">
+<div>
+<br>
+<h3 style="font-size: 20px;">
+Doyin Elugbadebo
+</h3>
+<p style="padding-top:10px;">
+I am a Full Stack Developer and a Business Information Analyst. I have served in various capacities either as a consultant, administrator, developer or a machine learning expert. <span style="color: purple;">A lover of nature and an ICT fanatics. I hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span>
+</p>
+<p>
+<span style="color: purple; font-size:10px;">Email: </span><a href="mailto:eslintpurity@eslintpurity.com">eslintpurity@eslintpurity.com</a> –|– <span style="color: purple; font-size:10px;">Mobile: </span> 08084185154 –|– <span style="color: purple; font-size:10px;"> Web:</span> <a href="http%22//ww.doyinelugbadebo.com%22">doyinelugbadebo.com</a>
+</p>
+<p>
+<span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span> <span class="label label-success" style="color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span> <span class="label label-info" style="color: white;"><a href = "http://www.pantheon/elugbadebo-doyin/" style = "color: white;">Pantheon</a></span> <span class="label label-warning" style="color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span> <span>
+<h5>
+<button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style="color: blue; float: right; margin-top: 1.5%;">
+Hire Me
+</button>
+</h5>
+</span>
+</p>
+</div>
+</div>
+</section>
+<p>Making a queue for buying movie tickets is simply waste of precious time. And if you are planning to watch the most awaited film of the year, don’t even hope to get a ticket. This is where online movie ticketing platforms come in. Online ticket booking platforms are not only covering all major cinema chains but also expanding to offer tickets for events, theater and sports. Such platforms technically run over a ticket booking software, but there are a lot of other details that makes these systems such a success.</p>
+<p>Every day, we get inquiries about e-ticketing system clone script since it is a very popular and profitable business model. Therefore, we planned to write this blog post to inform our visitors about site features which make a ticket booking system work. But before that, let’s throw some light on how these websites make money.</p>
+<p>Business and Revenue Model: The business model of movie ticket booking portals is quite simply. They help people book movie tickets online, and for every ticket booking, the website charges money. Such platforms also share all the details about the films along with reviews, storyline, cast, and other critical details.</p>
+<p>Some platforms also sell theater, event, sport and other tickets to increase their profits. The websites also make money from:</p>
+<p>Popular Industry Players: Movie ticket booking websites are mostly country based. Hence, there is no market leader which interestingly makes it profitable to launch such a platform for a region that presently doesn’t have one. We studied various online movie reservation websites and are sharing only the best examples with you:</p>
+<p>Bookmyshow Big Cinemas MovieTickets.com Fandango TicketPlease</p>
+<p>While these were the popular film ticketing websites, let’s move ahead to look at major site features.</p>
+<ol style="list-style-type: decimal">
+<li><p>Website Design &amp; layout: The look and feel of the website need to be very lively. Keep the background image changing to highlight an upcoming movie or some event to increase user engagement. Dynamic headers can always be asked from your website design team as a custom add-on feature.</p></li>
+<li><p>Movies Manager: For cinema buffs, keeping track of movies, performances and concerts can be tiring. Simplify the task with a Movies Manager tool. Add features to manage seat maps, upcoming movies, screening location, and other critical details. This will turn your ticket reservation software into an advanced online movie ticket booking system.</p></li>
+<li><p>UX Focused Booking: Your movie discovery and booking site should be built with concepts of UX in mind. To make the website user friendly, you ought to plan each website section very carefully. The process to book tickets include: Seat selection, Payment options, Final checkout</p></li>
+</ol>
+<p>The option to save your card details will quicken payments.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Payment Module: Enable payments through debit cards, credit cards, net banking and quick cash options.</p></li>
+<li><p>Admin Panel: The system should have a highly sophisticated back-end panel with simple and intuitive interface which allows you to: Change Booking settings, Manage Reservations, Add movies, Upload graphic seat maps</p></li>
+</ol>
+<p>This is something that you as website owner will directly work with. So, make sure it brings powerful features and gives control in your hands.</p>
+<p>Last par: The End, and Beginning Above shared features make platforms like Book My Show, MovieTickets and Ticket Please market leaders. But still there is a lot of space for innovation in this industry. If you think your location cane use a online ticket booking system, then, start discussion with an experienced team of designers and developers to help you build and successfully launch a custom ticket booking site.</p>
+<pre class="r"><code>## [registration][customer][movie][booking][location][payment][staff][inventory][admin]
+
+[registration] - customerUsername, customerPassword, customerRepeatPassword
+[customer] - customerAvatar, customerFirstname, customerLastname, customerAddress-1, customerAddress-2, customerMobile, customerEmail, customeState, customerCountry, customerID 
+[booking] - bookingDate, showDate, movie, seatNumber, edit, cancel, save
+[movie] - movieID, movieDescription, movieCategory, movieTitle, movieRunLength, movieReleaseYear, movieRating, movieCategory
+[movie_category] - sci-fiction, genre, horror, drama
+[cinema_locations] - Location-1, Location-2, Location-3, Location-4, Location-5
+[payment] - customerFirstname, customerLastname, customerUsername, customerID, selectedMovie, bookingDate, showDate, paymentReference, paymentDate, ticketAmount 
+[staff] -  staffFirstname, staffLastname, staffUsername, staffID, Location-1, staffAvatar, staffEmail, staffMobile, staffUsername, staffPassword, staffPasswordRepeat, staffSalary, staffCategory, staffRole, staffJobDescription
+[admin] - Change Booking settings, Manage Reservations, Add movies, Upload graphic seat maps
+[staff_category] -  Category-1, Category-2, Category-3, Category-4, Category-5, categoryID</code></pre>
+</div>
+</div>
+</div>
+
+<!-- FAQ Modal -->
+
+<div id="faqModal" class="modal fade" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Frequently Asked Questions</h4>
+</div>
+<div class="modal-body">
+<p>My name is Doyin Elugbadebo. I am a Full Stack Developer and an Information Systems Practitioner based in Lagos, Nigeria. 
+</p>
+
+<p>Click on the buttons to open the collapsible content.</p>
+
+<button class="accordion">Question 1</button>
+<div class="panel-accordion">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Question 2</button>
+<div class="panel-accordion">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Question 3</button>
+<div class="panel-accordion">
+<p>With an industry experience of more than 5 years, I have been involved in various designs, development and deployment of high front and backend solutions using range of latest internet technologies (Please visit Here for my detailed qualities and deployed projects). I particularly enjoy the subtle power of Laravel (a PHP framework), the magics of Ruby on Rails (RoR) and the constructive power of the Django & Flask frameworks. I am also a strong advocate of AngularJS, Ember.JS, Vue.JS and the React JavaScript Frameworks; - in combination with Apollo, GraphQL and Redux state management libraries. In the mobile domain, I have deployed insightful app projects on the Android and IoS platfroms, using Android-Java and DOM-bridged frameworks in the likes of ReactNative, PhoneGaps, C# (on Xamarin-Studio) and Cordova/Ionic Frameworks. Follow this direct link to my apps projects.</p>
+</div>
+
+<button class="accordion">Question 4</button>
+<div class="panel-accordion">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Question 5</button>
+<div class="panel-accordion">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Question 6</button>
+<div class="panel-accordion">
+<p>With an industry experience of more than 5 years, I have been involved in various designs, development and deployment of high front and backend solutions using range of latest internet technologies (Please visit Here for my detailed qualities and deployed projects). I particularly enjoy the subtle power of Laravel (a PHP framework), the magics of Ruby on Rails (RoR) and the constructive power of the Django & Flask frameworks. I am also a strong advocate of AngularJS, Ember.JS, Vue.JS and the React JavaScript Frameworks; - in combination with Apollo, GraphQL and Redux state management libraries. In the mobile domain, I have deployed insightful app projects on the Android and IoS platfroms, using Android-Java and DOM-bridged frameworks in the likes of ReactNative, PhoneGaps, C# (on Xamarin-Studio) and Cordova/Ionic Frameworks. Follow this direct link to my apps projects.</p>
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Community Services -->
+
+<div id="commservModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h3 class="modal-title" style = "color: purple; font-size: 22px;">List of Community Services</h3>
+</div>
+<div class="modal-body">
+<div class = "text-center">
+
+![](images//angularjs-logo.png)
+
+</br>
+All source codes available on <a href = "https://www.github.com/eslintpurity" target = "_blank">Github</a>
+</div>
+
+#### 
+
+### Community services
+
+Please find links to various tutorials I write online depending o your area(s) of interest. Visit here => http://www.eslintpurity.com to view the ones hosted on this site 
+
+<div class  "container">
+<div class = "row">
+<div class = "col-md-4"> http://www.talkingmachines.com</div> <div class = "col-md-8">curated tutorials on machine learning and big data analytics</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.eslintpurity.com</div> <div class = "col-md-8">curated tutorials on web technologies and best practices</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.mobileappsdev.com</div><div class = "col-md-8"> curated tutorials on mobile apps development</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.masterydatascience.com</div><div class = "col-md-8"> curated tutorials on predictive analytics and GIS</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.bisanalytics.com</div><div class = "col-md-8">curated tutorials on business intelligence and GIS</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.animeengine.com</div><div class = "col-md-8"> curated tutorials on web animations</div>
+</div>
+<div class = "row">
+<div class = "col-md-4">http://www.medium/doyin.com</div><div class = "col-md-8"> combined tutorials on my interests including cloud computing, machine learning, big data analytics, animation and geographic information systems</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- Chicken and Egg problem Summary -->
+
+<div id="chiceggModal" class="modal fade" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Chicken and Egg Conumdrum Summary</h4>
+</div>
+<div class="modal-body">
+
+```{r, eval=FALSE}
+if(egg){
+  Start programming with javascript cos its constantly proving to be the future. Compliment this with good CSS
+  framework(s); adding versioning as your magical matchbox.
+}
+if(chicken){
+  Bunch to choose from - PHP, Ruby on Rails, CMS and Machine Learning.  
+}
+else{
+  Fly to heaven
+}
+yeah you heard that right! yo dawg!!
+```
+
+
+<p style = "font-weight:bold;">Those chunks for this simple solution? Are programmers the most sane or most insane?? what is sanity???</p>
+
+yo dawg! I heard you're considering a career in programming, so I programmed a program for you so see how a program is programmed.
+
+<div class = "text-center">
+
+![](images//yo-dawg.jpg)
+
+</div>
+
+</div>
+<div class ="alert alert-danger text-center" style = "font-size: 18px; margin-left:2%; margin-right:2%;">#programLUSION</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+
+
+
+<!-- Contact Modal -->
+
+<div id="contactModal" class="modal fade" tabindex="-1" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Contact</h4>
+</div>
+<div class="modal-body">
+
+<div class = "alert alert-warning text-center" style = "margin-top: 1%;"><p class="lead" style = "color: purple;">Need an <span style = "color: black;">expert-freelancer or a remote developer</span> in web & mobile technologies?, predictive analytics or machine learning solutions? then you've chosen well.</p></div>
+
+<div class="form-container">
+
+<p style = "font-size: 14px; color: purple;">Kindly leave a message below. I'll get back to you at the earliest. Thanks</p>
+
+<form name = "contacts" action="feedback.html">
+
+<label for="name">Full Name*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-user"></span><input type="text" id="name" name="name" placeholder="Your name.." required></span>
+
+<label for="email">E-mail*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-envelope"></span><input type="text" id="email" name="email" placeholder="Your email address.." required></span>
+
+<div class = "row">
+<div class = "col-lg-6 col-md-6">
+<label for="reasons">Reasons</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-cog"></span>
+<select id="reasons" name="reasons">
+<option value="web">Web Development</option>
+<option value="app">Mobile Apps</option>
+<option value="bis">Business Intelligence Solutions</option>
+<option value="automation">Automation</option>
+<option value="docker">Dockering</option>
+<option value="deployment">Deployment</option>
+</select>
+</span>
+</div>
+<div class = "col-lg-6 col-md-6">
+<label for="phone">Phone No*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-phone"></span><input type="text" id="phone" name="phone" placeholder="Your phone number.." required></span>
+</div>
+
+</div>
+
+<label for="subject">Subject</label>
+<textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+<input type="submit" name="submit" value="Submit Your Message →">
+
+</form>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a href="http://bootstrapious.com" target="_blank">Bootstrapious</a>.</p>
+</div>
+</div>
+
+</br></br>
+
+<div class="row">
+<div class="col-lg-12 col-md-12" style = "font-size: 14.5px;">
+<p><i class="fa fa-home" aria-hidden="true"></i>  Nnamdi Mbadiwe Building, Victoria Island, Lagos, Nigeria</p>
+<p><i class="fa fa-globe" aria-hidden="true"></i> http://www.krystalcode.com, http://www.beautifulmind.github.io</p>
+<span> Download <span style = "color: blue;"><a href="#" data-toggle="tooltip" title="Hooray!ts a business strategic mind tool  Tooltips must be initialized with jQuery: select the specified element and call the tooltip() method.
+
+The following code will enable all tooltips in the document:">Chicken and Egg App</a> </span>→ <a href = "http://www.google.store/chicken-and-egg-app/">![](images//chicken-and-egg-google-play.png)</a> <a href = "http://www.google.store/chicken-and-egg-app/">![](images//chicken-and-egg-app-store.png)</a></span>
+
+component.io  750MB	N500	*418#
+https://www.tutorialrepublic.com/
+https://stackoverflow.com/jobs/remote-developer-jobs
+</div>
+</div>
+
+
+</br></br>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- Ticket Modal -->
+<div id="ticketModal" class="w3-modal">
+<div class="w3-modal-content w3-animate-top w3-card-4">
+<header class="w3-container w3-teal w3-center w3-padding-32"> 
+<span onclick="document.getElementById('ticketModal').style.display='none'" 
+class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+<h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+</header>
+<div class="w3-container">
+<p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
+<input class="w3-input w3-border" type="text" placeholder="How many?">
+<p><label><i class="fa fa-user"></i> Send To</label></p>
+<input class="w3-input w3-border" type="text" placeholder="Enter email">
+<button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
+<button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+<p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+</div>
+</div>
+</div>
+
+
+<!-- Testing contacts Modal -->
+<div id="contactsModal" class="w3-modal">
+<div class="w3-modal-content w3-animate-top w3-card-4">
+<header class="w3-container w3-teal w3-center w3-padding-32"> 
+<span onclick="document.getElementById('contactsModal').style.display='none'" 
+class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+<h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+</header>
+<div class="w3-container">
+
+<p style = "font-size: 14px; color: purple;">Kindly leave a message below. I'll get back to you at the earliest. Thanks</p>
+
+<form name = "contacts" action="feedback.html">
+
+<label for="name">Full Name*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-user"></span><input type="text" id="name" name="name" placeholder="Your name.." required></span>
+
+<label for="email">E-mail*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-envelope"></span><input type="text" id="email" name="email" placeholder="Your email address.." required></span>
+
+<div class = "row">
+<div class = "col-lg-6 col-md-6">
+<label for="reasons">Reasons</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-cog"></span>
+<select id="reasons" name="reasons">
+<option value="web">Web Development</option>
+<option value="app">Mobile Apps</option>
+<option value="bis">Business Intelligence Solutions</option>
+<option value="automation">Automation</option>
+<option value="docker">Dockering</option>
+<option value="deployment">Deployment</option>
+</select>
+</span>
+</div>
+<div class = "col-lg-6 col-md-6">
+<label for="phone">Phone No*</label>
+<span class="input-group-addon" id="sizing-addon1">
+<span class="glyphicon glyphicon-phone"></span><input type="text" id="phone" name="phone" placeholder="Your phone number.." required></span>
+</div>
+
+</div>
+
+<label for="subject">Subject</label>
+<textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+</form>
+
+<button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right"><input type="submit" value="Submit Your Message →"> <i class="fa fa-check"></i></button>
+
+<p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+</div>
+</div>
+</div>
+
+
+<!-- Hire Me Modal -->
+<div id="hireModal" class="w3-modal">
+<div class="w3-modal-content w3-animate-top w3-card-4">
+<header class="w3-container w3-blue w3-center w3-padding-32"> 
+<span onclick="document.getElementById('hireModal').style.display='none'" 
+class="w3-button w3-b w3-xlarge w3-display-topright">×</span>
+<h2 class="w3-wide"><i class="fa fa-plane w3-margin-right"></i>Why Hire Me?</h2>
+</header>
+<div class="w3-container">
+<div style = "padding: 15px;">
+
+
+#### why hire me?
+
+1. Candidate must be a professional in Systems Application Development.
+2. Typical of my intrinsic style, I possess a vibrant business and strategic planning skills, pedagogically sound and always     strive to render a clean impact in any project involved in.
+3. Good Knowledge of Algorithms for solving different problems
+4. Experience in Good CSS & Javascript, HTML5, Angular JS / Jquery/ React, Electron, d3js
+5. Experience authoring UI style guides for new titles to ensure product consistency
+6. Rapid Prototyping and wireframes (e, OmniGraffle, Visio, Balsamiq)
+7. Familiar Web Performance & Debugging Tools”
+8. Possession of creative flair, versatility, conceptual/visual ability and originality
+My web services mantra is delivering *secured rich Internet applications* by adopting latest web practices of *Test Driven Development (TDD), MVC/MVVM architectural design pattern and material design.*
+
+</div>
+
+<hr class = "light">
+<button class="w3-button w3-red w3-section" onclick="document.getElementById('hireModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+<p class="w3-right">Learn more about <a href="file:///C:/Projects/GitHub/krystallux.github.io/about.html#skills" class="w3-text-blue">my skills</a></p>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Subscription Modal -->
+<div id="subscribeModal" class="w3-modal">
+<div class="w3-modal-content w3-animate-top w3-card-4">
+<header class="w3-container w3-blue w3-center w3-padding-32"> 
+<span onclick="document.getElementById('subscribeModal').style.display='none'" 
+class="w3-button w3-b w3-xlarge w3-display-topright">×</span>
+<h2 class="w3-wide"><i class="fa fa-plane w3-margin-right"></i>Tutorial Subscription</h2>
+</header>
+<div class="w3-container">
+<div>
+<h4 style="color: red; font-size: 16px;">Subscribe for my weekly tutorials and links on various trends in technologies.</h4>
+
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Enter your e-mail...">
+<span class="input-group-btn">
+<button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+</span>
+</div><!-- /input-group -->
+
+</div>
+
+<hr class = "light">
+<button class="w3-button w3-red w3-section" onclick="document.getElementById('hireModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+<p class="w3-right">Learn more about <a href="file:///C:/Projects/GitHub/krystallux.github.io/about.html#skills" class="w3-text-blue">my skills</a></p>
+</div>
+</div>
+</div>
+<div class="container-fluid" style= "background-size: cover; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 4%;">
+<hr class"light" margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 5%; padding-bottom: 4%;">
+<div class="row">
+<div class="col-lg-6 col-md-6">
+© 2017-2018 Doyin Elugbadebo. Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>. Source available on <a href = "https://github.com/eslintpurity/krystallux.github.io">Github</a>
+</div>
+<div class="col-lg-2 col-md-2"></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">About</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Contact</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Pantheon</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Opensource</a></div>
+</div>
+</div>
+
+<script>
+// begining of bootstrap accordion/collapsible
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight){
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+} 
+});
+}
+
+// begining of linkin-to and activating bootstrap specific tab within the same page
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = this.href.split('#');
+    $('.nav a').filter('a[href="#'+target[1]+'"]').tab('show');
+})
+
+// begining of linkin-to and activating bootstrap specific tab from external page
+function getQuery(url) {
+  var query = {},
+      href = url || window.location.href;
+  href.replace(/[?&](.+?)=([^&#]*)/g, function (_, key, value) {
+      query[key] = decodeURI(value).replace(/\+/g, ' ');
+  });
+  return query;
+}
+
+function getParam(name){
+    var obj = getQuery();
+    return obj[name];
+}
+
+$(document).ready(function() {
+  var target = getParam('target');
+  $('.nav a[href="#'+target+'"]').tab('show');
+});
+
+// 
+jQuery(document).ready(function($){
+// Allow Page URL to activate a tab's ID
+var taburl = document.location.toString();
+if( taburl.match('#') ) {
+$('.nav-tabs a[href="#'+taburl.split('#')[1]+'"]').tab('show');
+}
+// Allow internal links to activate a tab.
+$('a[data-toggle="tab"]').click(function (e) {
+e.preventDefault();
+$('a[href="' + $(this).attr('href') + '"]').tab('show');
+});
+}); // End
+
+
+var form = document.forms["contact"];
+	form.addEventListener('submit',contact_submit,false);
+
+	function contact_submit(e) {
+		// Stop Form From Submitting
+		e.preventDefault();
+
+		// Set Initial Variables
+		var target = e.target || e.srcElement;
+		var to = 'doyinelugbadebo@gmail.com';
+		var uri = 'mailto:' + to;
+		var body = '';
+
+		// Set Form Values to Variables
+		var name = target.elements['name'].value;
+		var email = target.elements['email'].value;
+		var phone = target.elements['phone'].value;
+		var reasons = target.elements['reasons'].value;
+		var message = target.elements['message'].value;
+
+		// Build Body / Message with all Input Fields
+		body += message + "\r\n\r\n";
+		body += "Name: " + name + "\r\n";
+		body += "Phone Number: " + phone + "\r\n";
+		body += "Reasons: " + reasons + "\r\n";
+
+		// Build final Mailto URI
+		uri += '?subject=' + encodeURIComponent(subject);
+		uri += '&body=' + encodeURIComponent(body);
+
+		// Open Mailto in New Window / Tab
+		window.open(uri,'_blank');
+	}
+	
+	$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+function printFarmInventory(cows, chickens, pigs) {
+console.log(`${zeroPad(cows, 3)} Cows`);
+console.log(`${zeroPad(chickens, 3)} Chickens`);
+console.log(`${zeroPad(pigs, 3)} Pigs`);
+}
+</script>
+/* -----------------------------------------------
+/* How to use? : Check the GitHub README
+/* ----------------------------------------------- */
+
+/* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
+/*
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('particles.js loaded - callback');
+});
+*/
+
+/* Otherwise just put the config content (json): */
+
+particlesJS('particles-js',
+  
+  {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true,
+    "config_demo": {
+      "hide_card": false,
+      "background_color": "#b61924",
+      "background_image": "",
+      "background_position": "50% 50%",
+      "background_repeat": "no-repeat",
+      "background_size": "cover"
+    }
+  }
+
+);
+/* -----------------------------------------------
+/* Author : Vincent Garreau  - vincentgarreau.com
+/* MIT license: http://opensource.org/licenses/MIT
+/* Demo / Generator : vincentgarreau.com/particles.js
+/* GitHub : github.com/VincentGarreau/particles.js
+/* How to use? : Check the GitHub README
+/* v2.0.0
+/* ----------------------------------------------- */
+
+var pJS = function(tag_id, params){
+
+  var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
+
+  /* particles.js variables with default values */
+  this.pJS = {
+    canvas: {
+      el: canvas_el,
+      w: canvas_el.offsetWidth,
+      h: canvas_el.offsetHeight
+    },
+    particles: {
+      number: {
+        value: 400,
+        density: {
+          enable: true,
+          value_area: 800
+        }
+      },
+      color: {
+        value: '#fff'
+      },
+      shape: {
+        type: 'circle',
+        stroke: {
+          width: 0,
+          color: '#ff0000'
+        },
+        polygon: {
+          nb_sides: 5
+        },
+        image: {
+          src: '',
+          width: 100,
+          height: 100
+        }
+      },
+      opacity: {
+        value: 1,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 2,
+          opacity_min: 0,
+          sync: false
+        }
+      },
+      size: {
+        value: 20,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 20,
+          size_min: 0,
+          sync: false
+        }
+      },
+      line_linked: {
+        enable: true,
+        distance: 100,
+        color: '#fff',
+        opacity: 1,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: 'none',
+        random: false,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 3000,
+          rotateY: 3000
+        }
+      },
+      array: []
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'grab'
+        },
+        onclick: {
+          enable: true,
+          mode: 'push'
+        },
+        resize: true
+      },
+      modes: {
+        grab:{
+          distance: 100,
+          line_linked:{
+            opacity: 1
+          }
+        },
+        bubble:{
+          distance: 200,
+          size: 80,
+          duration: 0.4
+        },
+        repulse:{
+          distance: 200,
+          duration: 0.4
+        },
+        push:{
+          particles_nb: 4
+        },
+        remove:{
+          particles_nb: 2
+        }
+      },
+      mouse:{}
+    },
+    retina_detect: false,
+    fn: {
+      interact: {},
+      modes: {},
+      vendors:{}
+    },
+    tmp: {}
+  };
+
+  var pJS = this.pJS;
+
+  /* params settings */
+  if(params){
+    Object.deepExtend(pJS, params);
+  }
+
+  pJS.tmp.obj = {
+    size_value: pJS.particles.size.value,
+    size_anim_speed: pJS.particles.size.anim.speed,
+    move_speed: pJS.particles.move.speed,
+    line_linked_distance: pJS.particles.line_linked.distance,
+    line_linked_width: pJS.particles.line_linked.width,
+    mode_grab_distance: pJS.interactivity.modes.grab.distance,
+    mode_bubble_distance: pJS.interactivity.modes.bubble.distance,
+    mode_bubble_size: pJS.interactivity.modes.bubble.size,
+    mode_repulse_distance: pJS.interactivity.modes.repulse.distance
+  };
+
+
+  pJS.fn.retinaInit = function(){
+
+    if(pJS.retina_detect && window.devicePixelRatio > 1){
+      pJS.canvas.pxratio = window.devicePixelRatio; 
+      pJS.tmp.retina = true;
+    } 
+    else{
+      pJS.canvas.pxratio = 1;
+      pJS.tmp.retina = false;
+    }
+
+    pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
+    pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
+
+    pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio;
+    pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
+    pJS.particles.move.speed = pJS.tmp.obj.move_speed * pJS.canvas.pxratio;
+    pJS.particles.line_linked.distance = pJS.tmp.obj.line_linked_distance * pJS.canvas.pxratio;
+    pJS.interactivity.modes.grab.distance = pJS.tmp.obj.mode_grab_distance * pJS.canvas.pxratio;
+    pJS.interactivity.modes.bubble.distance = pJS.tmp.obj.mode_bubble_distance * pJS.canvas.pxratio;
+    pJS.particles.line_linked.width = pJS.tmp.obj.line_linked_width * pJS.canvas.pxratio;
+    pJS.interactivity.modes.bubble.size = pJS.tmp.obj.mode_bubble_size * pJS.canvas.pxratio;
+    pJS.interactivity.modes.repulse.distance = pJS.tmp.obj.mode_repulse_distance * pJS.canvas.pxratio;
+
+  };
+
+
+
+  /* ---------- pJS functions - canvas ------------ */
+
+  pJS.fn.canvasInit = function(){
+    pJS.canvas.ctx = pJS.canvas.el.getContext('2d');
+  };
+
+  pJS.fn.canvasSize = function(){
+
+    pJS.canvas.el.width = pJS.canvas.w;
+    pJS.canvas.el.height = pJS.canvas.h;
+
+    if(pJS && pJS.interactivity.events.resize){
+
+      window.addEventListener('resize', function(){
+
+          pJS.canvas.w = pJS.canvas.el.offsetWidth;
+          pJS.canvas.h = pJS.canvas.el.offsetHeight;
+
+          /* resize canvas */
+          if(pJS.tmp.retina){
+            pJS.canvas.w *= pJS.canvas.pxratio;
+            pJS.canvas.h *= pJS.canvas.pxratio;
+          }
+
+          pJS.canvas.el.width = pJS.canvas.w;
+          pJS.canvas.el.height = pJS.canvas.h;
+
+          /* repaint canvas on anim disabled */
+          if(!pJS.particles.move.enable){
+            pJS.fn.particlesEmpty();
+            pJS.fn.particlesCreate();
+            pJS.fn.particlesDraw();
+            pJS.fn.vendors.densityAutoParticles();
+          }
+
+        /* density particles enabled */
+        pJS.fn.vendors.densityAutoParticles();
+
+      });
+
+    }
+
+  };
+
+
+  pJS.fn.canvasPaint = function(){
+    pJS.canvas.ctx.fillRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+  };
+
+  pJS.fn.canvasClear = function(){
+    pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+  };
+
+
+  /* --------- pJS functions - particles ----------- */
+
+  pJS.fn.particle = function(color, opacity, position){
+
+    /* size */
+    this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
+    if(pJS.particles.size.anim.enable){
+      this.size_status = false;
+      this.vs = pJS.particles.size.anim.speed / 100;
+      if(!pJS.particles.size.anim.sync){
+        this.vs = this.vs * Math.random();
+      }
+    }
+
+    /* position */
+    this.x = position ? position.x : Math.random() * pJS.canvas.w;
+    this.y = position ? position.y : Math.random() * pJS.canvas.h;
+
+    /* check position  - into the canvas */
+    if(this.x > pJS.canvas.w - this.radius*2) this.x = this.x - this.radius;
+    else if(this.x < this.radius*2) this.x = this.x + this.radius;
+    if(this.y > pJS.canvas.h - this.radius*2) this.y = this.y - this.radius;
+    else if(this.y < this.radius*2) this.y = this.y + this.radius;
+
+    /* check position - avoid overlap */
+    if(pJS.particles.move.bounce){
+      pJS.fn.vendors.checkOverlap(this, position);
+    }
+
+    /* color */
+    this.color = {};
+    if(typeof(color.value) == 'object'){
+
+      if(color.value instanceof Array){
+        var color_selected = color.value[Math.floor(Math.random() * pJS.particles.color.value.length)];
+        this.color.rgb = hexToRgb(color_selected);
+      }else{
+        if(color.value.r != undefined && color.value.g != undefined && color.value.b != undefined){
+          this.color.rgb = {
+            r: color.value.r,
+            g: color.value.g,
+            b: color.value.b
+          }
+        }
+        if(color.value.h != undefined && color.value.s != undefined && color.value.l != undefined){
+          this.color.hsl = {
+            h: color.value.h,
+            s: color.value.s,
+            l: color.value.l
+          }
+        }
+      }
+
+    }
+    else if(color.value == 'random'){
+      this.color.rgb = {
+        r: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
+        g: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
+        b: (Math.floor(Math.random() * (255 - 0 + 1)) + 0)
+      }
+    }
+    else if(typeof(color.value) == 'string'){
+      this.color = color;
+      this.color.rgb = hexToRgb(this.color.value);
+    }
+
+    /* opacity */
+    this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
+    if(pJS.particles.opacity.anim.enable){
+      this.opacity_status = false;
+      this.vo = pJS.particles.opacity.anim.speed / 100;
+      if(!pJS.particles.opacity.anim.sync){
+        this.vo = this.vo * Math.random();
+      }
+    }
+
+    /* animation - velocity for speed */
+    var velbase = {}
+    switch(pJS.particles.move.direction){
+      case 'top':
+        velbase = { x:0, y:-1 };
+      break;
+      case 'top-right':
+        velbase = { x:0.5, y:-0.5 };
+      break;
+      case 'right':
+        velbase = { x:1, y:-0 };
+      break;
+      case 'bottom-right':
+        velbase = { x:0.5, y:0.5 };
+      break;
+      case 'bottom':
+        velbase = { x:0, y:1 };
+      break;
+      case 'bottom-left':
+        velbase = { x:-0.5, y:1 };
+      break;
+      case 'left':
+        velbase = { x:-1, y:0 };
+      break;
+      case 'top-left':
+        velbase = { x:-0.5, y:-0.5 };
+      break;
+      default:
+        velbase = { x:0, y:0 };
+      break;
+    }
+
+    if(pJS.particles.move.straight){
+      this.vx = velbase.x;
+      this.vy = velbase.y;
+      if(pJS.particles.move.random){
+        this.vx = this.vx * (Math.random());
+        this.vy = this.vy * (Math.random());
+      }
+    }else{
+      this.vx = velbase.x + Math.random()-0.5;
+      this.vy = velbase.y + Math.random()-0.5;
+    }
+
+    // var theta = 2.0 * Math.PI * Math.random();
+    // this.vx = Math.cos(theta);
+    // this.vy = Math.sin(theta);
+
+    this.vx_i = this.vx;
+    this.vy_i = this.vy;
+
+    
+
+    /* if shape is image */
+
+    var shape_type = pJS.particles.shape.type;
+    if(typeof(shape_type) == 'object'){
+      if(shape_type instanceof Array){
+        var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)];
+        this.shape = shape_selected;
+      }
+    }else{
+      this.shape = shape_type;
+    }
+
+    if(this.shape == 'image'){
+      var sh = pJS.particles.shape;
+      this.img = {
+        src: sh.image.src,
+        ratio: sh.image.width / sh.image.height
+      }
+      if(!this.img.ratio) this.img.ratio = 1;
+      if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg != undefined){
+        pJS.fn.vendors.createSvgImg(this);
+        if(pJS.tmp.pushing){
+          this.img.loaded = false;
+        }
+      }
+    }
+
+    
+
+  };
+
+
+  pJS.fn.particle.prototype.draw = function() {
+
+    var p = this;
+
+    if(p.radius_bubble != undefined){
+      var radius = p.radius_bubble; 
+    }else{
+      var radius = p.radius;
+    }
+
+    if(p.opacity_bubble != undefined){
+      var opacity = p.opacity_bubble;
+    }else{
+      var opacity = p.opacity;
+    }
+
+    if(p.color.rgb){
+      var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+opacity+')';
+    }else{
+      var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+opacity+')';
+    }
+
+    pJS.canvas.ctx.fillStyle = color_value;
+    pJS.canvas.ctx.beginPath();
+
+    switch(p.shape){
+
+      case 'circle':
+        pJS.canvas.ctx.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
+      break;
+
+      case 'edge':
+        pJS.canvas.ctx.rect(p.x-radius, p.y-radius, radius*2, radius*2);
+      break;
+
+      case 'triangle':
+        pJS.fn.vendors.drawShape(pJS.canvas.ctx, p.x-radius, p.y+radius / 1.66, radius*2, 3, 2);
+      break;
+
+      case 'polygon':
+        pJS.fn.vendors.drawShape(
+          pJS.canvas.ctx,
+          p.x - radius / (pJS.particles.shape.polygon.nb_sides/3.5), // startX
+          p.y - radius / (2.66/3.5), // startY
+          radius*2.66 / (pJS.particles.shape.polygon.nb_sides/3), // sideLength
+          pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
+          1 // sideCountDenominator
+        );
+      break;
+
+      case 'star':
+        pJS.fn.vendors.drawShape(
+          pJS.canvas.ctx,
+          p.x - radius*2 / (pJS.particles.shape.polygon.nb_sides/4), // startX
+          p.y - radius / (2*2.66/3.5), // startY
+          radius*2*2.66 / (pJS.particles.shape.polygon.nb_sides/3), // sideLength
+          pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
+          2 // sideCountDenominator
+        );
+      break;
+
+      case 'image':
+
+        function draw(){
+          pJS.canvas.ctx.drawImage(
+            img_obj,
+            p.x-radius,
+            p.y-radius,
+            radius*2,
+            radius*2 / p.img.ratio
+          );
+        }
+
+        if(pJS.tmp.img_type == 'svg'){
+          var img_obj = p.img.obj;
+        }else{
+          var img_obj = pJS.tmp.img_obj;
+        }
+
+        if(img_obj){
+          draw();
+        }
+
+      break;
+
+    }
+
+    pJS.canvas.ctx.closePath();
+
+    if(pJS.particles.shape.stroke.width > 0){
+      pJS.canvas.ctx.strokeStyle = pJS.particles.shape.stroke.color;
+      pJS.canvas.ctx.lineWidth = pJS.particles.shape.stroke.width;
+      pJS.canvas.ctx.stroke();
+    }
+    
+    pJS.canvas.ctx.fill();
+    
+  };
+
+
+  pJS.fn.particlesCreate = function(){
+    for(var i = 0; i < pJS.particles.number.value; i++) {
+      pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value));
+    }
+  };
+
+  pJS.fn.particlesUpdate = function(){
+
+    for(var i = 0; i < pJS.particles.array.length; i++){
+
+      /* the particle */
+      var p = pJS.particles.array[i];
+
+      // var d = ( dx = pJS.interactivity.mouse.click_pos_x - p.x ) * dx + ( dy = pJS.interactivity.mouse.click_pos_y - p.y ) * dy;
+      // var f = -BANG_SIZE / d;
+      // if ( d < BANG_SIZE ) {
+      //     var t = Math.atan2( dy, dx );
+      //     p.vx = f * Math.cos(t);
+      //     p.vy = f * Math.sin(t);
+      // }
+
+      /* move the particle */
+      if(pJS.particles.move.enable){
+        var ms = pJS.particles.move.speed/2;
+        p.x += p.vx * ms;
+        p.y += p.vy * ms;
+      }
+
+      /* change opacity status */
+      if(pJS.particles.opacity.anim.enable) {
+        if(p.opacity_status == true) {
+          if(p.opacity >= pJS.particles.opacity.value) p.opacity_status = false;
+          p.opacity += p.vo;
+        }else {
+          if(p.opacity <= pJS.particles.opacity.anim.opacity_min) p.opacity_status = true;
+          p.opacity -= p.vo;
+        }
+        if(p.opacity < 0) p.opacity = 0;
+      }
+
+      /* change size */
+      if(pJS.particles.size.anim.enable){
+        if(p.size_status == true){
+          if(p.radius >= pJS.particles.size.value) p.size_status = false;
+          p.radius += p.vs;
+        }else{
+          if(p.radius <= pJS.particles.size.anim.size_min) p.size_status = true;
+          p.radius -= p.vs;
+        }
+        if(p.radius < 0) p.radius = 0;
+      }
+
+      /* change particle position if it is out of canvas */
+      if(pJS.particles.move.out_mode == 'bounce'){
+        var new_pos = {
+          x_left: p.radius,
+          x_right:  pJS.canvas.w,
+          y_top: p.radius,
+          y_bottom: pJS.canvas.h
+        }
+      }else{
+        var new_pos = {
+          x_left: -p.radius,
+          x_right: pJS.canvas.w + p.radius,
+          y_top: -p.radius,
+          y_bottom: pJS.canvas.h + p.radius
+        }
+      }
+
+      if(p.x - p.radius > pJS.canvas.w){
+        p.x = new_pos.x_left;
+        p.y = Math.random() * pJS.canvas.h;
+      }
+      else if(p.x + p.radius < 0){
+        p.x = new_pos.x_right;
+        p.y = Math.random() * pJS.canvas.h;
+      }
+      if(p.y - p.radius > pJS.canvas.h){
+        p.y = new_pos.y_top;
+        p.x = Math.random() * pJS.canvas.w;
+      }
+      else if(p.y + p.radius < 0){
+        p.y = new_pos.y_bottom;
+        p.x = Math.random() * pJS.canvas.w;
+      }
+
+      /* out of canvas modes */
+      switch(pJS.particles.move.out_mode){
+        case 'bounce':
+          if (p.x + p.radius > pJS.canvas.w) p.vx = -p.vx;
+          else if (p.x - p.radius < 0) p.vx = -p.vx;
+          if (p.y + p.radius > pJS.canvas.h) p.vy = -p.vy;
+          else if (p.y - p.radius < 0) p.vy = -p.vy;
+        break;
+      }
+
+      /* events */
+      if(isInArray('grab', pJS.interactivity.events.onhover.mode)){
+        pJS.fn.modes.grabParticle(p);
+      }
+
+      if(isInArray('bubble', pJS.interactivity.events.onhover.mode) || isInArray('bubble', pJS.interactivity.events.onclick.mode)){
+        pJS.fn.modes.bubbleParticle(p);
+      }
+
+      if(isInArray('repulse', pJS.interactivity.events.onhover.mode) || isInArray('repulse', pJS.interactivity.events.onclick.mode)){
+        pJS.fn.modes.repulseParticle(p);
+      }
+
+      /* interaction auto between particles */
+      if(pJS.particles.line_linked.enable || pJS.particles.move.attract.enable){
+        for(var j = i + 1; j < pJS.particles.array.length; j++){
+          var p2 = pJS.particles.array[j];
+
+          /* link particles */
+          if(pJS.particles.line_linked.enable){
+            pJS.fn.interact.linkParticles(p,p2);
+          }
+
+          /* attract particles */
+          if(pJS.particles.move.attract.enable){
+            pJS.fn.interact.attractParticles(p,p2);
+          }
+
+          /* bounce particles */
+          if(pJS.particles.move.bounce){
+            pJS.fn.interact.bounceParticles(p,p2);
+          }
+
+        }
+      }
+
+
+    }
+
+  };
+
+  pJS.fn.particlesDraw = function(){
+
+    /* clear canvas */
+    pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+
+    /* update each particles param */
+    pJS.fn.particlesUpdate();
+
+    /* draw each particle */
+    for(var i = 0; i < pJS.particles.array.length; i++){
+      var p = pJS.particles.array[i];
+      p.draw();
+    }
+
+  };
+
+  pJS.fn.particlesEmpty = function(){
+    pJS.particles.array = [];
+  };
+
+  pJS.fn.particlesRefresh = function(){
+
+    /* init all */
+    cancelRequestAnimFrame(pJS.fn.checkAnimFrame);
+    cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+    pJS.tmp.source_svg = undefined;
+    pJS.tmp.img_obj = undefined;
+    pJS.tmp.count_svg = 0;
+    pJS.fn.particlesEmpty();
+    pJS.fn.canvasClear();
+    
+    /* restart */
+    pJS.fn.vendors.start();
+
+  };
+
+
+  /* ---------- pJS functions - particles interaction ------------ */
+
+  pJS.fn.interact.linkParticles = function(p1, p2){
+
+    var dx = p1.x - p2.x,
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx*dx + dy*dy);
+
+    /* draw a line between p1 and p2 if the distance between them is under the config distance */
+    if(dist <= pJS.particles.line_linked.distance){
+
+      var opacity_line = pJS.particles.line_linked.opacity - (dist / (1/pJS.particles.line_linked.opacity)) / pJS.particles.line_linked.distance;
+
+      if(opacity_line > 0){        
+        
+        /* style */
+        var color_line = pJS.particles.line_linked.color_rgb_line;
+        pJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+        pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width;
+        //pJS.canvas.ctx.lineCap = 'round'; /* performance issue */
+        
+        /* path */
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.moveTo(p1.x, p1.y);
+        pJS.canvas.ctx.lineTo(p2.x, p2.y);
+        pJS.canvas.ctx.stroke();
+        pJS.canvas.ctx.closePath();
+
+      }
+
+    }
+
+  };
+
+
+  pJS.fn.interact.attractParticles  = function(p1, p2){
+
+    /* condensed particles */
+    var dx = p1.x - p2.x,
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx*dx + dy*dy);
+
+    if(dist <= pJS.particles.line_linked.distance){
+
+      var ax = dx/(pJS.particles.move.attract.rotateX*1000),
+          ay = dy/(pJS.particles.move.attract.rotateY*1000);
+
+      p1.vx -= ax;
+      p1.vy -= ay;
+
+      p2.vx += ax;
+      p2.vy += ay;
+
+    }
+    
+
+  }
+
+
+  pJS.fn.interact.bounceParticles = function(p1, p2){
+
+    var dx = p1.x - p2.x,
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx*dx + dy*dy),
+        dist_p = p1.radius+p2.radius;
+
+    if(dist <= dist_p){
+      p1.vx = -p1.vx;
+      p1.vy = -p1.vy;
+
+      p2.vx = -p2.vx;
+      p2.vy = -p2.vy;
+    }
+
+  }
+
+
+  /* ---------- pJS functions - modes events ------------ */
+
+  pJS.fn.modes.pushParticles = function(nb, pos){
+
+    pJS.tmp.pushing = true;
+
+    for(var i = 0; i < nb; i++){
+      pJS.particles.array.push(
+        new pJS.fn.particle(
+          pJS.particles.color,
+          pJS.particles.opacity.value,
+          {
+            'x': pos ? pos.pos_x : Math.random() * pJS.canvas.w,
+            'y': pos ? pos.pos_y : Math.random() * pJS.canvas.h
+          }
+        )
+      )
+      if(i == nb-1){
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesDraw();
+        }
+        pJS.tmp.pushing = false;
+      }
+    }
+
+  };
+
+
+  pJS.fn.modes.removeParticles = function(nb){
+
+    pJS.particles.array.splice(0, nb);
+    if(!pJS.particles.move.enable){
+      pJS.fn.particlesDraw();
+    }
+
+  };
+
+
+  pJS.fn.modes.bubbleParticle = function(p){
+
+    /* on hover event */
+    if(pJS.interactivity.events.onhover.enable && isInArray('bubble', pJS.interactivity.events.onhover.mode)){
+
+      var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+          dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
+          ratio = 1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
+
+      function init(){
+        p.opacity_bubble = p.opacity;
+        p.radius_bubble = p.radius;
+      }
+
+      /* mousemove - check ratio */
+      if(dist_mouse <= pJS.interactivity.modes.bubble.distance){
+
+        if(ratio >= 0 && pJS.interactivity.status == 'mousemove'){
+          
+          /* size */
+          if(pJS.interactivity.modes.bubble.size != pJS.particles.size.value){
+
+            if(pJS.interactivity.modes.bubble.size > pJS.particles.size.value){
+              var size = p.radius + (pJS.interactivity.modes.bubble.size*ratio);
+              if(size >= 0){
+                p.radius_bubble = size;
+              }
+            }else{
+              var dif = p.radius - pJS.interactivity.modes.bubble.size,
+                  size = p.radius - (dif*ratio);
+              if(size > 0){
+                p.radius_bubble = size;
+              }else{
+                p.radius_bubble = 0;
+              }
+            }
+
+          }
+
+          /* opacity */
+          if(pJS.interactivity.modes.bubble.opacity != pJS.particles.opacity.value){
+
+            if(pJS.interactivity.modes.bubble.opacity > pJS.particles.opacity.value){
+              var opacity = pJS.interactivity.modes.bubble.opacity*ratio;
+              if(opacity > p.opacity && opacity <= pJS.interactivity.modes.bubble.opacity){
+                p.opacity_bubble = opacity;
+              }
+            }else{
+              var opacity = p.opacity - (pJS.particles.opacity.value-pJS.interactivity.modes.bubble.opacity)*ratio;
+              if(opacity < p.opacity && opacity >= pJS.interactivity.modes.bubble.opacity){
+                p.opacity_bubble = opacity;
+              }
+            }
+
+          }
+
+        }
+
+      }else{
+        init();
+      }
+
+
+      /* mouseleave */
+      if(pJS.interactivity.status == 'mouseleave'){
+        init();
+      }
+    
+    }
+
+    /* on click event */
+    else if(pJS.interactivity.events.onclick.enable && isInArray('bubble', pJS.interactivity.events.onclick.mode)){
+
+
+      if(pJS.tmp.bubble_clicking){
+        var dx_mouse = p.x - pJS.interactivity.mouse.click_pos_x,
+            dy_mouse = p.y - pJS.interactivity.mouse.click_pos_y,
+            dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
+            time_spent = (new Date().getTime() - pJS.interactivity.mouse.click_time)/1000;
+
+        if(time_spent > pJS.interactivity.modes.bubble.duration){
+          pJS.tmp.bubble_duration_end = true;
+        }
+
+        if(time_spent > pJS.interactivity.modes.bubble.duration*2){
+          pJS.tmp.bubble_clicking = false;
+          pJS.tmp.bubble_duration_end = false;
+        }
+      }
+
+
+      function process(bubble_param, particles_param, p_obj_bubble, p_obj, id){
+
+        if(bubble_param != particles_param){
+
+          if(!pJS.tmp.bubble_duration_end){
+            if(dist_mouse <= pJS.interactivity.modes.bubble.distance){
+              if(p_obj_bubble != undefined) var obj = p_obj_bubble;
+              else var obj = p_obj;
+              if(obj != bubble_param){
+                var value = p_obj - (time_spent * (p_obj - bubble_param) / pJS.interactivity.modes.bubble.duration);
+                if(id == 'size') p.radius_bubble = value;
+                if(id == 'opacity') p.opacity_bubble = value;
+              }
+            }else{
+              if(id == 'size') p.radius_bubble = undefined;
+              if(id == 'opacity') p.opacity_bubble = undefined;
+            }
+          }else{
+            if(p_obj_bubble != undefined){
+              var value_tmp = p_obj - (time_spent * (p_obj - bubble_param) / pJS.interactivity.modes.bubble.duration),
+                  dif = bubble_param - value_tmp;
+                  value = bubble_param + dif;
+              if(id == 'size') p.radius_bubble = value;
+              if(id == 'opacity') p.opacity_bubble = value;
+            }
+          }
+
+        }
+
+      }
+
+      if(pJS.tmp.bubble_clicking){
+        /* size */
+        process(pJS.interactivity.modes.bubble.size, pJS.particles.size.value, p.radius_bubble, p.radius, 'size');
+        /* opacity */
+        process(pJS.interactivity.modes.bubble.opacity, pJS.particles.opacity.value, p.opacity_bubble, p.opacity, 'opacity');
+      }
+
+    }
+
+  };
+
+
+  pJS.fn.modes.repulseParticle = function(p){
+
+    if(pJS.interactivity.events.onhover.enable && isInArray('repulse', pJS.interactivity.events.onhover.mode) && pJS.interactivity.status == 'mousemove') {
+
+      var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+          dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+
+      var normVec = {x: dx_mouse/dist_mouse, y: dy_mouse/dist_mouse},
+          repulseRadius = pJS.interactivity.modes.repulse.distance,
+          velocity = 100,
+          repulseFactor = clamp((1/repulseRadius)*(-1*Math.pow(dist_mouse/repulseRadius,2)+1)*repulseRadius*velocity, 0, 50);
+      
+      var pos = {
+        x: p.x + normVec.x * repulseFactor,
+        y: p.y + normVec.y * repulseFactor
+      }
+
+      if(pJS.particles.move.out_mode == 'bounce'){
+        if(pos.x - p.radius > 0 && pos.x + p.radius < pJS.canvas.w) p.x = pos.x;
+        if(pos.y - p.radius > 0 && pos.y + p.radius < pJS.canvas.h) p.y = pos.y;
+      }else{
+        p.x = pos.x;
+        p.y = pos.y;
+      }
+    
+    }
+
+
+    else if(pJS.interactivity.events.onclick.enable && isInArray('repulse', pJS.interactivity.events.onclick.mode)) {
+
+      if(!pJS.tmp.repulse_finish){
+        pJS.tmp.repulse_count++;
+        if(pJS.tmp.repulse_count == pJS.particles.array.length){
+          pJS.tmp.repulse_finish = true;
+        }
+      }
+
+      if(pJS.tmp.repulse_clicking){
+
+        var repulseRadius = Math.pow(pJS.interactivity.modes.repulse.distance/6, 3);
+
+        var dx = pJS.interactivity.mouse.click_pos_x - p.x,
+            dy = pJS.interactivity.mouse.click_pos_y - p.y,
+            d = dx*dx + dy*dy;
+
+        var force = -repulseRadius / d * 1;
+
+        function process(){
+
+          var f = Math.atan2(dy,dx);
+          p.vx = force * Math.cos(f);
+          p.vy = force * Math.sin(f);
+
+          if(pJS.particles.move.out_mode == 'bounce'){
+            var pos = {
+              x: p.x + p.vx,
+              y: p.y + p.vy
+            }
+            if (pos.x + p.radius > pJS.canvas.w) p.vx = -p.vx;
+            else if (pos.x - p.radius < 0) p.vx = -p.vx;
+            if (pos.y + p.radius > pJS.canvas.h) p.vy = -p.vy;
+            else if (pos.y - p.radius < 0) p.vy = -p.vy;
+          }
+
+        }
+
+        // default
+        if(d <= repulseRadius){
+          process();
+        }
+
+        // bang - slow motion mode
+        // if(!pJS.tmp.repulse_finish){
+        //   if(d <= repulseRadius){
+        //     process();
+        //   }
+        // }else{
+        //   process();
+        // }
+        
+
+      }else{
+
+        if(pJS.tmp.repulse_clicking == false){
+
+          p.vx = p.vx_i;
+          p.vy = p.vy_i;
+        
+        }
+
+      }
+
+    }
+
+  }
+
+
+  pJS.fn.modes.grabParticle = function(p){
+
+    if(pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove'){
+
+      var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+          dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+
+      /* draw a line between the cursor and the particle if the distance between them is under the config distance */
+      if(dist_mouse <= pJS.interactivity.modes.grab.distance){
+
+        var opacity_line = pJS.interactivity.modes.grab.line_linked.opacity - (dist_mouse / (1/pJS.interactivity.modes.grab.line_linked.opacity)) / pJS.interactivity.modes.grab.distance;
+
+        if(opacity_line > 0){
+
+          /* style */
+          var color_line = pJS.particles.line_linked.color_rgb_line;
+          pJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+          pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width;
+          //pJS.canvas.ctx.lineCap = 'round'; /* performance issue */
+          
+          /* path */
+          pJS.canvas.ctx.beginPath();
+          pJS.canvas.ctx.moveTo(p.x, p.y);
+          pJS.canvas.ctx.lineTo(pJS.interactivity.mouse.pos_x, pJS.interactivity.mouse.pos_y);
+          pJS.canvas.ctx.stroke();
+          pJS.canvas.ctx.closePath();
+
+        }
+
+      }
+
+    }
+
+  };
+
+
+
+  /* ---------- pJS functions - vendors ------------ */
+
+  pJS.fn.vendors.eventsListeners = function(){
+
+    /* events target element */
+    if(pJS.interactivity.detect_on == 'window'){
+      pJS.interactivity.el = window;
+    }else{
+      pJS.interactivity.el = pJS.canvas.el;
+    }
+
+
+    /* detect mouse pos - on hover / click event */
+    if(pJS.interactivity.events.onhover.enable || pJS.interactivity.events.onclick.enable){
+
+      /* el on mousemove */
+      pJS.interactivity.el.addEventListener('mousemove', function(e){
+
+        if(pJS.interactivity.el == window){
+          var pos_x = e.clientX,
+              pos_y = e.clientY;
+        }
+        else{
+          var pos_x = e.offsetX || e.clientX,
+              pos_y = e.offsetY || e.clientY;
+        }
+
+        pJS.interactivity.mouse.pos_x = pos_x;
+        pJS.interactivity.mouse.pos_y = pos_y;
+
+        if(pJS.tmp.retina){
+          pJS.interactivity.mouse.pos_x *= pJS.canvas.pxratio;
+          pJS.interactivity.mouse.pos_y *= pJS.canvas.pxratio;
+        }
+
+        pJS.interactivity.status = 'mousemove';
+
+      });
+
+      /* el on onmouseleave */
+      pJS.interactivity.el.addEventListener('mouseleave', function(e){
+
+        pJS.interactivity.mouse.pos_x = null;
+        pJS.interactivity.mouse.pos_y = null;
+        pJS.interactivity.status = 'mouseleave';
+
+      });
+
+    }
+
+    /* on click event */
+    if(pJS.interactivity.events.onclick.enable){
+
+      pJS.interactivity.el.addEventListener('click', function(){
+
+        pJS.interactivity.mouse.click_pos_x = pJS.interactivity.mouse.pos_x;
+        pJS.interactivity.mouse.click_pos_y = pJS.interactivity.mouse.pos_y;
+        pJS.interactivity.mouse.click_time = new Date().getTime();
+
+        if(pJS.interactivity.events.onclick.enable){
+
+          switch(pJS.interactivity.events.onclick.mode){
+
+            case 'push':
+              if(pJS.particles.move.enable){
+                pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse);
+              }else{
+                if(pJS.interactivity.modes.push.particles_nb == 1){
+                  pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse);
+                }
+                else if(pJS.interactivity.modes.push.particles_nb > 1){
+                  pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb);
+                }
+              }
+            break;
+
+            case 'remove':
+              pJS.fn.modes.removeParticles(pJS.interactivity.modes.remove.particles_nb);
+            break;
+
+            case 'bubble':
+              pJS.tmp.bubble_clicking = true;
+            break;
+
+            case 'repulse':
+              pJS.tmp.repulse_clicking = true;
+              pJS.tmp.repulse_count = 0;
+              pJS.tmp.repulse_finish = false;
+              setTimeout(function(){
+                pJS.tmp.repulse_clicking = false;
+              }, pJS.interactivity.modes.repulse.duration*1000)
+            break;
+
+          }
+
+        }
+
+      });
+        
+    }
+
+
+  };
+
+  pJS.fn.vendors.densityAutoParticles = function(){
+
+    if(pJS.particles.number.density.enable){
+
+      /* calc area */
+      var area = pJS.canvas.el.width * pJS.canvas.el.height / 1000;
+      if(pJS.tmp.retina){
+        area = area/(pJS.canvas.pxratio*2);
+      }
+
+      /* calc number of particles based on density area */
+      var nb_particles = area * pJS.particles.number.value / pJS.particles.number.density.value_area;
+
+      /* add or remove X particles */
+      var missing_particles = pJS.particles.array.length - nb_particles;
+      if(missing_particles < 0) pJS.fn.modes.pushParticles(Math.abs(missing_particles));
+      else pJS.fn.modes.removeParticles(missing_particles);
+
+    }
+
+  };
+
+
+  pJS.fn.vendors.checkOverlap = function(p1, position){
+    for(var i = 0; i < pJS.particles.array.length; i++){
+      var p2 = pJS.particles.array[i];
+
+      var dx = p1.x - p2.x,
+          dy = p1.y - p2.y,
+          dist = Math.sqrt(dx*dx + dy*dy);
+
+      if(dist <= p1.radius + p2.radius){
+        p1.x = position ? position.x : Math.random() * pJS.canvas.w;
+        p1.y = position ? position.y : Math.random() * pJS.canvas.h;
+        pJS.fn.vendors.checkOverlap(p1);
+      }
+    }
+  };
+
+
+  pJS.fn.vendors.createSvgImg = function(p){
+
+    /* set color to svg element */
+    var svgXml = pJS.tmp.source_svg,
+        rgbHex = /#([0-9A-F]{3,6})/gi,
+        coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
+          if(p.color.rgb){
+            var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+p.opacity+')';
+          }else{
+            var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+p.opacity+')';
+          }
+          return color_value;
+        });
+
+    /* prepare to create img with colored svg */
+    var svg = new Blob([coloredSvgXml], {type: 'image/svg+xml;charset=utf-8'}),
+        DOMURL = window.URL || window.webkitURL || window,
+        url = DOMURL.createObjectURL(svg);
+
+    /* create particle img obj */
+    var img = new Image();
+    img.addEventListener('load', function(){
+      p.img.obj = img;
+      p.img.loaded = true;
+      DOMURL.revokeObjectURL(url);
+      pJS.tmp.count_svg++;
+    });
+    img.src = url;
+
+  };
+
+
+  pJS.fn.vendors.destroypJS = function(){
+    cancelAnimationFrame(pJS.fn.drawAnimFrame);
+    canvas_el.remove();
+    pJSDom = null;
+  };
+
+
+  pJS.fn.vendors.drawShape = function(c, startX, startY, sideLength, sideCountNumerator, sideCountDenominator){
+
+    // By Programming Thomas - https://programmingthomas.wordpress.com/2013/04/03/n-sided-shapes/
+    var sideCount = sideCountNumerator * sideCountDenominator;
+    var decimalSides = sideCountNumerator / sideCountDenominator;
+    var interiorAngleDegrees = (180 * (decimalSides - 2)) / decimalSides;
+    var interiorAngle = Math.PI - Math.PI * interiorAngleDegrees / 180; // convert to radians
+    c.save();
+    c.beginPath();
+    c.translate(startX, startY);
+    c.moveTo(0,0);
+    for (var i = 0; i < sideCount; i++) {
+      c.lineTo(sideLength,0);
+      c.translate(sideLength,0);
+      c.rotate(interiorAngle);
+    }
+    //c.stroke();
+    c.fill();
+    c.restore();
+
+  };
+
+  pJS.fn.vendors.exportImg = function(){
+    window.open(pJS.canvas.el.toDataURL('image/png'), '_blank');
+  };
+
+
+  pJS.fn.vendors.loadImg = function(type){
+
+    pJS.tmp.img_error = undefined;
+
+    if(pJS.particles.shape.image.src != ''){
+
+      if(type == 'svg'){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', pJS.particles.shape.image.src);
+        xhr.onreadystatechange = function (data) {
+          if(xhr.readyState == 4){
+            if(xhr.status == 200){
+              pJS.tmp.source_svg = data.currentTarget.response;
+              pJS.fn.vendors.checkBeforeDraw();
+            }else{
+              console.log('Error pJS - Image not found');
+              pJS.tmp.img_error = true;
+            }
+          }
+        }
+        xhr.send();
+
+      }else{
+
+        var img = new Image();
+        img.addEventListener('load', function(){
+          pJS.tmp.img_obj = img;
+          pJS.fn.vendors.checkBeforeDraw();
+        });
+        img.src = pJS.particles.shape.image.src;
+
+      }
+
+    }else{
+      console.log('Error pJS - No image.src');
+      pJS.tmp.img_error = true;
+    }
+
+  };
+
+
+  pJS.fn.vendors.draw = function(){
+
+    if(pJS.particles.shape.type == 'image'){
+
+      if(pJS.tmp.img_type == 'svg'){
+
+        if(pJS.tmp.count_svg >= pJS.particles.number.value){
+          pJS.fn.particlesDraw();
+          if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }else{
+          //console.log('still loading...');
+          if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }
+
+      }else{
+
+        if(pJS.tmp.img_obj != undefined){
+          pJS.fn.particlesDraw();
+          if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }else{
+          if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }
+
+      }
+
+    }else{
+      pJS.fn.particlesDraw();
+      if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+      else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+    }
+
+  };
+
+
+  pJS.fn.vendors.checkBeforeDraw = function(){
+
+    // if shape is image
+    if(pJS.particles.shape.type == 'image'){
+
+      if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg == undefined){
+        pJS.tmp.checkAnimFrame = requestAnimFrame(check);
+      }else{
+        //console.log('images loaded! cancel check');
+        cancelRequestAnimFrame(pJS.tmp.checkAnimFrame);
+        if(!pJS.tmp.img_error){
+          pJS.fn.vendors.init();
+          pJS.fn.vendors.draw();
+        }
+        
+      }
+
+    }else{
+      pJS.fn.vendors.init();
+      pJS.fn.vendors.draw();
+    }
+
+  };
+
+
+  pJS.fn.vendors.init = function(){
+
+    /* init canvas + particles */
+    pJS.fn.retinaInit();
+    pJS.fn.canvasInit();
+    pJS.fn.canvasSize();
+    pJS.fn.canvasPaint();
+    pJS.fn.particlesCreate();
+    pJS.fn.vendors.densityAutoParticles();
+
+    /* particles.line_linked - convert hex colors to rgb */
+    pJS.particles.line_linked.color_rgb_line = hexToRgb(pJS.particles.line_linked.color);
+
+  };
+
+
+  pJS.fn.vendors.start = function(){
+
+    if(isInArray('image', pJS.particles.shape.type)){
+      pJS.tmp.img_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
+      pJS.fn.vendors.loadImg(pJS.tmp.img_type);
+    }else{
+      pJS.fn.vendors.checkBeforeDraw();
+    }
+
+  };
+
+
+
+
+  /* ---------- pJS - start ------------ */
+
+
+  pJS.fn.vendors.eventsListeners();
+
+  pJS.fn.vendors.start();
+  
+
+
+};
+
+/* ---------- global functions - vendors ------------ */
+
+Object.deepExtend = function(destination, source) {
+  for (var property in source) {
+    if (source[property] && source[property].constructor &&
+     source[property].constructor === Object) {
+      destination[property] = destination[property] || {};
+      arguments.callee(destination[property], source[property]);
+    } else {
+      destination[property] = source[property];
+    }
+  }
+  return destination;
+};
+
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame    ||
+    window.oRequestAnimationFrame      ||
+    window.msRequestAnimationFrame     ||
+    function(callback){
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+window.cancelRequestAnimFrame = ( function() {
+  return window.cancelAnimationFrame         ||
+    window.webkitCancelRequestAnimationFrame ||
+    window.mozCancelRequestAnimationFrame    ||
+    window.oCancelRequestAnimationFrame      ||
+    window.msCancelRequestAnimationFrame     ||
+    clearTimeout
+} )();
+
+function hexToRgb(hex){
+  // By Tim Down - http://stackoverflow.com/a/5624139/3493650
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+     return r + r + g + g + b + b;
+  });
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+  } : null;
+};
+
+function clamp(number, min, max) {
+  return Math.min(Math.max(number, min), max);
+};
+
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
+
+/* ---------- particles.js functions - start ------------ */
+
+window.pJSDom = [];
+
+window.particlesJS = function(tag_id, params){
+
+  //console.log(params);
+
+  /* no string id? so it's object params, and set the id with default id */
+  if(typeof(tag_id) != 'string'){
+    params = tag_id;
+    tag_id = 'particles-js';
+  }
+
+  /* no id? set the id to default id */
+  if(!tag_id){
+    tag_id = 'particles-js';
+  }
+
+  /* pJS elements */
+  var pJS_tag = document.getElementById(tag_id),
+      pJS_canvas_class = 'particles-js-canvas-el',
+      exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+
+  /* remove canvas if exists into the pJS target tag */
+  if(exist_canvas.length){
+    while(exist_canvas.length > 0){
+      pJS_tag.removeChild(exist_canvas[0]);
+    }
+  }
+
+  /* create canvas element */
+  var canvas_el = document.createElement('canvas');
+  canvas_el.className = pJS_canvas_class;
+
+  /* set size canvas */
+  canvas_el.style.width = "100%";
+  canvas_el.style.height = "100%";
+
+  /* append canvas */
+  var canvas = document.getElementById(tag_id).appendChild(canvas_el);
+
+  /* launch particle.js */
+  if(canvas != null){
+    pJSDom.push(new pJS(tag_id, params));
+  }
+
+};
+
+window.particlesJS.load = function(tag_id, path_config_json, callback){
+
+  /* load json config */
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', path_config_json);
+  xhr.onreadystatechange = function (data) {
+    if(xhr.readyState == 4){
+      if(xhr.status == 200){
+        var params = JSON.parse(data.currentTarget.response);
+        window.particlesJS(tag_id, params);
+        if(callback) callback();
+      }else{
+        console.log('Error pJS - XMLHttpRequest status: '+xhr.status);
+        console.log('Error pJS - File config not found');
+      }
+    }
+  };
+  xhr.send();
+
+};
+{
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true,
+  "config_demo": {
+    "hide_card": false,
+    "background_color": "#b61924",
+    "background_image": "",
+    "background_position": "50% 50%",
+    "background_repeat": "no-repeat",
+    "background_size": "cover"
+  }
+}
+/**
+ * @author mrdoob / http://mrdoob.com/
+ */
+
+var Stats = function () {
+
+	var startTime = Date.now(), prevTime = startTime;
+	var ms = 0, msMin = Infinity, msMax = 0;
+	var fps = 0, fpsMin = Infinity, fpsMax = 0;
+	var frames = 0, mode = 0;
+
+	var container = document.createElement( 'div' );
+	container.id = 'stats';
+	container.addEventListener( 'mousedown', function ( event ) { event.preventDefault(); setMode( ++ mode % 2 ) }, false );
+	container.style.cssText = 'width:80px;opacity:0.9;cursor:pointer';
+
+	var fpsDiv = document.createElement( 'div' );
+	fpsDiv.id = 'fps';
+	fpsDiv.style.cssText = 'padding:0 0 3px 3px;text-align:left;background-color:#002';
+	container.appendChild( fpsDiv );
+
+	var fpsText = document.createElement( 'div' );
+	fpsText.id = 'fpsText';
+	fpsText.style.cssText = 'color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px';
+	fpsText.innerHTML = 'FPS';
+	fpsDiv.appendChild( fpsText );
+
+	var fpsGraph = document.createElement( 'div' );
+	fpsGraph.id = 'fpsGraph';
+	fpsGraph.style.cssText = 'position:relative;width:74px;height:30px;background-color:#0ff';
+	fpsDiv.appendChild( fpsGraph );
+
+	while ( fpsGraph.children.length < 74 ) {
+
+		var bar = document.createElement( 'span' );
+		bar.style.cssText = 'width:1px;height:30px;float:left;background-color:#113';
+		fpsGraph.appendChild( bar );
+
+	}
+
+	var msDiv = document.createElement( 'div' );
+	msDiv.id = 'ms';
+	msDiv.style.cssText = 'padding:0 0 3px 3px;text-align:left;background-color:#020;display:none';
+	container.appendChild( msDiv );
+
+	var msText = document.createElement( 'div' );
+	msText.id = 'msText';
+	msText.style.cssText = 'color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px';
+	msText.innerHTML = 'MS';
+	msDiv.appendChild( msText );
+
+	var msGraph = document.createElement( 'div' );
+	msGraph.id = 'msGraph';
+	msGraph.style.cssText = 'position:relative;width:74px;height:30px;background-color:#0f0';
+	msDiv.appendChild( msGraph );
+
+	while ( msGraph.children.length < 74 ) {
+
+		var bar = document.createElement( 'span' );
+		bar.style.cssText = 'width:1px;height:30px;float:left;background-color:#131';
+		msGraph.appendChild( bar );
+
+	}
+
+	var setMode = function ( value ) {
+
+		mode = value;
+
+		switch ( mode ) {
+
+			case 0:
+				fpsDiv.style.display = 'block';
+				msDiv.style.display = 'none';
+				break;
+			case 1:
+				fpsDiv.style.display = 'none';
+				msDiv.style.display = 'block';
+				break;
+		}
+
+	};
+
+	var updateGraph = function ( dom, value ) {
+
+		var child = dom.appendChild( dom.firstChild );
+		child.style.height = value + 'px';
+
+	};
+
+	return {
+
+		REVISION: 12,
+
+		domElement: container,
+
+		setMode: setMode,
+
+		begin: function () {
+
+			startTime = Date.now();
+
+		},
+
+		end: function () {
+
+			var time = Date.now();
+
+			ms = time - startTime;
+			msMin = Math.min( msMin, ms );
+			msMax = Math.max( msMax, ms );
+
+			msText.textContent = ms + ' MS (' + msMin + '-' + msMax + ')';
+			updateGraph( msGraph, Math.min( 30, 30 - ( ms / 200 ) * 30 ) );
+
+			frames ++;
+
+			if ( time > prevTime + 1000 ) {
+
+				fps = Math.round( ( frames * 1000 ) / ( time - prevTime ) );
+				fpsMin = Math.min( fpsMin, fps );
+				fpsMax = Math.max( fpsMax, fps );
+
+				fpsText.textContent = fps + ' FPS (' + fpsMin + '-' + fpsMax + ')';
+				updateGraph( fpsGraph, Math.min( 30, 30 - ( fps / 100 ) * 30 ) );
+
+				prevTime = time;
+				frames = 0;
+
+			}
+
+			return time;
+
+		},
+
+		update: function () {
+
+			startTime = this.end();
+
+		}
+
+	}
+
+};
+
+if ( typeof module === 'object' ) {
+
+	module.exports = Stats;
+
+}
+var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

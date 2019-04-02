@@ -1,0 +1,5 @@
+ID, Customer, Movie, Booking Date, Show Date
+CIN001, "Doyin Williams", "The Adventure of Ikadra", 27-May-2009, 5th June 2010
+CIN002, "Thelma Morgan", "The rise and fall of Idiama", 27-Sept-2011, 9th October, 2011
+CIN003, "Sinatra Centurion", "Lets Reconnect", 27-Nov-2018, 29th Nov, 2018
+CIN004, "Adekunle Wale", "Again in the Lord's Temple", 27-April-2017, 29th June, 2018

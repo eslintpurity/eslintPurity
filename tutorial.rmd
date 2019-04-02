@@ -1,0 +1,225 @@
+---
+title: ''
+output:
+  html_document:
+    highlight: textmate
+---
+
+<div class="container-fluid" style = "background-image: linear-gradient(to bottom right,#fe2f3 0,#fef485 100%); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: #85929E; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-bottom: 4%;">
+
+<a href ="contact.html"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="178" height="170" caption = "Freelancer" class="img-circle img-responsive" style="margin-top: 30px; float: right;">
+</a>
+
+<h1 style="font-size: 78px; font-weight: lighter; color: #f1f1f1; line-height: 85px;">Best of</h1>
+<h1 style="font-size: 85px; font-weight: lighter; color: #f1f1f1; word-wrap:break-word;">Curated Tutorial</h1>
+<h5><span style = "color: #ccc;">Enjoy the best of finely selected tutorial in web and mobile development, data science and machine learning</span>
+</div>
+
+<br>
+
+***
+
+sent tincidunt sed tellus ut rutrum sed vitae justo. Praesent tinciduut rutrum sed vitae justo. Praesent tincidu.sent tincidunt sed tellus ut rutrum sed vitae justo. Idunt sed tellus ut rutrum sPraesent tincidu.sent tinced vitae justo. Ent tinaescidu
+
+<div class="w3-container" style = "padding-left: 0px; padding-right: 0px;">
+<div class = "row">
+
+<div class="col-lg-3">
+<label for="web">Web Technologies</label>
+<span class="input-group-addon" id="sizing-addon1">
+<select id="reasons" name="web" onchange = "location = this.value;">
+<option value="select">Please select</option>
+<option value="javascript.html"><a href = "javascript.html">Javascript</a></option>
+<option value="ror.html"><a href = "ror.html">Ruby on Rails</a></option>
+<option value="laravel.html"><a href = "laravel.html">Laravel</a></option>
+<option value="django.html"><a href = "django.html">Django and Flask</a></option>
+<option value="nodejs.html"><a href = "nodejs.html">NodeJS</a></option>
+</select>
+</div>
+
+<div class="col-lg-3">
+<label for="ml">Machine Learning</label>
+<span class="input-group-addon" id="sizing-addon1">
+<select id="reasons" name="ml" onchange = "location = this.value;">
+<option value="select">Please select</option>
+<option value="r-ml.html"><a href = "r-ml.html">R Machine Learning</a></option>
+<option value="python-ml.html"><a href = "python-ml.html">Python Machine Learning</a></option>
+<option value="scala.html"><a href = "scala.html">Scala Language</a></option>
+</select>
+</div>
+
+<div class="col-lg-3">
+<label for="mobile">Mobile Technologies</label>
+<span class="input-group-addon" id="sizing-addon1" style = "padding-right:-2%; padding-left: -2%;">
+<select id="reasons" name="mobile" onchange = "location = this.value;">
+<option value="select">Please select</option>
+<option value="reactnative.html"><a href = "reactnative.html">React Native</a></option>
+<option value="android.html"><a href = "android.html">Java Android</a></option>
+<option value="kivy.html"><a href = "kivy.html">Kivy</a></option>
+</select>
+</div>
+
+<div class="col-lg-3">
+<label for="pure">Pure Tech</label>
+<span class="input-group-addon" id="sizing-addon1">
+<select id="reasons" name="pure" onchange = "location = this.value;">
+<option value="select">Please select</option>
+<option value="gis.html"><a href = "gis.html">GIS & Spatial Modelling</a></option>
+<option value="datascience.html"><a href = "datascience.html">Data Science</a></option>
+<option value="vanilla.html"><a href = "vanilla.html">Vanilla Technologies</a></option>
+<option value="random.html"><a href = "random.html">Random Posts & Generators</a></option>
+<option value="security.html"><a href = "security.html">Security, Tests, Tooling and Deployment</a></option>
+<option value="database.html"><a href = "database.html">Database</a></option>
+</select>
+</div>
+</div>
+</div>
+
+<br>
+
+<div style = "color: blue; font-size: 25px;">WEB TECHNOLOGIES</div>
+
+***
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">Special title treatment</h5>
+<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div>
+<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">Special title treatment</h5>
+<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div>
+<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+<div style = "color: green; font-size: 25px;">MACHINE LEARNING</div>
+
+***
+
+<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
+<div class="row justify-content-center">
+<div class="col-12">
+<h2 class="title-3 text-dark mb-4">Our Features</h2>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
+<h2 class="feature-title">Free Consultation</h2>
+<div class="feature-content">New clients recieve an obligation free consultation.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
+<h2 class="feature-title">Certified Accountants</h2>
+<div class="feature-content">All members of our team are certified accountants.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
+<h2 class="feature-title">Tax Compliance</h2>
+<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
+</div>
+</div>
+    
+</div>
+</div>
+
+<br>
+
+<div style = "color: purple; font-size: 25px;">MOBILE APPS</div>
+
+***
+
+<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
+<div class="row justify-content-center">
+<div class="col-12">
+<h2 class="title-3 text-dark mb-4">Our Features</h2>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
+<h2 class="feature-title">Free Consultation</h2>
+<div class="feature-content">New clients recieve an obligation free consultation.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
+<h2 class="feature-title">Certified Accountants</h2>
+<div class="feature-content">All members of our team are certified accountants.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
+<h2 class="feature-title">Tax Compliance</h2>
+<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
+</div>
+</div>
+    
+</div>
+</div>
+
+<br>
+
+<div style = "color: teal; font-size: 25px;">PURE TECH</div>
+
+***
+
+<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
+<div class="row justify-content-center">
+<div class="col-12">
+<h2 class="title-3 text-dark mb-4">Our Features</h2>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
+<h2 class="feature-title">Free Consultation</h2>
+<div class="feature-content">New clients recieve an obligation free consultation.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
+<h2 class="feature-title">Certified Accountants</h2>
+<div class="feature-content">All members of our team are certified accountants.</div>
+</div>
+</div>
+    
+<div class="col-12 col-md-6 col-lg-4 mb-2">
+<div class="feature">
+<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
+<h2 class="feature-title">Tax Compliance</h2>
+<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
+</div>
+</div>
+    
+</div>
+</div>
+
+
+fixing firebase path problem

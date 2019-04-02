@@ -1,0 +1,536 @@
+<section>
+<div class="container-fluid" style= "background-image: linear-gradient(0deg, #ECE0C8 49%, #DCE0E1 77%); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; margin-right: -25%; margin-left: -25%; padding-bottom: 7%; padding-top: 5%; padding-left: 20%; padding-right:15%;">
+<div class = "row">
+<div class = "col-md-12">
+<img src="images//machine_learning.jpg" alt="machine_learning" width="218" height="200" class="img-responsive" style="margin-top: 5px; padding-right: 3.5%; margin-top 1.5%; float: left;"/>
+
+<h1 style="font-size: 50px; font-weight: lighter; color: #194560; line-height:56px; word-wrap:break-word;">Mastering Text Mining in Python</h1>
+<h5>Use cutting edge techniques for answering todays buzzled business environment</h5>
+</div>
+</div>
+</div>
+
+<div class="alert alert-info" style="padding-top: 1%; padding-bottom: 1%; margin-right: -25%; margin-left: -25%;>
+<h4 class = "text-center" style = "font-size: 16px; color: purple;">Beta release soon, why not <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style = "margin-top: 1.3%;">Subscibe</button> and get a 30% waiver </h4>
+</div>
+
+<div class = "row">
+
+<div class = "col-md-8">
+
+## Why should you buy this book.
+
+This book has been written to facilitating your learning experinec with text mining as smooth as possible. Besides its simplicity in approach, below the the fatastic things you'll be learning in the book.
+
+- Deep cut analyses on Twitter and Facebook social networks 
+
+- A comprehensive guide on Text Clustering and Anomaly detection
+
+- The benefits of applying text mining to your business routine
+
+- Processing and administering a full fledged recommender system 
+
+- Apply little modification to our built app and making money.
+
+- Exposure to bridging the gap between Machine Learning and Text Analysis. 
+
+- Enhances you innate ability in using the core python libraries and lots more.
+
+- And of course we will go through the most common learning algorithms: Linear and polynomial regression.
+
+- study database IndexedDB https://www.tutorialspoint.com/html5/html5_indexeddb.htm</p></div>
+<div class = "col-md-4"><img src="images//machine_learning_app_preview1.jpg" alt="machine_learning_app_preview1" width="298" height="230" class="img-responsive" style = "margin-top: 8%;"><br>
+<p><button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style = "margin-top: 1.3%; float: right;">Download Free Headstart</button></p></div>
+
+</div>
+
+
+<br>
+
+
+<section>
+<div class="container-fluid" style= "background-image: linear-gradient(0deg, #ECE0C8 49%, #DCE0E1 77%); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; margin-right: -25%; margin-left: -25%; padding-bottom: 7%; padding-top: 10%;">
+<div class="container">
+<div class = "row">
+<div class = "col-md-5">
+
+### A Sneak Peak into some of the concepts
+
+```{r, eval=FALSE}
+library(htmlwidgets)
+library(widgetframe)
+library(ggplot2)
+library(plotly)
+p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) + geom_bar(position = "dodge")
+ggplotly(p)
+```
+
+</div>
+
+<div class = "col-md-7">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+</ol>
+<!-- Wrapper for slides -->
+
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+
+<img src="images//text-modelling1.jpg" alt="text-modelling1" class="img-responsive" style="margin-top: 5px;  margin-top 1.5%;"/>
+
+</div>
+<div class="item">
+
+<img src="images//text-modelling2.jpg" alt="text-modelling1" class="img-responsive" style="margin-top: 5px;  margin-top 1.5%;"/>
+
+</div>
+<div class="item">
+<img src="images//text-modelling3.jpg" alt="text-modelling1" width = 300px, height = 200px; class="img-responsive" style="margin-top: 5px;  margin-top 1.5%;"/>
+
+</div>
+</div>
+<!-- Left and right controls -->
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="alert alert-info" style="padding-top: 1%; padding-bottom: 1%; margin-right: -25%; margin-left: -25%;>
+<h4 class = "text-center" style = "font-size: 16px; color: purple;">Beta release soon, why not <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style = "margin-top: 1.3%;">Subscibe</button> and get a 30% waiver </h4>
+</div>
+
+<br> 
+
+<h1 class="text-center">CHAPTER PREVIEW</h1>
+
+<hr>
+
+<div class = "row" style = "margin-left: -8%; margin-right: -8%;">
+
+<div class = "col-md-6">
+
+### CHAPTER 1
+
+<table class = "table table-striped">
+<tbody>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr class="danger"><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class = "col-md-6">
+
+### CHAPTER 2
+
+<table class = "table table-striped">
+<tbody>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<br>  
+
+<hr>
+
+<div class = "row" style = "margin-left: -8%; margin-right: -8%;">
+
+<div class = "col-md-6">
+
+### CHAPTER 3
+
+<table class = "table table-striped">
+<tbody>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div class = "col-md-6">
+
+### CHAPTER 4
+
+<table class = "table table-striped">
+<tbody>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr class="info"><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<br>  
+
+<hr>
+
+<div class = "row" style = "margin-left: -8%; margin-right: -8%;">
+
+<div class = "col-md-6">
+
+### CHAPTER 5
+
+<table class = "table table-striped">
+<tbody>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr class="info"><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr class="info">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class = "col-md-6">
+
+<h3 class = "text-bold">CHAPTER 6</h3>
+
+<table class = "table table-striped">
+<tbody>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.1</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.2</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.3</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.4</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr class="danger"><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.5</td><td>Artificial Neural Network</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.6</td>
+<td>What is Machine Learning?</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.7</td>
+<td>What problem does it try to solve</td>
+</tr>
+<tr>
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.8</td>
+<td>Understanding and using Spark</td>
+</tr>
+<tr class="danger">
+<td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.9</td>
+<td>The Essentials of Deep Learning</td>
+</tr>
+<tr><td><img src="/images/icon_book.jpg" width="10" alt=""></td>
+<td>1.10</td><td>Artificial Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<br>  
+
+<h2 class="text-center">Also coming from the Author</h2>
+
+<hr>
+
+<div class="container-fluid" style= "background-color: #130f24; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; margin-right: -25%; margin-left: -25%; padding-bottom: 3%; padding-top: 3%; padding-left: 20%; padding-right:15%;">
+<div class = "row">
+<div class = "col-lg-4">
+<a href = "#"><h4 class = "text-center" style = "font-size: 14px; color: white;">Travelling into the future with Angular</h4></a>
+</div>
+<div class = "col-lg-4">
+<a href = "#"><h4 class = "text-center" style = "font-size: 14px; color: white;">Mastering Ruby on Rails in a week</h4></a>
+</div>
+<div class = "col-lg-4">
+<a href = "#"><h4 class = "text-center" style = "font-size: 14px; color: white;">Laravel Integrated </h4></a>
+</div>
+</div>
+</div>
+
+
+<br>
+
+Using Tensorflow `autodiff` function 
+
+### Prerequisite
+
+Prerequisite:
+
+Hardware Requirements
+
+Software Requirements
+
+- Python 
+- Anaconda
+- Pyzo
+- Spark
+- Little of Regression Knowledge
+
+
+Self Organizing Maps (SOM) - Is one of the main tools in Deep Learning Research Project. It competes favourably with th elikes of GoogleNet. Deepnet and LeNet5. 
+
+
+
+Before starting this tutorial, you need to install Python 3 and Scientific Python with numpy, scipy, matplotlib, scikit-learn and possibly iPython. The easiest way to do so is to use Pyzo http://www.pyzo.org/downloads.html that installs all at once. There are versions for Microsoft Windows (zip versions do not require administrator proviledge), Mac OS X and even Linux.If Python 3 is already installed with Scientific Python, install the scikit-learn with the pip tool for instance: type in the command line interface pip3 install scikit¡learn ¡U (
+
+
+QGIS
+
+Download the application of QGIS, and install the software onto your computer. Before installing the software ensure to have at least  1.9 GB  free storage space on your console. Installation of QGIS will result in seven different being application being installed which is fine. These are listed accordingly:
+
+•  OSGeo4W Shell
+•  QGIS Browser with GRASS
+•  QGIS Browser
+•  QGIS Desktop with GRASS
+•  QGIS Desktop
+•  Qt Designer with QGIS custom widgets
+•  SAGA GIS

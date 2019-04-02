@@ -1,0 +1,110 @@
+name: doyin-elugbadebo-website
+output_dir: '.'
+toc: 3
+navbar:
+  title: eslintPurity
+  type: inverse
+  left:
+  - text: Home
+    icon: glyphicon glyphicon-home
+    href: index.html
+  - text: About Me
+    icon: glyphicon glyphicon-grain
+    href: about.html
+  - text: My Works
+    icon: glyphicon glyphicon-cog
+    href: project.html
+  - text: Tutorials
+    icon: glyphicon glyphicon-menu-hamburger
+    href: tutorial.html
+    menu:
+    - text: WEB DEVELOPMENT
+    - text: JavaScript + Its Frameworks
+      href: javascript.html
+    - text: Clojure, Golang and RoR
+      href: ror.html
+    - text: Laravel (PHP Framework)
+      href: laravel.html
+    - text: Django and Flask
+      href: django.html
+    - text: Node.js + Frameworks
+      href: nodejs.html
+    - text: '---------'
+    - text: MACHINE LEARNING
+    - text: R Statistical
+      href: r-ml.html
+    - text: Python
+      href: python-ml.html
+    - text: '---------'
+    - text: MOBILE APPS DEVELOPMENT
+    - text: ReactNative
+      href: reactnative.html
+    - text: Java Android
+      href: android.html
+    - text: '---------'
+    - text: OTHERS
+    - text: GIS and Spatial Modelling
+      href: gis.html
+    - text: Data Science
+      href: datascience.html
+    - text: Pure Tech & Random Posts
+      href: random.html
+    - text: Security, Testing, Tooling & Deployment
+      href: security.html
+    - text: Database
+      href: database.html
+  - text: Book
+    icon: glyphicon glyphicon-plane
+    href: books.html
+    menu:
+    - text: ML with SKLearn and Spark MLlib
+      href: ml_with_sklearn_and_spark_mllib.html
+    - text: Travelling into the future with Angular
+      href: travelling_into_the_future_with_angular.html
+    - text: Laravel Integrated
+      href: laravel_integrated.html
+    - text: Mastering Ruby on Rails in a Week
+      href: mastering_ruby_on_rails_in_a_week.html
+    - text: Mastering MySQL Database with PHP
+      href: mastering_mysql_database_with_php.html
+    - text: Snippets
+      href: snippets.html
+  right:
+  - text: Hire Me
+    href: https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link
+  - icon: fa-linkedin
+    href: https://www.linkedin.com/in/doyin-elugbadebo/
+  - icon: fa-twitter
+    href: https://www.twitter.com/eslintpurity
+  - icon: fa-github
+    href: https://github.com/eslintpurity
+  - icon: fa-support
+    href: https://pantheon.com/eslintpurity
+output:
+  html_document:
+    theme: united
+    highlight: textmate
+    code_folding: show
+    includes:
+      after_body:
+      - modals.rmd
+      - footer.rmd
+      - accordion.js
+      - app.js
+      - particles.js
+      - particles.json
+      - stats.js
+      - counts.js
+    css:
+    - w3.css
+    - bootstrap44.css
+    - pure.css
+    - particles.css
+    - styles.css
+    - bulma.css
+    - semantic.css
+    - foundation.css
+    - materialize.css
+    lib_dir: site_libs
+    self_contained: no
+

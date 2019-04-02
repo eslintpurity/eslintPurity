@@ -1,0 +1,374 @@
+---
+title: ""
+---
+
+<ul id="myTabs" class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true" style = "font-size: 13.5px;">Brief Intro</a></li>
+<li role="presentation" class=""><a href="#skills" role="tab" id="skills-tab" data-toggle="tab" aria-controls="skills" aria-expanded="false" style = "font-size: 13.5px;">Skills & Qualities</a></li>
+<li role="presentation" class=""><a href="#experience" role="tab" id="experience-tab" data-toggle="tab" aria-controls="experience" aria-expanded="false" style = "font-size: 13.5px;">Experience</a></li>
+<li role="presentation" class="dropdown"> <a href="#" id="project" class="dropdown-toggle" data-toggle="dropdown" aria-controls="project-contents" aria-expanded="false" style = "font-size: 13.5px;">Projects<span class="caret"></span></a>
+<ul class="dropdown-menu" aria-labelledby="project" id="project-contents">
+<li class=""><a href="#webmobileproj" role="tab" id="webmobileproj-tab" data-toggle="tab" aria-controls="webmobileproj" aria-expanded="false">Web and Mobile Apps</a></li>
+<li class=""><a href="#datascienceproj" role="tab" id="datascienceproj-tab" data-toggle="tab" aria-controls="datascienceproj" aria-expanded="false">Data Science and GIS</a></li>
+<li class=""><a href="#machinelearningproj" role="tab" id="machinelearningproj-tab" data-toggle="tab" aria-controls="machinelearningproj" aria-expanded="false">Machine Learning</a></li>
+<li class=""><a href="#opensource" role="tab" id="opensource-tab" data-toggle="tab" aria-controls="opensource" aria-expanded="false">Open Source</a></li>
+</ul>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+
+***
+
+<section itemscope itemtype='http://schema.org/Person'>
+<img itemprop='image' src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
+align='left' width="178" height="170" caption = "Freelancer" class = "img-circle img-responsive" style='margin-right:15px'>
+<p style="padding-top:10px;"><span itemprop='jobTitle'><b>Status:</b> Software Developer, Machine Learning Expert, Data Scientist, Quality Enthusiast</span>
+<br>
+<b>Website:</b> <a itemprop='url' href = "http://www.doyinelugbadebo.com">doyinelugbadebo.com</a>
+<br>
+<b>Jobs:</b> Writer <a itemprop='url' href='#'>@ALP</a>, Editor <a itemprop='url' href='#'>@Scotch.io</a>, Programmer  <a itemprop='url' href='#'>@ITHOkada</a>, Data Miner  <a itemprop='url' href='#'>@Microclipse</a>, CEO  <a itemprop='url' href='#'>@Krystallux</a></p>
+<b>Contacts:</b>
+<address itemscope itemtype='http://schema.org/PostalAddress' itemprop='address'>
+<span itemprop='postalCode'><i>Email: eslintpurity@eslintpurity.com      Mobile: 08084185154</i></span><br>
+<a href = "http://www.linkedin/elugbadebo-doyin/"><span class="label label-primary">LinkedIn</span></a>
+<a href = "http://www.twitter.com/eslintpurity/"><span class="label label-success">Twitter</span></a>
+<a href = "http://www.pantheon/elugbadebo-doyin/"><span class="label label-info">Pantheon</span></a>
+<a href = "http://www.github.com/eslintpurity/"><span class="label label-warning">Github</span></a>
+
+<span><h5><button class="w3-button w3-black w3-margin-bottom"  onclick="document.getElementsByTagName("a[href='https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link']") style = "color: blue; float: right; margin-top:-3.5%;">Business?</button></h5></span>
+</address>
+</section>
+
+</br>
+
+***
+
+**Hi, my name is Doyin Elugbadebo. I am a Software Developer and an Information Systems Practitioner** based in Lagos, Nigeria. I obtained a B.Sc. degree in System Engineering and M.Sc. Programme in Information Technology, both from the Prestigious University of Lagos, Akoka, Yaba, Nigeria. I maintain multidisciplianry roles including the CEO of [Krystallux Optimum Systems](http://krystallux.com.ng), an App Architect at [Krystalnet Technology Solutions](http://krystalweb.com) and principal Instructor at [Krystallux Academy](http://krystallux-academy.com). I also act as a consultant to various tech companies including - a GIS & Data Mining Expert at [Microclipse Limited](http://microclipse.com) and a Technology Expert at [Digital Hub Africa](http://digitalhubafrica.com). Learn more about me [Here](http://doyinelugbadebo.github.io).
+
+</br>
+
+<button class="btn btn-lg btn-default">[View my resume as pdf](C:\Projects\GitHub\krystallux.github.io\files\resume_doyin_elugbadebo.pdf)</button>
+
+***
+
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="skills" aria-labelledby="skills-tab">
+
+</br>
+
+#### My Qualities
+* 	Typical of my intrinsic style, I possess a vibrant business and strategic planning skills, pedagogically sound and  always strive to render a clean impact in any project involved in.
+* 	With brilliant adeptness for intricate designs. I carved out performance as my watchword; highly innovative, love teamwork zealotry and can dynamically work efficiently under little or no supervision.
+
+</br>
+
+#### My Skills
+
+* Web-scraping with BeautifulSoap, Scrapy and Selenium
+* Years of hand-on experience with Microsoft office packages (Word, Excel, PowerPoint & Visio)
+* Excellent Quality Assurance skills, including Six Sigma, PDCA, KPIs, Continuous Improvement and Lean Manufacturing
+* Exquisite expertise in Geographic Information System (GIS) Modelling using R, Geoda, ArcGIS & Phyton. Usage areas include spatial econometrics, geospatial modelling, thematic mapping, geo-referencing and network analysis.
+* Strong proficiency with latest web technologies such as: HTML5, CSS3, EcmaScript and its Frameworks (*AngularJS, React, EmberJS and Vue.JS*), PHP, Ruby on Rails and content management systems in the likes of wordpreess, joomla, magento and drupal.
+* Hands-on experience with Project Management PRINCE-2 and Microsoft Project Professional
+* Brilliant hands-on expertise in analyzing, estimating, simulating, modeling and forecasting of statistical/big data analytics and Bayesian statistics using tools like R Statistical, Phyton, openBUGs, winBugs, MATLAB, SmartPLS and ArcGIS.
+
+</br>
+
+<button class="btn btn-lg btn-default">[View my resume as pdf](C:\Projects\GitHub\krystallux.github.io\files\resume_doyin_elugbadebo.pdf)</button>
+
+</div>
+
+
+<div role="tabpanel" class="tab-pane fade" id="experience" aria-labelledby="experience-tab">
+
+</br>
+
+#### Work eXperience
+
+Infosys (A Multimedia ICT Development Company), Benin City, Edo State. Nigeria. [March 2014 - January 2017]
+
+**Job Title:** Front End Developer/Business Intelligence Analyst
+
+**Job Roles:**
+
+* Designed, tested and deployed web-based applications using python and PHP language.
+* Documented and tracked the status of project's milestones, challenges, and alternative resolutions to provide management with useful and accurate operational data.
+* Liaised extensively with internal and external clients
+* Determined and negotiated in-house quality procedures, standards and/or specifications
+
+**Technologies:** MS Office Suite, Laravel, Django, PHP, MySQL, MATLAB, Phyton,  Microsoft Visio and SmartPLS
+
+**Achievements:**
+
+* Introduced requirement analysis into every major project won by the company by implementing top-notch industry-based techniques including three-tier architectural designs, the concept of activity timelines (Gantt), net maps, interoperability, maintainability and extensibility. With these procedures, I achieved a professional project milestone tracking and fast customer solutions. Also, the company recorded a turnover of over three hundred percent (300%) - an unprecedented feat in the history of the company.
+* Effectively managed the company web portal for upgrade and patches. Also re-branded the company global image creating a marketing social-media pages.
+* Designed, developed and implemented a first prized customized in-house calculator - A fun software development competition.
+
+</br>
+
+<div class = "row">
+<div class = "col-lg-9"><button class="btn btn-lg btn-default">[Download my resume](C:\Projects\GitHub\krystallux.github.io\files\resume_doyin_elugbadebo.pdf)</button>
+</div>
+<div class = "col-lg-"3 style = "float: right;"><a href="#webmobileproj" data-toggle="tab"><button class="w3-button w3-red w3-margin-bottom>View Projects</button></a></div>
+</div>
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="webmobileproj-tab" aria-labelledby="webmobileproj">
+
+<div class="panel panel-default">
+<!-- Default panel contents -->
+<div class="panel-heading">Web and Mobile Apps Project</div>
+<div class="panel-body">
+
+<h4 style ="line-height: 25px;">Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table readymade. </h4>
+
+<table class="table table-striped">
+<tbody>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//project-cap.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//project-cap.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+
+</br>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//project-cap.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//project-cap.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+
+</tr>
+
+</br>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//shinyapp1.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//shinyapp1.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+
+</br>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//shinyapp1.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//shinyapp1.jpg)](http://www.django.com)
+
+<h5>ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h5>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12", align = "center">
+<button class="btn btn-default btn-block"><a href "#">Load More</a></button>
+</div>
+</div>
+</div>
+<td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="machinelearningproj-tab" aria-labelledby="machinelearningproj">
+
+<div class="panel panel-default">
+<!-- Default panel contents -->
+<div class="panel-heading">Panel heading</div>
+<div class="panel-body">
+Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
+</div>
+<!-- Table -->
+<table class="table table-striped">
+<tbody>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+
+</br>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+
+</br>
+<tr>
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+<td>
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-12 col-md-12">
+[![](images//django.png)](http://www.django.com)
+
+<h6>**Description:** ethical wes anderson tofu before they sold out mcsweeney’s organic lomo retro fanny pack lo-fi farm-to-table real</h6>
+<h6>**Technologies:** Bootstrap, Joomla, Ember.JS</h6>
+<h6>**Functionalties:** Image Carousel, Ambitious Web App, PWA</h6>
+<h6>**url:** http://www.progressivewebapps.com</h6>
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="datascienceproj-tab" aria-labelledby="datascienceproj">
+
+</br>
+
+#### Opensoure Matters
+1. **Machine Learning Textbooks:** Technology has taken over and facilitates almost our everyday routines. More would be achieved through indepth research in **Machine Learning and Artificial Intelligence**. Nigerians are currently lacking in this field, even the few experts are the Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook. Two textbooks would be produced written in both [R-statistical](http://www.CRAN.org) and the [Python](http://www.python-ml.com) languages respectively. The draft of the [outline](http://www.github/codeintegral/machine-learning-textbooks/outline) has begun. it would be made an online readable version using [R-bookdown](http://www.bookdown.com) package. e-pdf and printed copies would be published using [Packt Publishing](http://www.packt.com). Please forke this page for suggestions, recommendations and contributions.
+
+2. **Machine Learning Kaggle Boilerplates:** Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook
+
+3. **Machine Learning Textbooks:** Technology has taken over and facilitates almost our everyday routines. More would be achieved through indepth research in **Machine Learning and Artificial Intelligence**. Nigerians are currently lacking in this field, even the few experts are the Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook. Two textbooks would be produced written in both [R-statistical](http://www.CRAN.org) and the [Python](http://www.python-ml.com) languages respectively. The draft of the [outline](http://www.github/codeintegral/machine-learning-textbooks/outline) has begun. it would be made an online readable version using [R-bookdown](http://www.bookdown.com) package. e-pdf and printed copies would be published using [Packt Publishing](http://www.packt.com). Please forke this page for suggestions, recommendations and contributions.
+
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="opensource-tab" aria-labelledby="opensource">
+
+</br>
+
+#### Open Source Projects
+1. **Machine Learning Textbooks:** Technology has taken over and facilitates almost our everyday routines. More would be achieved through indepth research in **Machine Learning and Artificial Intelligence**. Nigerians are currently lacking in this field, even the few experts are the Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook. Two textbooks would be produced written in both [R-statistical](http://www.CRAN.org) and the [Python](http://www.python-ml.com) languages respectively. The draft of the [outline](http://www.github/codeintegral/machine-learning-textbooks/outline) has begun. it would be made an online readable version using [R-bookdown](http://www.bookdown.com) package. e-pdf and printed copies would be published using [Packt Publishing](http://www.packt.com). Please forke this page for suggestions, recommendations and contributions.
+
+2. **Machine Learning Kaggle Boilerplates:** Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook
+
+3. **Machine Learning Textbooks:** Technology has taken over and facilitates almost our everyday routines. More would be achieved through indepth research in **Machine Learning and Artificial Intelligence**. Nigerians are currently lacking in this field, even the few experts are the Academicians focusing mainly on the theoretical aspect of machine learning. I therefore came up with the idea of helping more Nigerians embrace and follow this near futuristic field by producing a more practically oriented Machine Learning textbook. Two textbooks would be produced written in both [R-statistical](http://www.CRAN.org) and the [Python](http://www.python-ml.com) languages respectively. The draft of the [outline](http://www.github/codeintegral/machine-learning-textbooks/outline) has begun. it would be made an online readable version using [R-bookdown](http://www.bookdown.com) package. e-pdf and printed copies would be published using [Packt Publishing](http://www.packt.com). Please forke this page for suggestions, recommendations and contributions.
+
+</div>
+</div>
+

@@ -1,0 +1,31 @@
+---
+title: "Travelling with Angular"
+author: "Doyin"
+date: "September 21, 2018"
+output: html_document
+---
+
+Eloquent Laravel (Build a cutting edge App with Laravel 5.7) Building a Cinema Booking System
+Practical PostgreSQL for Laravel Developers (Build a cutting edge App with Laravel 5.7) Building as Hotel Reservation Site System
+Practical MongoDB for Laravel Developers (Build a cutting edge App with Laravel 5.7) Building an Online Learning Platform 
+MongoDB Recipes for Fullstack Developers (Solving Tommorrows Problem Today)
+Mind Taming for Software Developers
+The Reciprocity Law for Software Developers
+Freelancer Cookbook
+Laravel Visa
+
+**The Innocent Challenger** Challenger to Exploring the Next Galaxy by Twin Brother Vincyl
+
+**A Pinhole in the Mind** Extrapolating the Natural Talents within you. How could he be helped. Sees and heard aliens everytime
+
+**I Missed the Sunrise (Exploring the Rudtelege Planet)**
+
+A lone stranger that inadvertently sends back a message to himself through a mirage from another planet. How did he get there in the first place?. A Fictitious Book on how a lonely developer worked up only to find himself in a strange land filled with mind blowing fantasies. He got wraped up in his mind only to discover he was the only one ever to walk the planet. Yet the envirnment and teh surrouding supplied him with everything you could ever wished for. High towing buildings with rails passing though buildings. Fresh vegetations, cool birds singing but he couldn't see them. 
+
+It was a technology that was used on him to find himself in a virtual reality only never to come back again. He was programmed to figure out, if he got to a level, he would know he was in a virtual environment, but couldn;t return to the land of the living. Not anymore. A mad programmer inadvetently secretly carried out a research on virtual environemnt but failed to profer a solution to  recapturing him back. 
+
+No reflection, no reminding of where he came from. He couldn't even see himself. If he look, he only see buildings and other things around him. He tried as much as possible echoing through the dark forest of Jugunxy. He was still alone. What could have gone wrong? Was his mind playing throughs on him? Was he captured by aliens? Did he created or carved out his own universe? he he in a parallel universe or Was it a dream?...Find out in this adventurous book in I missed the sunrise.
+
+**The Channel**
+
+A black hole inadvertently discoverd by a scientist in meeting the aliens. Only Three exists in the world.He got empowered and brought  new changes to the world in agreemnt to discoverd by scientist to feed the world. 

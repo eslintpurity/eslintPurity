@@ -1,0 +1,15 @@
+<div class="container-fluid" style= "background-size: cover; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 4%;">
+<hr class"light" margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 5%; padding-bottom: 4%;">
+<div class="row">
+<div class="col-lg-6 col-md-6">
+© 2017-2018 Doyin Elugbadebo. Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>. Source available on <a href = "https://github.com/eslintpurity/krystallux.github.io">Github</a>
+</div>
+<div class="col-lg-2 col-md-2"></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">About</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Contact</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Pantheon</a></div>
+<div class="text-center col-lg-1 col-md-1"><a href = "#" style="color: teal; font-size: 12.5px;">Opensource</a></div>
+</div>
+</div>
+
+

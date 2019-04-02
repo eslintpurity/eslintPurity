@@ -1,0 +1,86 @@
+---
+output:
+  html_document:
+    theme: united
+---
+
+<div class="jumbotron w3-padding-32" style="background-size: cover; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 8.5%; padding-bottom: 7.5%; margin-bottom:3px;">
+<header class="masthead text-white text-center">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-xl-9 mx-auto">
+<h2 class="w3-wide" style ="color:teal; font-size: 50px;">Generators and Random Posts</h2>
+<h4 class="w3-opacity" style ="font-size: 15px; color:red;">Carefully crafted for you</h4>
+</div>
+<div class = "row">
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Author: DOYIN-ELU</h4></div>
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Editor: AMANDA VISCOTTI</h4></div>
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Credits: DOYIN-ELU</h4></div>
+</div>
+</div>
+</div>
+<header>
+</div>
+<div class="row">
+<span class="col-xl-12 mx-auto" style =  "color:#f1f1f1;">       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</span>
+</div>
+
+<div class ="container-fluid">
+<div class = "row">
+<div class="col-lg-6 col-md-6">
+<a href = "datascience.html"><button class="btn btn-default btn-block" style = "float:left;"><span style = "float:left; color: white;"><<- Previous Module</span></button></a>
+</div>
+<div class="col-lg-6 col-md-6">
+<a href = "security.html"><button class="btn btn-default btn-block"><span style = "float:right; color: white;">Next Module->></span></button></a>
+</div>
+</div>
+</div>
+
+***
+
+Listed below are interactive **Python tutorials.** More will be added as time goes on. Kindly leave you comments at the end of each tutorial. Thanks. 
+
+<br>
+
+<div class="container-fluid">
+<div class="row">
+<div class = "col-lg-3 col-md-3">
+![](images//historian3.png)
+</div>
+<div class = "col-lg-9 col-md-9">
+DOYIN ELUGBADEBO
+<div style = "color:#3388cd; font-size:20.5px;">Using Geospatial Data to Inform Historical Research in R</DIV>
+
+In this lesson, you will use R-language to analyze and map geospatial data. It is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
+</div>
+</div>
+
+***
+
+<div class="row">
+<div class = "col-lg-3 col-md-3">
+![](images//historian1.png)
+</div>
+<div class = "col-lg-9 col-md-9">
+JACOB W. GREENE<br>
+<div style = "color:#3388cd; font-size:20.5px;">Creating Mobile Augmented Reality Experiences in Unity</div>
+
+This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
+</div>
+</div>
+
+***
+
+<div class="row">
+<div class = "col-lg-3 col-md-3">
+![](images//historian2.png)
+</div>
+<div class = "col-lg-9 col-md-9">
+AMANDA VISCOTTI<br>
+<div style = "color:#3388cd; font-size:20.5px;">Creating Mobile Augmented Reality Experiences in Unity</div>
+
+This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet
+</div>
+</div>
