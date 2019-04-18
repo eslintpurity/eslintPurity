@@ -4,7 +4,7 @@ output:
   html_document:
     highlight: textmate
 ---
-<div class="container-fluid" style = "background-image: linear-gradient(to bottom right,#fe2f3 0,#fef485 100%); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color:  #85929E; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-bottom: 4%;" id ="javascript-js">
+<div class="container-fluid" style = "background-image: linear-gradient(to bottom right,#fe2f3 0,#fef485 100%); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color:  #85929E; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-bottom: 4%;">
 <div class = "row"> 
 <span class="label label-default">JavaScript</span>
 <span class="label label-success">Laravel</span>
@@ -18,8 +18,8 @@ output:
 <span class="label label-warning">Biz Analytics</span>
 <span class="label label-default">Data Mining</span>
 <span class="label label-success">React</span>
-<span class="label label-info">Golang</span>
 <span class="label label-info">Deep Learning</span>
+<span class="label label-info">Golang</span>
 <span class="label label-default">QGIS</span>
 <span class="label label-primary">Tensorflow</span>
 <span class="label label-success">Flask</span>
@@ -33,7 +33,7 @@ output:
 <span class="label label-danger">PrismicJS</span>
 <span class="label label-warning">ArcGIS</span>
 <span class="label label-info">Spark</span>
-<span style = "color: red;"> ==>> </span> <span> <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link" style = "color: white; font-size: 10px;">[Always available]</a></span>
+<span style = "color: red;"> ><span style = "color: black;">></span>> </span> <span> <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link" style = "color: white; font-size: 10px;">[GET-IN-TOUCH]</a></span>
 </div>
 
 <a href ="https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="188" height="180" caption = "Freelancer" class="img-circle img-responsive" style="margin-top: 30px; float: right;"/>
@@ -53,11 +53,9 @@ This site showcases my [expertise](about.html), [tutorials](tutorial.html), [pas
 
 Feel free to <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">hire me</a> if you need a **Consultant or Freelancer** for your `App Development and Business Intelligence Solutions`. I posses the requisite background in various internet technologies and predictive analytics. Some of my core expertise include UI and UX Design, Big Data Analytics, Web-scraping, MVC Engineering, Virtualization, RESTful APIs Programming & Consumption, Security Engineering, Simulation, Database Management, R and Python Machine Learning, Cloud Deployment, Accessibility, Material Design Implementation and Versioning. My expertise extends also to Geographic Information Systems and <a href="http://microclipse.com/" target="_blank">Data Mining</a> related solutions. Visit <a href = "#dropdown1-tab" data-toggle="tab">Here</a> for some of my web and mobile-apps projects and <a href="#dropdown2" data-toggle="tab">Here</a> for my Interactive Analytics App written in both `python` and `R-statistical`.
 
-[http://www.indicina.co]
+**I work with diligence and alacrity with strong focus on clean service delivery; while balancing speed with quality.** Be free to view [my CV](files\doyin_elugbadebo.pdf) and [my resume](files//resume_doyin_elugbadebo.pdf) for your perusal.
 
-business linking**I work with diligence and alacrity with strong focus on clean service delivery; while balancing speed with quality.** Be free to view [my CV](files\doyin_elugbadebo.pdf) and [my resume](files//resume_doyin_elugbadebo.pdf) for your perusal.
-
-<p style = "color: purple;">Please use the guide below for easy navigation; and I do hope you find the resources on this site useful.</p>
+<p style = "colgior: purple;">Please use the guide below for easy navigation; and I do hope you find the resources on this site useful.</p>
 
 Thanks!. Looking forward to meeting you.
 
@@ -76,8 +74,8 @@ Thanks!. Looking forward to meeting you.
 </div>
 
 <div class = "text-center col-lg-3 col-md-3 mx-auto">
-<h4 class="text-center" style = "color: purple;"><a href = http//www.krystallux.com>Contact</a></h4>
-[![Contact](images//contact2.png)](http://dataclone.com)
+<h4 class="text-center" style = "color: purple;"><a href = "about.html">Contact</a></h4>
+[![Contact](images//contact2.png)](about.html)
 </div>
 
 <div class = "text-center col-lg-3 col-md-3 mx-auto">
@@ -237,11 +235,12 @@ highchart() %>% hc_title(text = "Scatter chart with size and color") %>% hc_add_
 
 ```{r, eval = FALSE}
 #A very long time ago, before the advent of men. The creator - who emerged out of time was faced with choosing
-#between another two mutually exclusive out-of-time entities. These entities came through the process of spontaneous disintegration.
-#Its the Chicken and the Egg Problem! Choose one for evolvement of other species, human inclusive.
+#between another two mutually exclusive out-of-time entities. Its the Chicken and the Egg Problem! 
+
+#Choose one for evolvement of other species, human inclusive.
 
 #How did he solve this? Could he be the very first programmer? Is the universe coded as a programmed magnet? is our 
-#thoughts even programmed?. Lets attempt solving this conundrum challenge with our recent programming skills.
+#thoughts programmed?. Lets attempt solving this conundrum with our recent programming skills.
 ```
 
 <button class="accordion">Click to see the solution  </button>
@@ -333,7 +332,6 @@ MOST READ ARTICLES
 </div>
 </div>
 </div>
-
 
 </div>
 </div>

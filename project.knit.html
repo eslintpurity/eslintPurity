@@ -9,23 +9,23 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Doyin" />
 
-<meta name="date" content="2018-09-21" />
 
-<title>Laravel Integrated</title>
+<title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -175,6 +175,101 @@ $(document).ready(function () {
 </script>
 
 
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -347,31 +442,54 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Laravel Integrated</h1>
-<h4 class="author"><em>Doyin</em></h4>
-<h4 class="date"><em>September 21, 2018</em></h4>
 
 </div>
 
 
-<p><a href="https://twitter.com/EmekaOkoye" class="uri">https://twitter.com/EmekaOkoye</a></p>
-<p><a href="https://www.xvideos.com/video43207703/i_fucked_a_kinky_slut_and_i_cummed_in_her_fat_pussy" class="uri">https://www.xvideos.com/video43207703/i_fucked_a_kinky_slut_and_i_cummed_in_her_fat_pussy</a></p>
-<p><a href="https://netrewrite.com/posts/static-site-hugo-aws/" class="uri">https://netrewrite.com/posts/static-site-hugo-aws/</a></p>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="laravel_integrated_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<p></br></p>
+<div id="web-and-mobile-app-technologies" class="section level2">
+<h2><strong>Web and Mobile App Technologies</strong></h2>
+<p>Listed below are application types I major in with link to some completed projects.</p>
+<ul>
+<li>Single Page/Progressive Web Applications (SPA/PWA)</li>
+<li>Database Driven Apps (e-commerce, Hotel, Job and forum discussion board)</li>
+<li>College and University Portal System with Payment Gateway Integration</li>
+<li>Content Management Systems</li>
+<li>In addition, I offer Business Rebrading, Digital Marketing Integration and cloud deployment services</li>
+</ul>
+<button class="w3-button w3-black w3-margin-bottom">
+<a href="about.html#webmobileproj">view projects</a>
+</button>
+<p></br></p>
+</div>
+<div id="data-science-and-modelling" class="section level2">
+<h2><strong>Data Science and Modelling</strong></h2>
+<p>You can use flexdashboard to publish groups of related data visualizations as a dashboard. A wide variety of components:</p>
+<ul>
+<li>Apache spark to perform numerous dig data analytics including clustering and hiving</li>
+<li>Requisite experitise in Econometrics and Financial analysis</li>
+<li>Tabular data (with optional sorting, filtering, and paging).</li>
+<li>Value boxes for highlighting important summary data.</li>
+<li>Gauges for displaying values on a meter within a specified range.</li>
+</ul>
+<button class="w3-button w3-black w3-margin-bottom">
+<a href="about.html">view projects</a>
+</button>
+<p></br></p>
+</div>
+<div id="machine-learning" class="section level2">
+<h2><strong>Machine Learning</strong></h2>
+<p>You can use flexdashboard to publish groups of related data visualizations as a dashboard. A wide variety of components:</p>
+<ul>
+<li>Interactive JavaScript data visualizations based on htmlwidgets.</li>
+<li>R graphical output including base, lattice, and grid graphics.</li>
+<li>Tabular data (with optional sorting, filtering, and paging).</li>
+<li>Value boxes for highlighting important summary data.</li>
+<li>Gauges for displaying values on a meter within a specified range.</li>
+</ul>
+<button class="w3-button w3-black w3-margin-bottom">
+<a href="about.html#machinelearningproj">view projects</a>
+</button>
 </div>
 
 
@@ -649,6 +767,8 @@ console.log(`${zeroPad(pigs, 3)} Pigs`);
 </script>
 
 
+</div>
+</div>
 
 </div>
 

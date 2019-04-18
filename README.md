@@ -1,3 +1,5 @@
 # krystallux.github.io
 
-My personal website that showcases my expertise, learning tutorials, hobbies and general IT consultancy
+This is a professional site that showcases my expertise, tutorials, past and current projects, my books, links to External Projects and third party resources.
+
+Feel free to hire me if you need a Consultant or Freelancer for your App Development and Business Intelligence Solutions. I posses the requisite background in various internet technologies and predictive analytics. Some of my core expertise include UI and UX Design, Big Data Analytics, Web-scraping, MVC Engineering, Virtualization, RESTful APIs Programming & Consumption, Security Engineering, Simulation, Database Management, R and Python Machine Learning, Cloud Deployment, Accessibility, Material Design Implementation and Versioning. My expertise extends also to Geographic Information Systems and Data Mining related solutions. Visit Here for some of my web and mobile-apps projects and Here for my Interactive Analytics App written in both python and R-statistical.

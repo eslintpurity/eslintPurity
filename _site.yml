@@ -90,21 +90,9 @@ output:
       - modals.rmd
       - footer.rmd
       - accordion.js
-      - app.js
-      - particles.js
-      - particles.json
-      - stats.js
-      - counts.js
     css:
     - w3.css
-    - bootstrap44.css
-    - pure.css
-    - particles.css
     - styles.css
-    - bulma.css
-    - semantic.css
-    - foundation.css
-    - materialize.css
     lib_dir: site_libs
     self_contained: no
 

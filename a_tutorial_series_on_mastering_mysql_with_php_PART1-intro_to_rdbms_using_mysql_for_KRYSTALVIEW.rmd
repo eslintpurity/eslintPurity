@@ -7,7 +7,6 @@ output:
     toc_float: TRUE
     theme: united
 ---
- 
 **Disclaimer:** This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to eslintpurity@gmail.com or use the comment section below. <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">Connect with me</a> for consultancy or freelancing jobs. 
 
 <div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;margin-bottom: 1%;"><div class="row"><div class="col-lg-2"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/></div>
@@ -43,7 +42,6 @@ output:
 ## <span style = "color: purple;">Introduction</span>
 
 ***
-Good dataset Repository [https://free.facebook.com/groups/1345389425507647?view=permalink&id=2098852870161295&refid=7&_ft_=qid.6648643379543090859%3Amf_story_key.3952292454225113518%3Atop_level_post_id.2098852870161295%3Acontent_owner_id_new.1596930780%3Asrc.22%3Astory_location.5&__tn__=%2AW-R]
 
 Are you a web developer desiring to learn MySQL and MariaDB fast?
 
@@ -456,22 +454,22 @@ In this chapter, we learned how to use partitioning to optimize very big tables.
 </div>
 </div>
 
-<br>
-
-<span style = "font-size: 24px; color: purple">About the Author<span>
+</br>
 
 ***
 
-<section>
 <div class = "alert alert-info">
-<div>
+<div class="row">
+<div class="col-lg-2 col-md-2">
 <img src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
-float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Deep_Learning_Practitioner"  class = "img-circle img-responsive" style="padding-top: 20px; padding-bottom: 20px; padding-right: 20px; padding-left: 20px;">
+float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Deep_Learning_Practitioner" class = "img-circle img-responsive" style="padding-top: 3px; padding-bottom: 2px; padding-right: 2px; padding-left: 5px;">
+</div>
 
-<h3 style = "font-size: 20px;">About the Author</h3>
-<p style="padding-top:10px;"><span><b>Doyin Elugbadebo:</b></span> Doyin is a Software Developer and Deep Learning Practitioner <span><a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a></span>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">He is a lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span> </div>
-<div>
-He can be reached via: <span style = "color: purple; font-size:10px;">Email: </span>eslintpurity@gmail.com --|-- <span style = "color: purple; font-size:10px;">Mobile: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](http"//ww.doyinelugbadebo.com")
+<div class="col-lg-10 col-md-10">
+<h3 style = "font-size: 19px;">About the Author</h3>
+<span><span style ="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span> 
+
+Reach him via: <span style = "color: purple; font-size:10px;">Email: </span>eslintpurity@gmail.com --|-- <span style = "color: purple; font-size:10px;">Whatzapp: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](https://doyinelugbadebo.com)
 <br>
 <span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span>
 <span class="label label-success" style = "color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span>
@@ -479,4 +477,4 @@ He can be reached via: <span style = "color: purple; font-size:10px;">Email: </s
 <span class="label label-warning" style = "color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span>
 </div>
 </div>
-</section>
+</div>
