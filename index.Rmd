@@ -205,7 +205,8 @@ highchart() %>% hc_title(text = "Scatter chart with size and color") %>% hc_add_
 <div class = "row"  style="margin-top: 25px;">
 <div class="alert alert-info" style="padding-top: 3%;>
 
-<h4 class = "text-center" style = "font-size: 16px; color: purple;">Please dont hesitate to <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementsByTagName("a[href='https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link']")>Hire Me</button> for your next project...</h4>
+<h4 class = "text-center" style = "font-size: 16px; color: purple;">Please dont hesitate to <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link"><button class="w3-button w3-black w3-margin-bottom" style = "margin-top: 1.3%;">Hire Me</button></a> for your next project...</h4>
+
 </div>
 </div>
 </section>
@@ -221,7 +222,21 @@ highchart() %>% hc_title(text = "Scatter chart with size and color") %>% hc_add_
 <h4 style="color: #194560;line-height: 22.5px;">With technology; *we hold the long-aged mantle to change the course of our events.* **Machine Learning, MVC Engineering, Telemedicine, Web 2.0** and **Artificial Intelligence** are all we got to redirect our future for the better. Be Part!!!</h4>
 </br>
  
-<a href = "#" onclick="document.getElementById('subscribeModal').style.display='block'" style = " "><button class="w3-button w3-large w3-block w3-round w3-khaki w3-ripple">Subscribe for my weekly tutorials</button></a>
+<!-- Begin Mailchimp Signup Form -->
+
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
 
 </div>
 </div>
