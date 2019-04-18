@@ -30,7 +30,7 @@ align='left' width="178" height="170" caption = "Freelancer" class = "img-circle
 <b>Jobs:</b> Writer <a itemprop='url' href='#'>@ALP</a>, Editor <a itemprop='url' href='#'>@Scotch.io</a>, Programmer  <a itemprop='url' href='#'>@ITHOkada</a>, Data Miner  <a itemprop='url' href='#'>@Microclipse</a>, CEO  <a itemprop='url' href='#'>@Krystallux</a></p>
 <b>Contacts:</b>
 <address itemscope itemtype='http://schema.org/PostalAddress' itemprop='address'>
-<span itemprop='postalCode'><i>Email: eslintpurity@eslintpurity.com      Mobile: 08084185154</i></span><br>
+<span itemprop='postalCode'><i>Email: eslintpurity@eslintpurity.com      Whatzapp: 08084185154</i></span><br>
 <a href = "http://www.linkedin/elugbadebo-doyin/"><span class="label label-primary">LinkedIn</span></a>
 <a href = "http://www.twitter.com/eslintpurity/"><span class="label label-success">Twitter</span></a>
 <a href = "http://www.pantheon/elugbadebo-doyin/"><span class="label label-info">Pantheon</span></a>
