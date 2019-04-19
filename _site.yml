@@ -87,7 +87,9 @@ output:
     highlight: textmate
     code_folding: show
     includes:
-      before_body: google_adsense.js
+      before_body:
+      - google_analytics.js
+      - google_adsense.js
       after_body:
       - modals.rmd
       - accordion.js
