@@ -1,6 +1,7 @@
 name: doyin-elugbadebo-website
 output_dir: '.'
 toc: 3
+google_analytics: UA-138610757-1
 navbar:
   title: eslintPurity
   type: inverse
@@ -86,10 +87,12 @@ output:
     highlight: textmate
     code_folding: show
     includes:
+      before_body: google_adsense.js
       after_body:
       - modals.rmd
-      - footer.rmd
       - accordion.js
+      - footer.rmd
+      - disqus.js
     css:
     - w3.css
     - styles.css

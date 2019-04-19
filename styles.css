@@ -1,4 +1,12 @@
-
+.footer-sticky {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #eeeeee;
+  color: white;
+  text-align: center;
+}
 
 /*Font-awesome integration*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
@@ -74,8 +82,6 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
     float: right;
     margin-left: 5px;
 }
-
-
 
 .tooltip {
     background-color: #777;
