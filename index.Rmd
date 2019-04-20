@@ -211,7 +211,7 @@ highchart() %>% hc_title(text = "Scatter chart with size and color") %>% hc_add_
 </div>
 </section>
 <section>
-<div class="container-fluid" style= "background-image: url('images/Lighthouse.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: #ddd; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 6%; padding-bottom: 7%;">
+<div class="container-fluid" id = "grid" style= "background-image: url('images/Lighthouse.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-color: #ddd; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 6%; padding-bottom: 7%;">
 <div class="row">
 <div class = "col-lg-6 col-md-6">
 ![](images//re-engineering.png)
