@@ -1,6 +1,5 @@
 
-git add .
-git <!-- FAQ MODAL -->
+<!-- FAQ MODAL -->
 
 <div id="faqModal" class="modal fade" tabindex="-1" role="dialog">
 <div class="modal-dialog modal-lg">

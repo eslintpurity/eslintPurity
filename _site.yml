@@ -93,8 +93,8 @@ output:
       after_body:
       - modals.rmd
       - accordion.js
+      - adsense_subscript.rmd
       - footer.rmd
-      - disqus.js
     css:
     - w3.css
     - styles.css

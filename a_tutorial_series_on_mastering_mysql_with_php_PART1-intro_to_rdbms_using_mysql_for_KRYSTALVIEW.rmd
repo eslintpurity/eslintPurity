@@ -3,7 +3,7 @@ title: "MySQL and MariaDB Tutorial"
 output: 
   html_document:
     toc: yes
-    toc_depth: 4
+    toc_depth: 5
     toc_float: TRUE
     theme: united
 ---
@@ -42,6 +42,14 @@ output:
 ## <span style = "color: purple;">Introduction</span>
 
 ***
+
+<div class="text-center">
+
+![](images//adsense_small.jpg)
+
+</div> 
+
+<br>
 
 Are you a web developer desiring to learn MySQL and MariaDB fast?
 
@@ -113,6 +121,14 @@ SELECT * FROM customer WHERE customerFirstName = 'Doyin';
 Explaining this in English means **"select all fields from the customer table having Doyin as firstname"** or **"if Doyin is customer's first name, then select all fields from customer table."**. Don't worry, all these would be blown open as we progress in the tutorial. 
 
 Without further ado, lets dig into our Cinema Database System.
+
+<br>
+
+<div class="text-center">
+
+![](images//adsense_small.jpg)
+
+</div> 
 
 <br>
 
@@ -466,8 +482,8 @@ float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Dee
 </div>
 
 <div class="col-lg-10 col-md-10">
-<h3 style = "font-size: 19px;">About the Author</h3>
-<span><span style ="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span> 
+<p style = "font-size: 19px;">About the Author<span style = "float:right; font-size: 12.5px; color: red;padding-left: -12%;">Hire</span></p>
+<span><span style ="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Freelancer, Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span> 
 
 Reach him via: <span style = "color: purple; font-size:10px;">Email: </span>eslintpurity@gmail.com --|-- <span style = "color: purple; font-size:10px;">Whatzapp: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](https://doyinelugbadebo.com)
 <br>
@@ -478,3 +494,28 @@ Reach him via: <span style = "color: purple; font-size:10px;">Email: </span>esli
 </div>
 </div>
 </div>
+
+<!--Beginning Disqus-->
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://eslintpurity.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<!--End Disqus-->

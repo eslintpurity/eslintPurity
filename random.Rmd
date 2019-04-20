@@ -40,7 +40,11 @@ output:
 
 ***
 
-Listed below are interactive **Python tutorials.** More will be added as time goes on. Kindly leave you comments at the end of each tutorial. Thanks. 
+<div class="text-center">
+
+![](images//adsense_small.jpg)
+
+</div>
 
 <br>
 
