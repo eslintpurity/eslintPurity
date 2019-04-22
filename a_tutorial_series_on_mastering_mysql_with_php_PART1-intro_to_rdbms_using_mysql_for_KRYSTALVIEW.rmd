@@ -225,6 +225,7 @@ By the end of this lesson you will be able
 
 To be a proficient Database Administrator, you need to master using the Command prompt.  You need lots of interactions with the CLI, thus you will need to know how to use it. For the beginners, a command line promt is a window that allows you write you code from a terminal rather from a GUI like XAMPP. One good one comes installed with XAMPP. Its basic and not intuitive,  though its powrefuul and would love the ssame thing expensives one. But getting a fancy commad line prompt would surely enhace your productivity. A good one I found is called MySQL shell. Visit here to download it. 
 
+<br>
 
 ### Summary of Database Terms
 
@@ -265,6 +266,8 @@ Referential Integrity | This term refers to ensuring all foreign key values poin
 
 There are three main ways in which you can interact with MySQL: using a command line, via a web interface such as phpMyAdmin, and through a programming language like PHP, Node.js and python. We'll use the first two in the few series before we move to the last one.
 
+<br>
+
 ### Accessing MySQL via the Command Line
 
 ***
@@ -294,6 +297,8 @@ mysql -u KrystalviewManager -p -h @127.036738.037 KrystalviewDB
 The semicolon
 
 Let’s start with the basics. Did you notice the semicolon (;) at the end of the SHOW databases; command that you typed? The semicolon is used by MySQL to separate or end commands. If you forget to enter it, MySQL will issue a prompt and wait for you to do so. The required semicolon was made part of the syntax to let you enter multipleline commands, which can be convenient because some commands get quite long. It also allows you to issue more than one command at a time by placing a semicolon after each one. The interpreter gets them all in a batch when you press the Enter (or Return) key and executes them in order.
+
+<br>
 
 ## MySQL Commands
 
@@ -335,6 +340,8 @@ What this does is allow the user jim@localhost full access to the publications d
 ```{r, eval = FALSE}
 -u root -p, type -u jim -p, or whatever username you created.
 ```
+
+<br>
 
 ### Accessing MySQL using phpMyAdmin
 
@@ -393,6 +400,8 @@ mysql> DESCRIBE classics;
 +------------------+----------------+-------+------+----------+--------+
 4 rows in set (0.00 sec)
 ```
+
+<br>
 
 ### Creating table using phpMyAdmin
 

@@ -36,7 +36,7 @@ output:
 <a href = "laravel.html"><button class="btn btn-default btn-block"><span style = "float:right; color: white;">Next Module ->></span></button></a>
 </div>
 </div>
-</div>
+
 
 ***
 
@@ -48,7 +48,6 @@ output:
 
 <br>
 
-<div class="container-fluid">
 <div class="row">
 <div class = "col-lg-3 col-md-3">
 ![](images//historian3.png)
@@ -57,7 +56,7 @@ output:
 DOYIN ELUGBADEBO
 <div style = "color:#3388cd; font-size:20.5px;">Make an Instangram Like Site with Ruby on Rails</div>
 
-In this lesson, you will use R-language to analyze and map geospatial data. It is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem.
 </div>
 </div>
 
@@ -70,22 +69,7 @@ In this lesson, you will use R-language to analyze and map geospatial data. It i
 <div class = "col-lg-9 col-md-9">
 JACOB W. GREENE<br>
 <div style = "color:#3388cd; font-size:20.5px;">A Simple Stripe Online Payment Integration in Ruby on Rails</div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem. 
 </div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian2.png)
-
-</div>
-<div class = "col-lg-9 col-md-9">
-AMANDA VISCOTTI<br>
-<div style = "color:#3388cd; font-size:20.5px;">Creating a Bootstrapped Login and Sign-up App with Ruby on Rails</div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet
 </div>
 </div>

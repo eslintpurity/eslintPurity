@@ -65,34 +65,6 @@ In this lesson, you will use R-language to analyze and map geospatial data. It i
 
 <div class="row">
 <div class = "col-lg-3 col-md-3">
-![](images//historian1.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART2-designing_database_tables.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian2.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-AMANDA VISCOTTI<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART3-mysql-database-query.html">Using Geospatial Data to Inform Historical Research in R</a></div> 
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
 ![](images//re-engineering.png)
 </div>
 <div class = "col-lg-9 col-md-9">
@@ -100,18 +72,6 @@ CYNTHIA MORGAN<br>
 <div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART4-mysql_operations_filtering_sorting_joining.html">Using Geospatial Data to Inform Historical Research in R</a></div>
 
 This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.). 
-</div>
-</div>***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian2.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART5-mysql_transactions.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
 </div>
 </div>
 
@@ -143,115 +103,5 @@ This lesson serves as an introduction to creating mobile augmented reality appli
 </div>
 </div>
 
-***
 
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian1.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-AMANDA VISCOTTI<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-CYNTHIA MORGAN<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.). 
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//re-engineering.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:18.5px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
 </div>

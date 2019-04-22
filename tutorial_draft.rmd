@@ -1,7 +1,0 @@
----
-title: "Tutorial Draft"
-author: "Doyin"
-date: "July 26, 2018"
-output: html_document
----
-

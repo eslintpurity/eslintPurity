@@ -62,14 +62,6 @@ navbar:
       href: ml_with_sklearn_and_spark_mllib.html
     - text: Travelling into the future with Angular
       href: travelling_into_the_future_with_angular.html
-    - text: Laravel Integrated
-      href: laravel_integrated.html
-    - text: Mastering Ruby on Rails in a Week
-      href: mastering_ruby_on_rails_in_a_week.html
-    - text: Mastering MySQL Database with PHP
-      href: mastering_mysql_database_with_php.html
-    - text: Snippets
-      href: snippets.html
   right:
   - text: Hire Me
     href: https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link
