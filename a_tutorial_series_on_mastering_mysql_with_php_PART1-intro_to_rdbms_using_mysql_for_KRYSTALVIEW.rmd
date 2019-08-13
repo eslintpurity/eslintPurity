@@ -14,24 +14,18 @@ output:
 <span style = "font-size: 13.5px; padding-top:100px;">Series: Designing a Cinema Management System with MariaDB and PHP - PART 1</span><span style = "float:right;"> Author: <a href = "about.html"><span style = "color:#3e51ff;">Doyin-Elugbadebo</span><a><span></div></div>
 </div>
 <div class="row">
-<div class="col-xl-12 mx-auto" style = "margin-right: 1.61%; margin-left: 1.61%;"><span style =  "color:#38c7d8; float: left">WRITTEN: 27th August, 2017&nbsp;</span> <span style =  "color:#f1f1f1;">///////////////////////////////////////-()-/////////////////////////////////////////</span><span style =  "color:#38c7d8; float: right;"> MODIFIED: 30th July, 2018</span>
+<div class="col-xl-12 mx-auto" style = "margin-right: 1.61%; margin-left: 1.61%;"><span style =  "color:#38c7d8; float: left">WRITTEN: 21th December, 2018&nbsp;</span> <span style =  "color:#f1f1f1;">///////////////////////////////////////-()-/////////////////////////////////////////</span><span style =  "color:#38c7d8; float: right;"> MODIFIED: 30th March, 2019</span>
 </div>
 </div>
 
 <button class="accordion">Outline</button>
 <div class="panel-accordion">
-
-- Introduction</br>
-- Requirement Analysis</br>
-- Objectives</br>
-- Installation</br>
-  -- Requirements</br>
-  -- Installing pip, virtualenv and virtualenvwrapper</br>
-  -- Installing Flask</br>
-  -- Launching Flask</br>
-- Templating</br>
-- Conclusion</br>
-- Resources
+<p style ="line-height:27px;font-size:16px;">
+This is an entry level tutorial, you are expected to have a basic idea of the following
+- Node.js
+- Packman
+- Linter
+- Boostman
 </p>
 </div>
 
@@ -65,9 +59,9 @@ Are you a web developer desiring to learn MySQL and MariaDB fast?
 
 This is the first part in the tutorial series: **Designing a Cinema Management System with MariaDB and PHP.** Its a two-edged sword tutorial geared at a more friendly, easy-to-follow and practical approach in teaching MySQL and MariaDB, bridged for both beginners and advanced users. <span style = "color:#3e51ff;"> We’ll be designing, quering and administering a database system for Krystalview Galleria - A Fictitious Online Cinema Booking System.</span>
 
-Dont be scared learning two RDBMS systems at a time, its the best route to learn MariaDB while notching and using tricks from MySQL. Couldn't be better. MariaDB is a open source database management system. Infact, it's a fork (copy of base source files) of MySQL with the main goals to be compatible with MySQL, but including **new features focused on performance**. So a better way to be proficient with MariaDB may be having a good understanding of MySQL. However, both are ridicously simple as you'll see in this tutorial. 
+Dont be scared learning two RDBMS systems at a time, its the best route to learn MariaDB while notching and using tricks from MySQL. Couldn't be better. MariaDB is a open source database management system. Infact, it's a fork of MySQL with the main goals to be compatible with MySQL, but including **new features focused on performance**. So a better way to be proficient with MariaDB may be having a good understanding of MySQL. However, both are ridicously simple as you'll see in this tutorial. 
 
-For brevity, we will refer to **MariaDB exclusively** throughout this series, but the concepts and comands outlined here apply to MySQL as well.
+For brevity, we will refer to **MariaDB exclusively** throughout this series, but the concepts and commands outlined here apply to MySQL as well.
 
 
 https://www.citypopulation.de/php/nigeria-admin.php?adm2id=NGA012018
@@ -79,10 +73,9 @@ https://www.citypopulation.de/php/nigeria-admin.php?adm2id=NGA012018
 
 This series is modelled to be different from other tutorials as it facilitates gaining hands-on experience. We would incrementally build our system right from the scratch, nothing like sample data. Also, you wont be tied down to a single approach. For example, you have a liberal hand to use provided data, import your own or use a generator to populate your database. **Codes are also provided if you ever found yourself impatient typing out the scripts.**
 
-The tutorial is designed to unfold in steps, one section leading to another. More importantly, this series was modelled so that you master how to use MariaDB effectively to get your work done more productively. <span style = "color:#3e51ff;"> If you go through the entire series, you will know how to manage MariaDB databases and manipulate data using various techniques such as SQL queries, stored procedures, transactions, database views, triggers, functions and of course the seanless integratiion with our PHP programming interface. 
+The tutorial is designed to unfold in steps, one section leading to another. More importantly, this series was modelled so that you master how to use MariaDB effectively to get your work done more productively. <span style = "color:#3e51ff;"> If you go through the entire series, you will know how to manage MariaDB databases and manipulate data using various techniques such as SQL queries, stored procedures, transactions, database views, triggers, functions and of course the seamless integration with PHP programming interface. 
 
-We’ll round up the series briefly extending our database systems to other programming interfaces like Python and Node.js coupled with a brief intro to NoSQL using MongoDB. For the data scientist, we’ll connect our database design to R where different analytics would be performed. Also, The UX and Frontend Designers won’t be left out; as we would be creating our frontview using STACK of Laravel, Bulma and vue.jS. 
-
+We’ll round up the series briefly extending our database to other programming interfaces like Python and Node.js coupled with a brief intro to NoSQL using MongoDB. For the data scientist, we’ll connect our database model to R where different analytics would be performed. Also, The UX and Frontend Designers won’t be left out. Our frontend will be created using STACK of Laravel, Bulma and vue.jS. 
 <span style = "color:#3e51ff;">Database Administrators, web developers, data scientists, programmers, GIS experts or hobbyist would benefit from this series.</span>
 
 Lets get started...
@@ -486,15 +479,32 @@ In this chapter, we learned how to use partitioning to optimize very big tables.
 
 <br>
 
-<div class ="container-fluid">
-<div class = "row">
-<div class="col-lg-6 col-md-6">
-<a href = "database.html"><button class="btn btn-default btn-block" style = "float:left;"><span style = "float:left; color: white;"><<- Previous </span></button></a>
+<!-- Begin Mailchimp Signup Form -->
+
+<div class="container-fluid">
+<div class="row" class="text-center">
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+<span class="skinny-header">Get the biggest <u class="find-a-custom-link-class-name">eslintPurity</u> stories by email</span>
+	
+</br><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</div>
+</form>
+</div>
+</div>
 </div>
 
-<div class="col-lg-6 col-md-6">
-<a href = "database.html"><button class="btn btn-default btn-block"><span style = "float:right; color: white;">Next  ->></span></button></a>
-</div>
+<!--End mc_embed_signup-->
+
+***
+
+<div class ="container-fluid">
+<div class = "row text-center text-muted">
+<div><span style = "font-size:20px;"><a href = "database.html"><span class = "glyphicon glyphicon-fast-backward"></span></a>&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-backward"></span></a>&nbsp;&nbsp;<span class = "glyphicon glyphicon-cd"></span>&nbsp;&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-forward"></span></a>&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-fast-forward"></span></a></span></div>
 </div>
 </div>
 
@@ -510,18 +520,20 @@ float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Dee
 </div>
 
 <div class="col-lg-10 col-md-10">
-<p style = "font-size: 19px;">About the Author<span style = "float:right; font-size: 12.5px; color: red;padding-left: -12%;">Hire</span></p>
 <span><span style ="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Freelancer, Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span> 
 
 Reach him via: <span style = "color: purple; font-size:10px;">Email: </span>eslintpurity@gmail.com --|-- <span style = "color: purple; font-size:10px;">Whatzapp: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](https://doyinelugbadebo.com)
 <br>
 <span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span>
 <span class="label label-success" style = "color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span>
-<span class="label label-info" style = "color: white;"><a href = "http://www.pantheon/elugbadebo-doyin/" style = "color: white;">Pantheon</a></span>
 <span class="label label-warning" style = "color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span>
 </div>
 </div>
 </div>
+
+<br>
+
+<div style = "font-size:14.5px;"> If you love my content, plz consider buying me a coffea <span><script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'G2G0UIGX');kofiwidget2.draw();</script> </span><span> OR <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link"><button class="w3-button w3-black w3-margin-bottom">Hire Me</button></a> for your next project</span></div>
 
 <!--Beginning Disqus-->
 

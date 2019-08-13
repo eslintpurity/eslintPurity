@@ -1,0 +1,96 @@
+---
+title: "Data Science Tutorial"
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: TRUE
+    theme: united
+---
+ 
+***
+
+**Disclaimer:** This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to eslintpurity@gmail.com or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs. 
+
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;"><div class="row"><div class="col-lg-2"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/></div>
+<div class="col-lg-10"><h4 style = "font-size: 29px;">Build a Decision Tree Classifier in R</h4>
+<span style = "font-size: 13.5px; padding-top:100px;">Bundle for both Regression and Classification Tree (CART)</span><span style = "float:right;"> Author: <span style = "color:red;">Doyin-Elugbadebo...31st August, 2017</span><span></div></div>
+</div>
+
+<button class="accordion">Outline</button>
+<div class="panel-accordion">
+<p>
+- Intro to Decision Trees</br>
+- Advantages of method</br>
+- Disadvantages</br>
+  -- Requirements</br>
+- Recursive Partitioning Algorthms</br>
+- Algorithm pseudocode and objective</br>
+- R Example: Titanic Data
+</p>
+</div>
+
+</br>
+
+<div style = "float: right;">[[Dataset]](https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv)  [[Download full code]](http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW)</div>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+</br>
+
+## Intro to XGBoost Algorithm 
+
+***
+
+xtreme Gradient Boosting is among the hottest libraries in supervised machine learning these days. It supports various objective functions, including regression, classification, and ranking. It has gained much popularity and attention recently as it was the algorithm of choice for many winning teams of a number of machine learning competitions.
+
+What makes it so popular are its speed and performance. It gives among the best performances in many machine learning applications. It is optimized gradient-boosting machine learning library. The core algorithm is parallelizable and hence it can use all the processing power of your machine and the machines in your cluster. In R, according to the package documentation, since the package can automatically do parallel computation on a single machine, it could be more than 10 times faster than existing gradient boosting packages.
+
+xgboost shines when we have lots of training data where the features are numeric or a mixture of numeric and categorical fields. It is also important to note that xgboost is not the best algorithm out there when all the features are categorical or when the number of rows is less than the number of fields (columns).
+
+For other applications such as image recognition, computer vision or natural language processing, xgboost is not the ideal library. Do not use xgboost for small size dataset. It has libraries in Python, R, Julia, etc. In this post, we will see how to use it in R. This post is a continuation of my previous Machine learning with R blog post series. The first one is available here. Data exploration was performed in the first part, so I will not repeat it here. We will use the caret package for cross-validation and grid search
+
+</br>
+
+
+
+
+### Summary
+
+In this post, we used Extreme Gradient Boosting to predict power output. We see that it has better performance than linear model we tried in the first part of the blog post series. The RMSE with the test data decreased from more 4.4 to 2.8. See you in the next part of my machine learning blog post. Why do you have to go about your 
+
+
+### sklearn Library Installation
+
+Sklearn Library Installation
+Python’s sklearn library holds tons of modules that help to build predictive models. It contains tools for data splitting, pre-processing, feature selection, tuning and supervised – unsupervised learning algorithms, etc. It is similar to Caret library in R programming.
+
+For using it, we first need to install it. The best way to install data science libraries and its dependencies is by installing Anaconda package. You can also install only the most popular machine learning Python libraries.
+
+ 
+Last week, we learned about Random Forest Algorithm. Now we know it helps us reduce a model's variance by building models on resampled data and thereby increases its generalization capability. Good!. Now, you might be wondering, what to do next for increasing a model's prediction accuracy ? After all, an ideal model is one which is good at both generalization and prediction accuracy. This brings us to Boosting Algorithms. Developed in 1989, the family of boosting algorithms has been improved over the years. In this article, we'll learn about XGBoost algorithm. XGBoost (Extreme Gradient Boosting) is an optimized distributed gradient boosting library. Yes, it uses gradient boosting (GBM) framework at core. Yet, does better than GBM framework alone. XGBoost was created by Tianqi Chen, PhD Student, University of Washington. It is used for supervised ML problems.  Let's look at what makes it so good:
+
+XGboost - Extreme Gradient Boosting Algorithm 
+
+</br>
+
+## How does XGBoost work?
+
+***
+
+XGBoost belongs to a family of boosting algorithms that convert weak learners into strong learners. A weak learner is one which is slightly better than random guessing. Let's understand boosting first (in general). Boosting is a sequential process; i.e., trees are grown using the information from a previously grown tree one after the other. This process slowly learns from data and tries to improve its prediction in subsequent iterations. Let's look at a classic classification example:
+
+</br>
+
+
+### XGBoost parameters
+
+***
+
+* Set XGBoost parameters for cross validation and training.
+* Set a multiclass classification objective as the gradient boosting’s learning function.
+* Set evaluation metric to `merror`, multiclass error rate.
+
+</br>

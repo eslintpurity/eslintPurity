@@ -1,0 +1,349 @@
+---
+title: "Data Science Tutorial"
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: TRUE
+    theme: united
+---
+ 
+***
+
+**Disclaimer:** This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to eslintpurity@gmail.com or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs. 
+
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;"><div class="row"><div class="col-lg-2"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/></div>
+<div class="col-lg-10"><h4 style = "font-size: 29px;">Build a Decision Tree Classifier in R</h4>
+<span style = "font-size: 13.5px; padding-top:100px;">Bundle for both Regression and Classification Tree (CART)</span><span style = "float:right;"> Author: <span style = "color:red;">Doyin-Elugbadebo...31st August, 2017</span><span></div></div>
+</div>
+
+<button class="accordion">Outline</button>
+<div class="panel-accordion">
+<p>
+- Intro to Decision Trees</br>
+- Advantages of method</br>
+- Disadvantages</br>
+  -- Requirements</br>
+- Recursive Partitioning Algorthms</br>
+- Algorithm pseudocode and objective</br>
+- R Example: Titanic Data
+- Extending to the three musketiers of ML Algorithms
+</p>
+</div>
+
+</br>
+
+<div style = "float: right;">[[Dataset]](https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv)  [[Download full code]](http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW)</div>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+</br>
+
+## What is a Decision Tree?
+
+***
+
+A Decision Tree is a supervised learning predictive model that uses a set of binary rules to calculate a target value.It is used for either classification (categorical target variable) or regression (continuous target variable). Hence, it is also known as CART (Classification & Regression Trees). Some real-life applications of Decision Trees include:
+
+1. Credit scoring models in which the criteria that causes an applicant to be rejected need to be clearly documented and free from bias
+
+2. Marketing studies of customer behaviour such as satisfaction or churn, which will be shared with management or advertising agencies
+
+3. Diagnosis of medical conditions based on laboratory measurements, symptoms, or the rate of disease progression
+
+</br>
+
+## Advantages of Decision Trees
+
+*** 
+
+* Simple to understand and interpret. White box.
+* Requires little data preparation. (No need for normalization or dummy vars, works with NAs)
+* Works with both numerical and categorical data.
+* Handles nonlinearity (in constrast to logistic regression)
+* Possible to validate a model using statistical tests. Gives you confidence it will work on new data sets.
+* Robust. Performs well even if you deviate from assumptions
+* Scales to big data
+
+</br>
+
+## Limitations of Decision Trees
+
+***
+
+* Learning globally optimal tree is NP-hard, algos rely on greedy search
+* Easy to overfit the tree (unconstrained, prediction accuracy is 100% on training data)
+* Complex “if-then” relationships between features inflate tree size. eg XOR gate, multiplexor
+
+</br>
+
+## Recursive partioning algorithms have two basic steps
+
+***
+
+1. Given a subset of training data, find the best feature for predicting the labels on that subset.
+2. Find a split on that feature that best seperates the labels, and split into two new subsets
+3. Repeat steps one and two recursively until you meet a stopping criterion
+
+Search problem: Given a subset of the data, the algorithm must chose an ideal next split for that subset on one the features.
+
+</br>
+
+## Information gain is a criterion used for split search but leads to overfitting
+
+***
+
+* Let pi be the proportion of times the label of the ith observation in the subset appears in the subset.
+* Then maximize information gain IG=∑mi=1pilog2pi
+* Intuition: choose a split for a given subset that minimizes entropy in the subset's distribution of labels Caveats:
+* Cannot distinguish between statistically significant and insignificant improvements in IG, leading to overfitting.
+* For categorical features, IG biased in favor of features with more levels
+
+</br>
+
+# Conditional tree inference approach stops when splits are not statistically significant
+
+***
+
+* Using the observations in the subset, apply statistical test of independence between each feature and the labels.
+* Example for feature Xj: Null Hypothesis: (Y⊥Xj)
+* Select split on feature with lowest p-value
+* Stop recursion if no features have significant p-values.
+* R package party does permutation tests, parametric test available as well
+
+</br>
+
+# Conditional tree inference approach stops when splits are not statistically significant
+
+***
+
+* Using the observations in the subset, apply statistical test of independence between each feature and the labels.
+* Example for feature Xj: Null Hypothesis: (Y⊥Xj)
+* Select split on feature with lowest p-value
+* Stop recursion if no features have significant p-values.
+* R package party does permutation tests, parametric test available as well
+
+</br>
+
+- readr to read in the data
+- dplyr to process data
+- party and rpart for the classification tree algorithms Note dplyr imports magrittr which uses the “%>%” syntax used below. Google to learn more.
+
+```{r }
+library(readr)
+library(dplyr)
+library(party)
+library(rpart)
+library(rpart.plot)
+library(ROCR)
+```
+
+</br>
+
+# Before fitting the model, categorical features should be made into factors.
+
+***
+
+```{r, eval = FALSE}
+titanic3 <- "https://goo.gl/At238b" %>%
+  read_csv %>% # read in the data
+  select(survived, embarked, sex, 
+         sibsp, parch, fare) %>%
+  mutate(embarked = factor(embarked),
+         sex = factor(sex))
+```
+
+</br>
+
+```{r, eval = FALSE}
+library(readxl)
+library(tidyverse)
+library(xgboost)
+library(caret)
+```
+
+# Setting seed for reproducibility
+
+```{r, eval = FALSE}
+set.seed(100)  # For reproducibility
+# Create index for testing and training data
+inTrain <- createDataPartition(y = power_plant$PE, p = 0.8, list = FALSE)
+# subset power_plant data to training
+training <- power_plant[inTrain,]
+# subset the rest to test
+ testing <- power_plant[-inTrain,]
+```
+ 
+ # Specify cross-validation method and number of folds. Also enable parallel computation
+ 
+```{r, eval =FALSE}
+ xgb_trcontrol = trainControl(
+  method = "cv",
+  number = 5,  
+  allowParallel = TRUE,
+  verboseIter = FALSE,
+  returnData = FALSE
+)
+```
+
+1. **Gini Index:** It is the measure of inequality of distribution. It says if we select two items from a population at random then they must be of same class and probability for this is 1 if population is pure.
+
+* It works with categorical target variable “Success” or “Failure”.
+* It performs only Binary splits
+* Lower the value of Gini, higher the homogeneity.
+* CART uses Gini method to create binary splits.
+* Process to calculate Gini Measure:
+
+
+where P(j) is the Probability of Class j
+
+2. Entropy : Entropy is a way to measure impurity.
+
+Less impure node require less information to describe them and more impure node require more information. If the sample is completely homogeneous, then the entropy is zero and if the sample is an equally divided one, it has entropy of one. The entropty of the system is given as 
+
+$$-\sum{P\left(x\right) }\log P\left(x\right)$$
+
+3. Information Gain : Information Gain is simply a mathematical way to capture the amount of information one gains(or reduction in randomness) by picking a particular attribute.
+
+In a decision algorithm, we start at the tree root and split the data on the feature that results in the largest information gain (IG). In other words, IG tells us how important a given attribute is.
+
+Information Gain (IG) is the most significant measure used to build a Decision Tree. It indicates how much “information” a particular feature/ variable gives us about the final outcome. 
+Information Gain is important because it used to choose the variable that best splits the data at each node of a Decision Tree. The variable with the highest IG is used to split the data at the root node.
+
+The Information Gain (IG) can be defined as follows:
+  
+$$
+IG\left(D_{p} \right)=I\left(D_{p} \right)- \frac{N_{left} }{N_{p} }I\left(D_{left} \right)- \frac{N_{right} }{N_{p} }I\left(D_{right} \right)
+$$
+
+Where I could be entropy or Gini index. \left(D_{p}, \left(D_{left} and \left(D_right are the dataset of the parent, left and right child node.
+
+In R, a parameter that controls this is minbucket. The smaller it is, the more splits will be generated However, If it is too small, overfitting will occur. And, if it is too large, model will be too simple and accuracy will be poor
+
+https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv
+
+#Load the neccessary Libraries
+```{r echo=FALSE,  message=FALSE, warning=FALSE}
+library(rpart)
+library(rpart.plot)
+library(mice)
+library(here)
+```
+
+Understanding r-path   [https://blogdown-demo.rbind.io/2018/02/27/r-file-paths/]
+
+First, extract target outcome (the activity quality) from training data, so now the training data contains only the predictors (the activity monitors).
+
+
+```{r, eval =FALSE}
+path <- 'https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv'
+titanic <- read.csv(path)
+attach(titanic)
+```
+
+
+```{r}
+Advertising_1 <- read.csv(here("static", "Advertising_1.csv"))
+attach(Advertising_1)
+```
+
+
+```{r Titanic}
+head(Titanic)
+```
+
+```{r Advertising_1}
+head(Advertising_1)
+```
+
+
+### Conclusion
+
+***
+
+In this chapter, we learned how to use partitioning to optimize very big tables. We learned which partitioning types are supported by MariaDB and how to write a good partitioning expression. We examined a sample table and learned how we can benefit from different partitioning strategies. We discussed subpartitioning. We learned the SQL statements that can be used to maintain partitions. Finally, we discussed how the optimizer excludes the irrelevant partitions from a statement execution, and how the use can force the exclusive use of some partitions.In the next chapter, we will discuss how to distribute data across multiple servers.
+
+<br>
+
+<!-- Begin Mailchimp Signup Form -->
+
+<div class="container-fluid">
+<div class="row" class="text-center">
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+<span class="skinny-header">Get the biggest <u class="find-a-custom-link-class-name">eslintPurity</u> stories by email</span>
+	
+</br><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<!--End mc_embed_signup-->
+
+***
+
+<div class ="container-fluid">
+<div class = "row text-center text-muted">
+<div><span style = "font-size:20px;"><a href = "database.html"><span class = "glyphicon glyphicon-fast-backward"></span></a>&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-backward"></span></a>&nbsp;&nbsp;<span class = "glyphicon glyphicon-cd"></span>&nbsp;&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-forward"></span></a>&nbsp;<a href = "database.html"><span class ="glyphicon glyphicon-fast-forward"></span></a></span></div>
+</div>
+</div>
+
+</br>
+
+***
+
+<div class = "alert alert-info">
+<div class="row">
+<div class="col-lg-2 col-md-2">
+<img src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
+float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Deep_Learning_Practitioner" class = "img-circle img-responsive" style="padding-top: 3px; padding-bottom: 2px; padding-right: 2px; padding-left: 5px;">
+</div>
+
+<div class="col-lg-10 col-md-10">
+<span><span style ="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Freelancer, Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com">@Krystalnet Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span> 
+
+Reach him via: <span style = "color: purple; font-size:10px;">Email: </span>eslintpurity@gmail.com --|-- <span style = "color: purple; font-size:10px;">Whatzapp: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](https://doyinelugbadebo.com)
+<br>
+<span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span>
+<span class="label label-success" style = "color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span>
+<span class="label label-warning" style = "color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span>
+</div>
+</div>
+</div>
+
+<br>
+
+<div style = "font-size:14.5px;"> If you love my content, plz consider buying me a coffea <span><script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'G2G0UIGX');kofiwidget2.draw();</script> </span><span> OR <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link"><button class="w3-button w3-black w3-margin-bottom">Hire Me</button></a> for your next project</span></div>
+
+<!--Beginning Disqus-->
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://eslintpurity.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<!--End Disqus-->

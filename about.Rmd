@@ -27,7 +27,7 @@ align='left' width="178" height="170" caption = "Freelancer" class = "img-circle
 <br>
 <b>Website:</b> <a itemprop='url' href = "http://www.doyinelugbadebo.com">doyinelugbadebo.com</a>
 <br>
-<b>Jobs:</b> Writer <a itemprop='url' href='#'>@ALP</a>, Editor <a itemprop='url' href='#'>@Scotch.io</a>, Programmer  <a itemprop='url' href='#'>@ITHOkada</a>, Data Miner  <a itemprop='url' href='#'>@Microclipse</a>, CEO  <a itemprop='url' href='#'>@Krystallux</a></p>
+<b>Jobs:</b> Writer <a itemprop='url' href='#'>@ALP</a>, Programmer  <a itemprop='url' href='#'>@linkedXSolutions</a>, CEO  <a itemprop='url' href='#'>@Krystallux</a></p>
 <b>Contacts:</b>
 <address itemscope itemtype='http://schema.org/PostalAddress' itemprop='address'>
 <span itemprop='postalCode'><i>Email: eslintpurity@eslintpurity.com      Whatzapp: 08084185154</i></span><br>
@@ -48,8 +48,6 @@ align='left' width="178" height="170" caption = "Freelancer" class = "img-circle
 
 </br>
 
-<button class="btn btn-lg btn-default">[View my resume as pdf](files\resume_doyin_elugbadebo.pdf)</button>
-
 ***
 
 </div>
@@ -65,18 +63,14 @@ align='left' width="178" height="170" caption = "Freelancer" class = "img-circle
 </br>
 
 #### My Skills
-
-* Web-scraping with BeautifulSoap, Scrapy and Selenium
-* Years of hand-on experience with Microsoft office packages (Word, Excel, PowerPoint & Visio)
 * Excellent Quality Assurance skills, including Six Sigma, PDCA, KPIs, Continuous Improvement and Lean Manufacturing
-* Exquisite expertise in Geographic Information System (GIS) Modelling using R, Geoda, ArcGIS & Phyton. Usage areas include spatial econometrics, geospatial modelling, thematic mapping, geo-referencing and network analysis.
-* Strong proficiency with latest web technologies such as: HTML5, CSS3, EcmaScript and its Frameworks (*AngularJS, React, EmberJS and Vue.JS*), PHP, Ruby on Rails and content management systems in the likes of wordpreess, joomla, magento and drupal.
-* Hands-on experience with Project Management PRINCE-2 and Microsoft Project Professional
-* Brilliant hands-on expertise in analyzing, estimating, simulating, modeling and forecasting of statistical/big data analytics and Bayesian statistics using tools like R Statistical, Phyton, openBUGs, winBugs, MATLAB, SmartPLS and ArcGIS.
+* Exquisite expertise in Geographic Information System (GIS) Modelling using R, Geoda, ArcGIS & Phyton. Usage areas include spatial econometrics, geospatial modelling, and network analysis.
+* Strong proficiency with latest web technologies such as: React, AngularJS, TypeScript, Laravel e.t.c
+* Brilliant hands-on expertise in modelling, analyzing, estimating and forecasting of big data analytics and Bayesian statistics using tools like Scale R-Statistical, Phyton and openBUGs
+* Adherence to industry standards including accessibility, Web-scraping
+* Machine Learning and Deep Learning Skills
 
 </br>
-
-<button class="btn btn-lg btn-default">[View my resume as pdf](files\resume_doyin_elugbadebo.pdf)</button>
 
 </div>
 
@@ -109,8 +103,6 @@ Infosys (A Multimedia ICT Development Company), Benin City, Edo State. Nigeria. 
 </br>
 
 <div class = "row">
-<div class = "col-lg-9"><button class="btn btn-lg btn-default">[Download my resume](files\resume_doyin_elugbadebo.pdf)</button>
-</div>
 <div class = "col-lg-"3 style = "float: right;"><a href="#webmobileproj" data-toggle="tab"><button class="w3-button w3-red w3-margin-bottom>View Projects</button></a></div>
 </div>
 </div>

@@ -61,16 +61,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris ele
 
 ***
 
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian1.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:20.5px;">A Simple Stripe Online Payment Integration in Ruby on Rails</div>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. 
-</div>
-</div>
 </div>
 
 

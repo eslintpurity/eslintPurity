@@ -10,13 +10,13 @@ output:
 <div class="container">
 <div class="row">
 <div class="col-xl-9 mx-auto">
-<h2 class="w3-wide" style ="color:teal; font-size: 50px;">Ruby on Rails Tutorials</h2>
+<h2 class="w3-wide" style ="color:teal; font-size: 50px;">Flutter Tutorials</h2>
 <h4 class="w3-opacity" style ="font-size: 15px; color:red;">Carefully crafted for you</h4>
 </div>
 <div class = "row">
-<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 9px; color:teal;">Author: DOYIN-ELU</h4></div>
-<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 9px; color:teal;">Editor: AMANDA VISCOTTI</h4></div>
-<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 9px; color:teal;">Credits: DOYIN-ELU</h4></div>
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Author: DOYIN-ELU</h4></div>
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Editor: AMANDA VISCOTTI</h4></div>
+<div class = class="col-xl-3 mx-auto"><h4 class="w3-opacity" style ="font-size: 10px; color:teal;">Credits: DOYIN-ELU</h4></div>
 </div>
 </div>
 </div>
@@ -37,12 +37,10 @@ output:
 </div>
 </div>
 
-
 ***
 
 <div class="text-center">
 
-![](images//adsense_small.jpg)
 
 </div> 
 
@@ -56,20 +54,7 @@ output:
 DOYIN ELUGBADEBO
 <div style = "color:#3388cd; font-size:20.5px;">Make an Instangram Like Site with Ruby on Rails</div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian1.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:20.5px;">A Simple Stripe Online Payment Integration in Ruby on Rails</div>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. 
 </div>
 </div>
 </div>

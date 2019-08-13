@@ -77,149 +77,98 @@ sent tincidunt sed tellus ut rutrum sed vitae justo. Praesent tinciduut rutrum s
 
 <br>
 
-<div style = "color: blue; font-size: 25px;">WEB TECHNOLOGIES</div>
+<h1 class="title article-title">Web Tech:></h1>
 
 ***
 
-<div class="row">
-<div class="col-sm-6">
-<div class="card">
-<div class="card-body">
-<h5 class="card-title">Special title treatment</h5>
-<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div>
-<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="card">
-<div class="card-body">
-<h5 class="card-title">Special title treatment</h5>
-<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div>
-<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-</div>
-</div>
-
-<br>
-
-<div style = "color: green; font-size: 25px;">MACHINE LEARNING</div>
-
-***
-
-<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
-<div class="row justify-content-center">
-<div class="col-12">
-<h2 class="title-3 text-dark mb-4">Our Features</h2>
-</div>
-    
+<!---PART1 -->
 <div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
-<h2 class="feature-title">Free Consultation</h2>
-<div class="feature-content">New clients recieve an obligation free consultation.</div>
-</div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
-<h2 class="feature-title">Certified Accountants</h2>
-<div class="feature-content">All members of our team are certified accountants.</div>
-</div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
-<h2 class="feature-title">Tax Compliance</h2>
-<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
-</div>
-</div>
-    
+
+<div class="media">
+<div class="media-content has-text-centered">
+<h2 class="title article-title">More from Mindshare: 
+<a href="/mindshare/headless/">
+Headless
+</a>
+</h2>
 </div>
 </div>
 
-<br>
+<div class="columns ">
 
-<div style = "color: purple; font-size: 25px;">MOBILE APPS</div>
 
-***
-
-<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
-<div class="row justify-content-center">
-<div class="col-12">
-<h2 class="title-3 text-dark mb-4">Our Features</h2>
+<div class="column " onclick="window.location.href='/mindshare/headless/headless-cms-seo-best-practices/'">
+<div class="card is-shady">
+<div class="card-image">
+<figure class="image is-4by3">
+<img src="https://kfg6bckb.media.zestyio.com/how-to-do-seo-with-a-headless-cms.ce3c7675f9421df0c78858883d3f9a7b.jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+</figure>
 </div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
-<h2 class="feature-title">Free Consultation</h2>
-<div class="feature-content">New clients recieve an obligation free consultation.</div>
+<div class="card-content">
+<div class="content">
+<h4>Headless CMS: SEO Best Practices</h4>
+<p>Because Headless CMS delivers content differently from the traditional CMS, SEO and marketing professionals are left puzzled with their options.</p>
+<a href="/mindshare/headless/headless-cms-seo-best-practices/" class="button is-link">Read Article</a>
 </div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
-<h2 class="feature-title">Certified Accountants</h2>
-<div class="feature-content">All members of our team are certified accountants.</div>
-</div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
-<h2 class="feature-title">Tax Compliance</h2>
-<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
-</div>
-</div>
-    
 </div>
 </div>
 
-<br>
-
-<div style = "color: teal; font-size: 25px;">PURE TECH</div>
-
-***
-
-<div class="container pt-5 pb-5 pt-md-7 pb-md-7">
-<div class="row justify-content-center">
-<div class="col-12">
-<h2 class="title-3 text-dark mb-4">Our Features</h2>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Free Consultation logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_branding_1885335.svg"/></div> 
-<h2 class="feature-title">Free Consultation</h2>
-<div class="feature-content">New clients recieve an obligation free consultation.</div>
-</div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Certified Accountants logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_The%20Process_1885341.svg" /></div> 
-<h2 class="feature-title">Certified Accountants</h2>
-<div class="feature-content">All members of our team are certified accountants.</div>
-</div>
-</div>
-    
-<div class="col-12 col-md-6 col-lg-4 mb-2">
-<div class="feature">
-<div class="feature-image"><img alt="Tax Compliance logo" src="https://themes.gohugo.io//theme/hugo-serif-theme/features/noun_3d%20modeling_1885342.svg" /></div> 
-<h2 class="feature-title">Tax Compliance</h2>
-<div class="feature-content">We stay up to date on the latest changes to the tax code.</div>
-</div>
-</div>
-    
-</div>
 </div>
 
 
-fixing firebase path problem
+<div class="column " onclick="window.location.href='/mindshare/headless/a-list-of-headless-cms-for-2018/'">
+<div class="card is-shady">
+<div class="card-image">
+<figure class="image is-4by3">
+<img src="https://zestyio.media.zestyio.com/bigstock--160723520.ce3c7675f9421df0c78858883d3f9a7b.jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+</figure>
+</div>
+<div class="card-content">
+<div class="content">
+<h4>A List of Headless CMS for 2018</h4>
+<p>Headless CMS empowers brands to distribute content wherever it needs to go. What makes platforms on the market so different?</p>
+<a href="/mindshare/headless/a-list-of-headless-cms-for-2018/" class="button is-link">Read Article</a>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="column " onclick="window.location.href='/mindshare/headless/progressive-web-apps-pwa-the-easy-guide/'">
+<div class="card is-shady">
+<div class="card-image">
+<figure class="image is-4by3">
+<img src="https://zestyio.media.zestyio.com/bigstock--189643723--1-.ce3c7675f9421df0c78858883d3f9a7b.jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+</figure>
+</div>
+<div class="card-content">
+<div class="content">
+<h4>Progressive Web Apps (PWA) - The Easy Guide</h4>
+<p>A PWA delivers an app-like experience, without the need for an intermediary between the developer and the user.</p>
+<a href="/mindshare/headless/progressive-web-apps-pwa-the-easy-guide/" class="button is-link">Read Article</a>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="column " onclick="window.location.href='/mindshare/headless/headless-commerce-the-ultimate-guide-to-headless-cms-in-ecommerce/'">
+<div class="card is-shady">
+<div class="card-image">
+<figure class="image is-4by3">
+<img src="https://kfg6bckb.media.zestyio.com/headless-ecommerce.ce3c7675f9421df0c78858883d3f9a7b.jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+</figure>
+</div>
+<div class="card-content">
+<div class="content">
+<h4>Headless Commerce: The Ultimate Guide to Headless CMS in eCommerce</h4>
+<p>Consumers can now make purchases away from their laptops, smartphones, and tablets; and yet the IoT era has barely begun.</p>
+<a href="/mindshare/headless/headless-commerce-the-ultimate-guide-to-headless-cms-in-ecommerce/" class="button is-link">Read Article</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+

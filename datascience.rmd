@@ -39,11 +39,17 @@ output:
 
 ***
 
-<div class="text-center">
+<br>
 
-![](images//adsense_small.jpg)
-
-</div> 
+<div class="row">
+<div class = "col-lg-3 col-md-3">
+![](images//historian3.png)
+</div>
+<div class = "col-lg-9 col-md-9">
+DOYIN ELUGBADEBO
+<div style = "color:#3388cd; font-size:20.5px;"><a href = "build_a_decision_tree_classifier_in_R_DATS001.html">Building a Decision Tree Classifier in R</a></div>
+Decision Tree is of the leading machine learning algorithms due to its simplicity in its usage. More importantly, it can perform both regression and classfication problems with its Classification and Regression Tree (CART) Algorithm. 
+</div>
 
 <br>
 
@@ -53,22 +59,8 @@ output:
 </div>
 <div class = "col-lg-9 col-md-9">
 DOYIN ELUGBADEBO
-<div style = "color:#3388cd; font-size:20.5px;">Make an Instangram Like Site with Ruby on Rails</div>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. 
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-![](images//historian1.png)
-</div>
-<div class = "col-lg-9 col-md-9">
-JACOB W. GREENE<br>
-<div style = "color:#3388cd; font-size:20.5px;">A Simple Stripe Online Payment Integration in Ruby on Rails</div>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. 
+<div style = "color:#3388cd; font-size:20.5px;"><a href = "build_an_XGBoost_Classifier_in_R_DATS002.html">Building a Decision Tree Classifier in R</a></div>
+Decision Tree is of the leading machine learning algorithms due to its simplicity in its usage. More importantly, it can perform both regression and classfication problems with its Classification and Regression Tree (CART) Algorithm. 
 </div>
 </div>
 </div>

@@ -42,8 +42,6 @@ output:
 
 <div class="text-center">
 
-![](images//adsense_small.jpg)
-
 </div>
 
 <br>

@@ -1,0 +1,408 @@
+---
+title: "MySQL Tutorial"
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: TRUE
+    theme: united
+---
+ 
+***
+
+**Disclaimer:** This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to eslintpurity@gmail.com or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs. 
+
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;"><div class="row"><div class="col-lg-2"><img src="images//doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/></div>
+<div class="col-lg-10"><h4 style = "font-size: 29px;">Introduction to MySQL Relational Database Management System</h4>
+<span style = "font-size: 13.5px; padding-top:100px;">Series: Mastering MySQL Database with PHP - PART 1</span><span style = "float:right;"> Author: <span style = "color:red;">Doyin-Elugbadebo...31st August, 2017</span><span></div></div>
+</div>
+
+<button class="accordion">Outline</button>
+<div class="panel-accordion">
+<p>
+
+- Introduction</br>
+- What is Flask?</br>
+- Why use Flask?</br>
+- Installation</br>
+  -- Requirements</br>
+  -- Installing pip, virtualenv and virtualenvwrapper</br>
+  -- Installing Flask</br>
+  -- Launching Flask</br>
+- Templating</br>
+- Common Installation Hitches</br>
+- Resources
+</p>
+</div>
+
+</br>
+
+<div style = "float: right;">[[Download full code]](http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW)</div>
+
+## <span style = "color: purple;">Introduction</span>
+
+***
+
+Are you a web developer looking to learning MySQL fast?
+
+This is the first part in the tutorial series: **Mastering MySQL Database with PHP.** The tutorials take a more friendly, easy-to-follow and practical approach in teaching MySQL, bridged for both beginners and advanced users. <span style = "color:red;">We'll be designing, quering and administering a database system for Krystalview - A Fictitious Cinema Booking System.</span>. 
+
+This tutorial series is different from other tutorials in that it facilitates you’ll gain hands-on experience you'll build your system right from the sratch, nothing like sample data. You are not tied down to a single appraoch, for example. you'll given the liberal hand to follow the data provided, add your own or even use a generator to populate your database. Codes are also provided if you ever find yourself being impatient typing out the scripts. The tutorial is designed to unfold in steps, one section leading to another. More importantly, this series was modelled so that you master how to use MySQL effectively to get your work done more productively. <span style = "color:purple;">If you go through the entire series, you will know how to manage MySQL databases and manipulate data using various techniques such as SQL queries, MySQL stored procedures, Transactions, database views, triggers, MYSQL functions and </span>`MySQL Programming Interfaces with PHP`.
+
+We'll round up the series briefly extending MYSQL to other programming interfaces like Python and Node.js coupled  with abrief intro to NoSQL using MongoDB. And for the data scientist, we'll connect to our finished database within R where different analytics would be performed. The UX and Frontend Designers won't be left out as well. We'll create our view using STACK of Laravel, Bulma and vue.jS. <span style = "color:red;">Database Administrators, web developers, programmers or even hobbyist would benefit from this series.</span>
+
+Lets get started...
+
+<br>
+
+### What is a Database?
+
+***
+
+Have you ever worked with tables using any word authoring tool like Microsoft Word or Open office. Any experience with spreadsheet package like excel of microclipse. Or you've used the cloud tool office suites before? Then you've related with a database.
+
+<div class = "alert alert-success">A database is simply container for storing and retrieving our data. It is made up of one or more tables with rows and columns.</div>
+
+Database when grown, may tend cumbersome to manage, hence we need a concept that could relate the information in such table without repetition, hence the name relational database. <span style = "color: red;">Remember; coherence is the order of the day.</span> Companys have gone to create hosts of database package from Oracle, MySQL, PostgreSQL, SQL Lite and Microsoft SQL Server e.t.c. 
+
+We'll be learning using MySQL.
+
+<blockquote>With well over 10 million installations, MySQL is probably the most popular database management system for web servers. MySQL is also highly scalable, which means that it can grow with your website and most importantly, it also integrates seamlessly with PHP</blockquote>
+
+The SQL in MySQL stands for Structured Query Language. This language is loosely based on English and also used in other databases such as Oracle and Microsoft SQL Server. It is designed to allow simple requests from a database via commands such as: SELECT, GRANT and CREATE. 
+
+A simple example is illustrated below
+
+
+```r
+SELECT * FROM customer WHERE customerFirstName = 'Doyin';
+```
+Explaining this in English means <span style = "color:purple;">"select all fields from the customer table having Doyin as firstname"</span> or <span style = "color:purple;">"if Doyin is customer's first name, then select all fields from customer table."</span> Without further ado, lets dig into our Krystalview Database System.
+
+<br>
+
+#### Krystalview Requirement Analysis
+
+***
+
+Software development is a process that begins with planning and ends with analysis and review. Lots are required including the business and revenue model, Wireframes and Mockups, .....You can make use of Lowdown - a web application that developers use for organizing user stories. One of the most popular tools for creating wireframes is Balsamiq Mockups (despite the name, it produces wireframes, not mockups). If you don’t have a skilled graphic designer available to help, you can use Twitter. Traditionally, booking a movie tickets requires forming a queue. This is 20th century, the digital age. Lets do it electronically. 
+
+The business model of movie ticket booking portals is quite simply. They help people book movie tickets online, and for every ticket booking, the website charges money. Such platforms also share all the details about the films along with reviews, storyline, cast, and other critical details. 
+
+Some of the big gamers in this industry include Bookmyshow, Big Cinemas, MovieTickets.com, Fandango aTicketPlease
+
+<div class = "alert alert-info">As recently as 2003, IBM stated, “Most software projects fail. In fact, the Standish group reports that over 80% of projects are unsuccessful either because they are over budget, late, missing function, or a combination. Moreover, 30% of software projects are so poorly executed that they are canceled before completion.”</div>
+
+![](images//intro_to_MySQL_RDBMS_EER-1.png)
+
+Tables 1 (`registration` table) and Table 2 (`customers` table) shows the first needed tables in our work. More would be added as we progress
+
+**Table 1:** Krystalview Registration Table <span style = "float: right;">[krystalview_registration_table.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_KRYSTALVIEW/krystalview_registration_table.md)</span>
+
+ID    | Firstname  | Lastname | Mobile    | Movie            | Booking Date | Show Date
+----- | ------     | -------  | --------- | ---------------  | ---------    | ----------
+CIN00001 | Doyin   | Elugbadebo | 08084564378 | The Adventure of Ikadra | 27-May-2009 | 5th June 2010
+CIN00002 | Thelma  | Morgan | 08084563435 | rise and fall of Idiama |27-Sept-2011 | 9th Oct 2011
+CIN00003 | Sinatra | Centurion | 08084563772 | Lets Reconnect | 27-Nov-2018 | 29th Nov 2018
+   .     |    .    |     .      |      .      |            .            |      .      |       . 
+   .     |    .    |     .      |      .      |            .            |      .      |       .
+   .     |    .    |     .      |      .      |            .            |      .      |       . 
+CIN00020 | Sandra  | James | 08084563778 | When Next we meet | 26-June-2019 | 29th June 2019
+
+<br>
+
+**Table 2:** Krystalview Customer Table <span style = "float: right;">[krystalview_customer_table.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_KRYSTALVIEW/krystalview_customer_table.md)</span>
+
+ID    | Firstname  | Lastname | Mobile    | Movie            | Booking Date | Show Date
+----- | ------     | -------  | --------- | ---------------  | ---------    | ----------
+CIN00001 | Doyin   | Elugbadebo | 08084564378 | The Adventure of Ikadra | 27-May-2009 | 5th June 2010
+CIN00002 | Thelma  | Morgan | 08084563435 | rise and fall of Idiama |27-Sept-2011 | 9th Oct 2011
+CIN00003 | Sinatra | Centurion | 08084563772 | Lets Reconnect | 27-Nov-2018 | 29th Nov 2018
+CIN00020 | Sandra  | James | 08084563778 | When Next we meet | 26-June-2019 | 29th June 2019
+
+
+Now that some of the concepts are becoming clearly. Lets analysis the lesson objectives
+
+<br>
+
+### Lesson Objective:
+
+***
+
+By the end of this lesson you will be able to install a database system on your computer, create a database table, store information in the table and then query the data. At the conclusion of the lesson we’ll use a query of the database to make a graph.
+
+http://dev.mysql.com/doc/index-other.html lists some sample databases you can download.
+
+The northwind extended project provides ports of the famous "Northwind" database to many other database system. [Here](https://code.google.com/p/northwindextended/downloads/detail?name=Northwind.MySQL5.sql) is the MySQL version.
+
+Opps....Thats just all you could ever need to know about database. Now lets set up our Database System.
+
+### Installing a Database System
+
+MySQL Installer.exe.
+
+Working with Laravel and GIT requires a lot of interactions with the CLI, thus you will need to
+know how to use it.
+
+CLI for Windows
+
+Unfortunately, the default CLI for Windows (cmd.exe) is not good, you may need another one. The most popular one called Git Bash. You can download and install it here: http://msysgit.github.io. Most of what you do in Git Bash is enter specific text strings, then press Enter to execute them. 
+
+or using XAMPP
+
+A MySQL database contains one or more tables, each of which contains records or rows. Within these rows are various columns or fields that contain the data itself. Table 8-1 shows the contents of an example database of five publications detailing the author, title, type, and year of publication.
+
+Each row in the table is the same as a row in a MySQL table, and each element within a row is the same as a MySQL field.
+
+### Summary of Database Terms
+
+***
+
+Term | Description
+---- | --------------------
+Database | The overall container for a collection of MySQL data
+Table | A subcontainer within a database that stores the actual data
+Row | A single record within a table, which may contain several fields
+Column | The name of a field within a row
+
+
+### Interacting with MySQL Database
+
+***
+
+There are three main ways in which you can interact with MySQL: using a command line, via a web interface such as phpMyAdmin, and through a programming language like PHP, Node.js and python. We'll use the first two in the few series before we move to the last one.
+
+### Accessing MySQL via the Command Line
+
+By default, the initial MySQL user will be root and will not have had a password set. Seeing as this is a development server that only you should be able to access, we won’t worry about creating one yet. So, to enter MySQL’s command-line interface, select Start→Run, enter CMD into the Run box, and press Return. This will call up a Windows Command Prompt. From there, enter one of the following (making any appropriate changes as just discussed):
+
+This command tells MySQL to log you in as user root, without a password. You will now be logged into MySQL and can start entering commands. So, to be sure everything is working as it should be, enter the following (the results should look similar to the output shown in Figure 8-1):
+
+
+```r
+SHOW databases;
+```
+[short_queries.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/short_queries.md)
+
+
+The semicolon
+
+Let’s start with the basics. Did you notice the semicolon (;) at the end of the SHOW databases; command that you typed? The semicolon is used by MySQL to separate or end commands. If you forget to enter it, MySQL will issue a prompt and wait for you to do so. The required semicolon was made part of the syntax to let you enter multipleline commands, which can be convenient because some commands get quite long. It also allows you to issue more than one command at a time by placing a semicolon after each one. The interpreter gets them all in a batch when you press the Enter (or Return) key and executes them in order.
+
+## MySQL Commands
+
+You’ve already seen the SHOW command, which lists tables, databases, and many other items. The commands you’ll probably use most often are listed in Table 8-3. Table 8-3. A selection of common MySQL commands 
+
+Command  | Action           
+-------- | ------------------ 
+ALTER | Alter a database or table
+CREATE | Create a database
+DELETE | Delete a row from a table
+DESCRIBE | Describe a table’s columns
+DROP | Delete a database or table
+EXIT | (CTRL-C) Exit
+GRANT | Change user privileges
+HELP | (\h, \?) Display help
+INSERT | Insert data
+RENAME | Rename a table
+SHOW | List details about an object
+TRUNCATE | Empty a table
+UPDATE | Update an existing record
+USE | Use a database
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+Other less used commands 
+
+LOCK/UNLOCK: Lock and unlock table(s)
+QUIT: (\q) Same as EXIT
+BACKUP: Backup a table
+SOURCE: Execute a file
+STATUS: (\s) Display the current status
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+GRANT ALL ON publications.* TO 'jim'@'localhost' IDENTIFIED BY 'mypasswd';
+
+What this does is allow the user jim@localhost full access to the publications database using the password mypasswd. You can test whether this step has worked by entering quit to exit and then rerunning MySQL the way you did before, but instead of entering\
+
+
+```r
+-u root -p, type -u jim -p, or whatever username you created.
+```
+
+### Accessing MySQL using phpMyAdmin
+
+
+Creating a table
+
+Creating a table using Command Prompt
+
+At this point, you should now be logged into MySQL with ALL privileges granted for the database publications (or a database that was created for you), so you’re ready to create your first table. Make sure the correct database is in use by typing the following (replacing publications with the name of your database if it is different):
+
+
+```r
+USE publications;
+```
+
+Now enter the commands in Example 8-3 one line at a time.
+
+
+```r
+CREATE TABLE classics (
+author VARCHAR(128),
+title VARCHAR(128),
+type VARCHAR(16),
+year CHAR(4)) ENGINE MyISAM;
+```
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+MySQL should then issue the response Query OK, 0 rows affected, along with how long it took to execute the command. If you see an error message instead, check your syntax carefully. Every parenthesis and comma counts, and typing errors are easy to make. In case you are wondering, the ENGINE MyISAM tells MySQL the type of database engine to use for this table. To check whether your new table has been created, type:
+
+
+```r
+DESCRIBE classics;
+```
+
+All being well, you will see the sequence of commands and responses shown in Example 8-4, where you should particularly note the table format displayed. Example 8-4. A MySQL session: creating and checking a new table
+
+
+```r
+mysql> USE publications;
+Database changed
+mysql> CREATE TABLE classics (
+-> author VARCHAR(128),
+-> title VARCHAR(128),
+-> type VARCHAR(16),
+-> year CHAR(4)) ENGINE MyISAM;
+Query OK, 0 rows affected (0.03 sec)
+mysql> DESCRIBE classics;
+```
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+
+```r
++------------------+----------------+-------+------+----------+--------+
+| Field            | Type           | Null  | Key  | Default  | Extra  |
++------------------+----------------+-------+------+----------+--------+
+| booking_id       | varchar(128)   | YES   |      | NULL     |        |
+| username         | varchar(128)   | YES   |      | NULL     |        |
+| firstname        | varchar(128)   | YES   |      | NULL     |        |
+| lastname         | varchar(128)   | YES   |      | NULL     |        |
+| mobile           | char(4)        | YES   |      | NULL     |        |  
+| movie            | varchar(16)    | YES   |      | NULL     |        |
+| booking_date     | char(4)        | YES   |      | NULL     |        |
+| show_date        | timestamp(2)   | YES   |      | NULL     |        |
++------------------+----------------+-------+------+----------+--------+
+4 rows in set (0.00 sec)
+```
+
+### Creating table using phpMyAdmin
+
+Field : The name of each field or column within a table.
+Type: The type of data being stored in the field.
+Null: Whether a field is allowed to contain a value of NULL.
+Key: MySQL supports keys or indexes, which are quick ways to look up and search for
+data. The Key heading shows what type of key (if any) has been applied.
+Default: The default value that will be assigned to the field if no value is specified when a
+new row is created.
+Extra: Additional information, such as whether a field is set to auto-increment.
+
+
+
+```r
+read.table("C://Projects/Generators/Rmarkdown/eslintpurity/cinema.txt", header = TRUE, stringsAsFactors = FALSE, sep = ",")
+```
+
+INSERT INTO [What is the name of our database?]
+
+Follow this syntax: 
+
+
+```r
+INSERT INTO {{database_name}}({{database_fields}}) VALUES({{enclosed_comma_seperated_field_values}})
+```
+
+Hence, we have 
+
+
+```r
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, movie, booking_date, show_date) 
+  VALUES(CIN001, "Doyin", "Williams", 08084564378, "The Adventure of Ikad", 27-May-2009, 5th June 2010),
+    
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, movie, booking_date, show_date) 
+  VALUES(CIN002, "Thelma", "Morgan", 08084563435, "The rise and fall of Ika", 27-Sept-2011, 9th Oct, 2011)
+    
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, movie, booking_date, show_date) 
+  VALUES(CIN003, "Sinatra", "Centurion", 08084563772, "Lets Reconnect", 27-Nov-2018, 29th Nov, 2018),
+    
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, movie, booking_date, show_date) 
+  VALUES(CIN004, "Adekunle", "Wale", 08084563524, "Again in the Lord's Te", 27-April-2017, 29th June, 2018)
+    
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, movie, booking_date, show_date)
+  VALUES(CIN004, "Adekunle", "Wale", 08084563778, "Again in the Lord's Te", 27-April-2017, 29th June, 2018)
+```
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+Check the structure.
+
+SELECT * FROM cinema WHERE firstname = Doyin & lastname = Morgan;
+
+
+```r
++------------+-----------+------------+-------------+---------------------+--------------+------------+
+| booking_id | firstname | lastname   | mobile      | movie               | booking_date | show_date  | 
++------------+-----------+------------+-------------+---------------------+--------------+------------+
+| CIN00001   | Doyin     | Elugbadebo | 08084564378 | The Adventure of Ik | 27-08-2009   | 27-05-2009 |       
+| CIN00002   | Thelma    | Morgan     | 08084563435 | The rise and fall o | 27-05-2009   | 27-03-2009 |       
+| CIN00003   | Sinatra   | Centurion  | 08084563772 | Lets Reconnect      | 27-03-2009   | 27-08-2009 |       
+| CIN00004   | Adekunle  | Wale       | 08084563524 | Again in the Lords  | 27-01-2009   | 27-09-2009 |       
+| CIN00005   | Adekunle  | Siro       | 08084563778 | Again in the Lords  | 27-04-2009   | 27-03-2009 |      
++------------+-----------+------------+-------------+---------------------+--------------+------------+
+4 rows in set (0.00 sec)
+```
+
+
+
+
+```r
+INSERT INTO marvinview(booking_id, firstname, lastname, mobile, email, movie, booking_date, show_date) VALUES(X)
+
+X = (CIN001, "Doyin", "Williams", 08084185154, "doyinelugbadebo@gmail.com", The Adventure of Ikadra", 27-May-2009, 5th June 2010),
+    (CIN002, "Thelma", "Morgan", 07054673835, "mudiaga@yahoo.com", "The rise and fall of Idiama", 27-Sept-2011, 9th Oct, 2011),
+    (CIN003, "Sinatra Centurion", 0903458512, "olumidet1@gmail.com", "Lets Reconnect", 27-Nov-2018, 29th Nov, 2018),
+    (CIN004, "Adekunle Wale", 08084185154, "lekanelugbadebo@gmail.com", "Again in the Lord's Temple", 27-April-2017, 29th June, 2018)
+    (CIN005, "Adekunle Wale 2", 08084185154, "doyinelugbadebo@gmail.com", "Again in the Lord's Temple", 27-April-2017, 29th June, 2018)
+```
+[cinema_table_intro.md](www/github/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW/cinema_table_intro.md)
+
+I the begining of the tutorial, I told you, we'll be using phpMyAdmin, well that was a truthful-lie to get you install our next to be development environment so as we'll be accessing and quering our database from a GUI interface. 
+
+***
+<br>
+
+#### <span style = "float: left; color: purple;">About the Author</span>
+
+***
+
+<section>
+<div class = "alert alert-info">
+<img itemprop='image' src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
+align='left' width="160" height=250" caption = "Freelancer"  class = "img-circle img-responsive" style="padding-top: 17px; padding-bottom: 20px; padding-right: 20px; padding-left: 20px;">
+
+<br>
+<h3 style = "font-size: 20px;">Doyin Elugbadebo</h3>
+<p style="padding-top:10px;"> I am a Full Stack Developer and a Business Information Analyst. I have served in various capacities either as a consultant, administrator, developer or a machine learning expert. <span style = "color: purple;">A lover of nature and an ICT fanatics. I hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span> </p>
+<div class = "row">
+<span style = "color: purple; font-size:10px;">Email: </span>doyinelugbadeo@gmail.com --|-- <span style = "color: purple; font-size:10px;">Mobile: </span> 08084185154 --|-- <span style = "color: purple; font-size:10px;"> Web:</span>  [doyinelugbadebo.com](http"//ww.doyinelugbadebo.com")
+<p>
+<span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span>
+<span class="label label-success" style = "color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span>
+<span class="label label-info" style = "color: white;"><a href = "http://www.pantheon/elugbadebo-doyin/" style = "color: white;">Pantheon</a></span>
+<span class="label label-warning" style = "color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span>
+<span><h5><button class = "w3-button w3-black w3-margin-bottom" onclick="document.getElementById('contactsModal').style.display='block'" style = "color: blue; float: right; margin-top: 1.5%;">Hire Me</button></h5></span>
+</p>
+</div>
+</div>
+</section>
+
+
+

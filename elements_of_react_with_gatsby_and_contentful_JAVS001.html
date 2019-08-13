@@ -11,11 +11,11 @@
 
 
 
-<title></title>
+<title>Version Control</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -188,7 +188,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2,h3,h4,h5",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
@@ -450,39 +450,143 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">Version Control</h1>
 
 </div>
 
 
-<p></br></p>
-<div id="web-and-mobile-app-technologies" class="section level2">
-<h2><strong>Web and Mobile App Technologies</strong></h2>
-<p>Listed below are application types I major in with link to some completed projects.</p>
-<ul>
-<li>Single Page/Progressive Web Applications (SPA/PWA)</li>
-<li>Database Driven Apps (e-commerce, Hotel, Job and forum discussion board)</li>
-<li>College and University Portal System with Payment Gateway Integration</li>
-<li>Content Management Systems</li>
-<li>In addition, I offer Business Rebrading, Digital Marketing Integration and cloud deployment services</li>
-</ul>
-<button class="w3-button w3-black w3-margin-bottom">
-<a href="about.html#webmobileproj">view projects</a>
-</button>
-<p></br></p>
+<p><strong>Disclaimer:</strong> This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to <a href="mailto:eslintpurity@gmail.com">eslintpurity@gmail.com</a> or use the comment section below. <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">Connect with me</a> for consultancy or freelancing jobs.</p>
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;margin-bottom: 1%;">
+<div class="row">
+<div class="col-lg-2">
+<img src="images/doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/>
 </div>
-<div id="machine-learning-datascience" class="section level2">
-<h2><strong>Machine Learning &amp; Datascience</strong></h2>
-<p>You can use flexdashboard to publish groups of related data visualizations as a dashboard. A wide variety of components:</p>
-<ul>
-<li>Interactive JavaScript data visualizations based on htmlwidgets.</li>
-<li>R graphical output including base, lattice, and grid graphics.</li>
-<li>Tabular data (with optional sorting, filtering, and paging).</li>
-<li>Value boxes for highlighting important summary data.</li>
-<li>Gauges for displaying values on a meter within a specified range.</li>
-</ul>
-<button class="w3-button w3-black w3-margin-bottom">
-<a href="about.html#machinelearningproj">view projects</a>
+<div class="col-lg-10">
+<h4 style="font-size: 29px;">
+Mastery the Elements of React with Gatsby and Contentful
+</h4>
+<span style="font-size: 13.5px; padding-top:100px;">Learn all the tricks of managing your files both local and remote</span><span style = "float:right;"> Author: <a href = "about.html"><span style="color:#3e51ff;">Doyin-Elugbadebo</span><a><span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xl-12 mx-auto" style="margin-right: 1.61%; margin-left: 1.61%;">
+<p><span style="color:#38c7d8; float: left">WRITTEN: 21th December, 2018 </span> <span style="color:#f1f1f1;">//////////////////////////////////////-()-///////////////////////////////////</span><span style="color:#38c7d8; float: right;"> MODIFIED: 30th March, 2019</span></p>
+</div>
+</div>
+<button class="accordion">
+Prequisite
 </button>
+<div class="panel-accordion">
+<p style="line-height:27px;font-size:16px;">
+This is an entry level tutorial, you are expected to have a basic idea of the following - Node.js - Packman - Linter - Boostman
+</p>
+</div>
+<p></br></p>
+<div style="float: right;">
+<a href="http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW">[Download full code]</a>
+</div>
+<div id="introduction" class="section level2">
+<h2><span style="color: purple;">Introduction</span></h2>
+<p>React code snippets on eslintpurity website</p>
+<p>With its great performance, large number of plugins &amp; starters, and thorough documentation (among many of features), it was a no-brainer starting point for building a personal site for me. I selected the starter Gatsby Starter: Mate to bootstrap the project quickly.</p>
+<p>Starter Template - <a href="https://github.com/EmaSuriano/gatsby-starter-mate" class="uri">https://github.com/EmaSuriano/gatsby-starter-mate</a></p>
+<p>Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps [Gatsby Website]</p>
+<p>Starters are boilerplate projects that Gatsby developers can use to set up a new site quickly.</p>
+<p>Basic requirements For a starter to work properly, it needs to include some files (see the Hello World starter for a barebones example):</p>
+<p>README.md: instructions for how to install and configure your starter, a list of its features or structure, and any helpful tips. package.json: the “command center” for Gatsby dependencies and scripts. Find an example in the Hello World starter’s package.json file. gatsby-config.js: a space to add configurable data and plugins. See Gatsby Config for more information. src/pages: a directory for page components to live, with at least one index.js file (example). static: a directory for static assets, such as a favicon.ico file. .gitignore: a file telling Git which resources to leave out of source control, such as the node_modules directory, log files, Gatsby .cache and public directories. .prettierrc (optional): a configuration file for Prettier, a JavaScript linter and formatter used for Gatsby development. Your starter should also have these qualities:</p>
+<p>Open source and available from a stable URL Configurable Fast Web accessible</p>
+<p>Alternatively, for starters connecting to a headless CMS, author-specific items could be pulled in to the starter from a CMS platform using a source plugin and GraphQL instead. Showing users how this is done can make your starter very helpful!</p>
+<p>you’ll want to set up a test implementation with your starter for debugging performance. Using tools like <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a> and <a href="https://www.webpagetest.org/">Webpagetest.org</a>, you can evaluate the speed of your test site and make any necessary improvements to the starter source code so your users will benefit from fast defaults.</p>
+<p>create an empty space in <a href="https://www.contentful.com/">contentful</a>.</p>
+<p>Contentful enables you to manage, integrate and deliver content via APIs. Contentful API Integration - git clone <a href="https://github.com/contentful/starter-gatsby-blog.git" class="uri">https://github.com/contentful/starter-gatsby-blog.git</a> - cd starter-gatsby-blog - npm install - npm run setup – –spaceId piycvgz9bcyn –deliveryToken 39f9a8e885adfbc5f138dd5a97e6b05a5cd065436984bad2bf8662e5a9e11ec7 –managementToken CFPAT-d4230ec2dee700a72eeafa7ae82e32b8335c15d33902a4e5d1e756fcb8240ef9</p>
+<p>see the blog in action with - npm run dev</p>
+<p>An API key is the token that you’ll use to retrieve your content. We created a few API keys so that you can get started fetching your content right away.</p>
+<p>The Gatsby CLI tool lets you install “starters”. These are boilerplate Gatsby sites maintained by the community.</p>
+<p>When creating a new site, you can optionally specify a starter to base your new site on, either with the [URL] of the [GIT_USER_NAME/REPO] e.g.</p>
+<p><code>gatsby new [SITE_DIRECTORY] [URL_OF_STARTER_GITHUB_REPO] or gatsby new [SITE_DIRECTORY] [GIT_USER_NAME/REPO]</code></p>
+<p>For example, to quickly create a blog using Gatsby, you could install the Gatsby Starter Blog by running:</p>
+<p><code>gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog</code></p>
+<p>This downloads the files and initializes the site by running <code>npm install</code></p>
+<p>If you don’t specify a custom starter, your site will be created from the <a href="https://github.com/gatsbyjs/gatsby-starter-default">default starter.</a></p>
+<p>Use the Gatsby CLI to create a new site, specifying the default starter.</p>
+</div>
+<div id="create-a-new-gatsby-site-using-the-default-starter" class="section level1">
+<h1>create a new Gatsby site using the default starter</h1>
+<p>gatsby new my-default-starter <a href="https://github.com/gatsbyjs/gatsby-starter-default" class="uri">https://github.com/gatsbyjs/gatsby-starter-default</a></p>
+<p>Start developing.</p>
+<p>Navigate into your new site’s directory and start it up.</p>
+<p>cd my-default-starter/ gatsby develop</p>
+<p>Gatsby starters are divided into two : Official starters, maintained by the Gatbsy and the community starter, ofc ourse maintained by gatsby community members. Access all submitted starters <a href="https://www.gatsbyjs.org/starters/?v=2">here</a></p>
+<p>Open the source code and start editing!</p>
+<p>Your site is now running at <a href="http://localhost:8000" class="uri">http://localhost:8000</a>!</p>
+<p>Note: You’ll also see a second link: <a href="http://localhost:8000/___graphql" class="uri">http://localhost:8000/___graphql</a>. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the Gatsby tutorial.</p>
+<p>Open the my-default-starter directory in your code editor of choice and edit src/pages/index.js. Save your changes and the browser will update in real time!</p>
+<p>A quick look at the top-level files and directories you’ll see in a Gatsby project.</p>
+<p>. ├── node_modules ├── src ├── .gitignore ├── .prettierrc ├── gatsby-browser.js ├── gatsby-config.js ├── gatsby-node.js ├── gatsby-ssr.js ├── LICENSE ├── package-lock.json ├── package.json └── README.md</p>
+<p>/node_modules: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.</p>
+<p>/src: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. src is a convention for “source code”.</p>
+<p>.gitignore: This file tells git which files it should not track / not maintain a version history for.</p>
+<p>.prettierrc: This is a configuration file for Prettier. Prettier is a tool to help keep the formatting of your code consistent.</p>
+<p>gatsby-browser.js: This file is where Gatsby expects to find any usage of the Gatsby browser APIs (if any). These allow customization/extension of default Gatsby settings affecting the browser.</p>
+<p>gatsby-config.js: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the config docs for more detail).</p>
+<p>gatsby-node.js: This file is where Gatsby expects to find any usage of the Gatsby Node APIs (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.</p>
+<p>gatsby-ssr.js: This file is where Gatsby expects to find any usage of the Gatsby server-side rendering APIs (if any). These allow customization of default Gatsby settings affecting server-side rendering.</p>
+<p>LICENSE: Gatsby is licensed under the MIT license.</p>
+<p>package-lock.json (See package.json below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).</p>
+<p>package.json: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.</p>
+<p>README.md: A text file containing useful reference information about your project.</p>
+<p>Gatsby is a modern framework for blazing fast websites.</p>
+<p>Go Beyond Static Websites. Get all the benefits of static websites with none of the limitations. Gatsby sites are fully functional React apps, so you can create high-quality, dynamic web apps, from blogs to ecommerce sites to user dashboards.</p>
+<p>Use a Modern Stack for Every Site. No matter where the data comes from, Gatsby sites are built using React and GraphQL. Build a uniform workflow for you and your team, regardless of whether the data is coming from the same backend.</p>
+<p>Load Data From Anywhere. Gatsby pulls in data from any data source, whether it’s Markdown files, a headless CMS like Contentful or WordPress, or a REST or GraphQL API. Use source plugins to load your data, then develop using Gatsby’s uniform GraphQL interface.</p>
+<p>Performance Is Baked In. Ace your performance audits by default. Gatsby automates code splitting, image optimization, inlining critical styles, lazy-loading and prefetching resources, and more to ensure your site is fast — no manual tuning required.</p>
+<p>Host at Scale for Pennies. Gatsby sites don’t require servers, so you can host your entire site on a CDN for a fraction of the cost of a server-rendered site. Many Gatsby sites can be hosted entirely free on services like GitHub Pages and Netlify.</p>
+<p>source: <a href="https://www.npmjs.com/package/gatsby" class="uri">https://www.npmjs.com/package/gatsby</a></p>
+<p>For example, to quickly create a blog using Gatsby, you could install the Gatsby Starter Blog by running: My registrations Contentful [Github Auth] dotCMS [Github Auth] CircleCI [Github Auth]</p>
+<p>What is Gatsby.js? Now that you’ve learned about why it is beneficial to use a setup like this, let’s talk about what Gatsby.js is.</p>
+<p>According to their site, “Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps”. In other words, it allows you to develop a website using React and just about any content source you want. Then at build time, it pulls in all of the data from the specified sources and turns your site into a bunch of static HTML files that are optimized for performance.</p>
+<p>Security Netlify automatically set up HTTPS (SSL/TLS) via Let’s Encrypt after the DNS changes were propagated and confirmed. Wonderful 😀.Security</p>
+<p>The build and deploy process couldn’t be easier as well. Any push to the master branch or update of content on Contentful (via a webhook) triggers a new version to be deployed out via Netlify.</p>
+<p>Overall, I am incredibly impressed with the tools available for creating and hosting an attractive, performant static site. I didn’t cover everything in the process, especially the React changes I made in the starter under the assumption that it’s pretty straightforward for anyone with frontend experience and not particularly interesting. There is also more work I have in mind for the site like cross-publishing Medium posts, setting up CI testing, fixing accessibility issues and more research into all of the features offered by the tools I’m using. Nonetheless, it was a great start and I look forward to continue working with these tools.</p>
+<p><a href="https://levelup.gitconnected.com/how-to-get-published-on-gitconnected-dac547ef556b" class="uri">https://levelup.gitconnected.com/how-to-get-published-on-gitconnected-dac547ef556b</a></p>
+<p>Thinking about getting on the JAMStack bandwagon? If your answer is Yes, then Gatsby, one of the hottest static site generators around, could be just what you’re looking for.</p>
+<p>JAM stands for JavaScript, APIs, and Markup. In other words, when the dynamic parts of a site or app during the request/response cycle are taken care of by JavaScript in the client, all server-side processes take place using APIs accessed over HTTPS by JavaScript, and templated markup is prebuilt at deploy time often using a static site generator, that’s the JAMStack. It’s performant, inexpensive to scale and offers better security and a smooth developer experience.</p>
+<p>Why Use a Static Site The static site model doesn’t fit all kinds of projects, but when it does it has a number of advantages. Here are a few of them.</p>
+<p>Speed The time it takes a website to load in the browser as the request is made for the first time is an important factor for user experience. Users get impatient very quickly, and things can only get worse on slow connections. A lack of database calls and the content being pre-generated make static sites really fast-loading.</p>
+<p>A static site is made of static files which can be easily served all over the world using Content Delivery Networks (CDN). This makes it possible to leverage the data center which is closer to the location from where the request is made.</p>
+<p>Simplified Hosting Hosting for static sites can be set up in a snap. Because there is no database or server-side code, special languages or frameworks to support, all the hosting has to do is to serve static files.</p>
+<p>Better Security Without server-side code or a database, there isn’t anything for hackers to hack. There’s no hassle keeping the server up-to-date with security fixes and patches. All this means a lot more peace of mind when it comes to the security of your static website.</p>
+<p>Better Developer Experience Setting up your static website with a hosting company like Netlify or Zeit is straightforward and, with continuous deployment, you just push your changes to your code repo of choice and they’re immediately reflected in the live version.</p>
+<p>What Is Gatsby? Gatsby is one of the most popular static site generators out there. It’s built with React, which means all React goodness is at your fingertips enabling you to take advantage of its power to build interactive components right into your static website. Gatsby is also built on top of GraphQL, so you can query data and display them on your static website any way you want.</p>
+<p>To quickly get a website up and running, Gatsby takes advantage of several official starter boilerplates as well as starters offered by the strong community around it. The site you’ve just created uses Gatsby default starter, but you can find plenty more on the Gatsby website.</p>
+<p>If you’d like to use a different starter from the default one, you need to specify its URL in the command line, following this pattern:</p>
+<p>gatsby new [SITE_DIRECTORY_NAME] [URL_OF_STARTER_GITHUB_REPO] For instance, let’s say you’d like a Material Design look and feel for your static site. The quickest way of creating it, is to use Gatsby Material Starter by typing the following command in your terminal:</p>
+<p>gatsby new sitepoint-demo <a href="https://github.com/Vagr9K/gatsby-material-starter" class="uri">https://github.com/Vagr9K/gatsby-material-starter</a> Great! Now let’s take a look at the files inside your brand new Gatsby project.</p>
+<p>Initially intended for data scientists and statisticians, the R language has for some years now landed in unsuspected audiences, and the reason is simple:</p>
+<p>Automate actions, retrieve data via APIs and aggregate them, scrape web pages, cross-reference several files (keywords for example) or do text mining, machine learning, NLP and semantic analysis, the possibilities offered by R and its many packages for SEO are many.</p>
+<p>Why you should fall in love with Gatsby 1. Modern web tech without the headache: Enjoy the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Bring your own data: Gatsby’s rich data plugin ecosystem lets you build sites with the data you want — from one or many sources: Pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL</p></li>
+<li><p>Scale to the entire internet: Gatsby.js is Internet Scale. Forget complicated deploys with databases and servers and their expensive, time-consuming setup costs, maintenance, and scaling fears. Gatsby.js builds your site as “static” files which can be deployed easily on dozens of services.</p></li>
+<li><p>Future-proof your website: Do not build a website with last decade’s tech. The future of the web is mobile, JavaScript and APIs—the JAMstack. Every website is a web app and every web app is a website. Gatsby.js is the universal JavaScript framework you’ve been waiting for.</p></li>
+<li><p>Static Progressive Web Apps: Gatsby.js is a static PWA (Progressive Web App) generator. You get code and data splitting out-of-the-box. Gatsby loads only the critical HTML, CSS, data, and JavaScript so your site loads as fast as possible. Once loaded, Gatsby prefetches resources for other pages so clicking around the site feels incredibly fast.</p></li>
+<li><p>Speed past the competition: Gatsby.js builds the fastest possible website. Instead of waiting to generate pages when requested, pre-build pages and lift them into a global cloud of servers — ready to be delivered instantly to your users wherever they are.</p></li>
+</ol>
+<p>Plugins: Plugins are packages that extend Gatsby sites. They can source content, transform data, and more!</p>
+<p>Starters: Starters are Gatsby sites that are preconfigured for different use cases to give you a head start for your project.</p>
+<p>Medium end note</p>
+<p>Thanks for reading! My name is Per, I’m the co-founder of Scrimba, and I love helping people learn new skills. Follow me on Twitter if you’d like to be notified about new articles and resources.</p>
+<p>Amazon Free Tiers</p>
+<p><a href="https://aws.amazon.com/free/" class="uri">https://aws.amazon.com/free/</a></p>
+<p>first installation issue caused by python 3</p>
+<p>still working on my solution but I think it may have to do with Python3 being the default version. Gatsby doesn’t support Python3 (EDIT: actually not Gatsby, but nodegyp that calls python - see comment below). In Nov 2018, I ran through the entire Gatsby tutorial with ease. Earlier in Dec 2018 I installed Python 3 for other purposes and when I run which python at terminal it gives me the link to Python 3. Haven’t totally fixed the problem yet but will update when I track down how to properly define the usage of Python 2 when running gatsby new gatsby-site.</p>
+<p>EDIT: can confirm it was python 3 being called by node. Removing my (Anaconda-inserted) conda profile code from my .bash_profile allowed me to successfully npm install –global gatsby-cli again which let me gatsby new gatsby-site, cd gatsby-site, and gatsby develop. By removing the code that called python 3, OSX reverted to using the python 2.7.x it ships with. Link [<a href="https://github.com/gatsbyjs/gatsby/issues/9511" class="uri">https://github.com/gatsbyjs/gatsby/issues/9511</a>]</p>
+<p><a href="https://www.python.org/downloads/" class="uri">https://www.python.org/downloads/</a></p>
+<p>refs <a href="https://www.gatsbyjs.org/docs/starters/" class="uri">https://www.gatsbyjs.org/docs/starters/</a></p>
+<p>Node.js Node.js is a JavaScript runtime environment which enables us to compile cool React code!</p>
+<p>First of all, let’s make sure that you have Node.js installed. If not, you can download it from here: <a href="https://nodejs.org/en/download" class="uri">https://nodejs.org/en/download</a></p>
+<p>create-react-app We’ll be using create-react-app from Facebook to scaffold our application. This is the most popular way to set up your environment and start coding. It comes with many required tools built-in, which helps us to eliminate many decisions.</p>
 </div>
 
 

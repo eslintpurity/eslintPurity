@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Data Science Tutorial</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
@@ -175,6 +178,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
@@ -224,16 +322,13 @@ $(document).ready(function () {
       <a href="javascript.html">JavaScript + Its Frameworks</a>
     </li>
     <li>
-      <a href="ror.html">Clojure, Golang and RoR</a>
-    </li>
-    <li>
       <a href="laravel.html">Laravel (PHP Framework)</a>
     </li>
     <li>
       <a href="django.html">Django and Flask</a>
     </li>
     <li>
-      <a href="nodejs.html">Node.js + Frameworks</a>
+      <a href="ror.html">Functional Programming</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">MACHINE LEARNING</li>
@@ -246,21 +341,21 @@ $(document).ready(function () {
     <li class="divider"></li>
     <li class="dropdown-header">MOBILE APPS DEVELOPMENT</li>
     <li>
-      <a href="reactnative.html">ReactNative</a>
+      <a href="flutter.html">Flutter (Dart)</a>
     </li>
     <li>
-      <a href="android.html">Java Android</a>
+      <a href="android.html">Android (Java + Kotlin)</a>
+    </li>
+    <li>
+      <a href="reactnative.html">ReactNative</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">OTHERS</li>
     <li>
-      <a href="gis.html">GIS and Spatial Modelling</a>
-    </li>
-    <li>
       <a href="datascience.html">Data Science</a>
     </li>
     <li>
-      <a href="random.html">Pure Tech &amp; Random Posts</a>
+      <a href="random.html">Random Posts</a>
     </li>
     <li>
       <a href="security.html">Security, Testing, Tooling &amp; Deployment</a>
@@ -282,15 +377,12 @@ $(document).ready(function () {
     <li>
       <a href="ml_with_sklearn_and_spark_mllib.html">ML with SKLearn and Spark MLlib</a>
     </li>
-    <li>
-      <a href="travelling_into_the_future_with_angular.html">Travelling into the future with Angular</a>
-    </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">Hire Me</a>
+  <a href="https://forms.gle/QejVomBTJUnbq2h7A">Hire Me</a>
 </li>
 <li>
   <a href="https://www.linkedin.com/in/doyin-elugbadebo/">
@@ -311,8 +403,14 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="https://pantheon.com/eslintpurity">
+  <a href="https://ko-fi.com/eslintpurity/">
     <span class="fa fa-support"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://dev.to/eslintpurity/">
+    <span class="&lt;img src=&quot;https://d2fltix0v2e0sb.cloudfront.net/dev &lt;img src=&quot;https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg&quot; alt=&quot;Doyin Elugbadebo&#39;s DEV Profile&quot; height=&quot;30&quot; width=&quot;30&quot;&gt;"></span>
      
   </a>
 </li>
@@ -352,37 +450,83 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Data Science Tutorial</h1>
 
 </div>
 
 
-<p></br></br></br> <!-- Begin Mailchimp Signup Form --></p>
-<div class="container-fluid">
+<hr />
+<p><strong>Disclaimer:</strong> This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to <a href="mailto:eslintpurity@gmail.com">eslintpurity@gmail.com</a> or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs.</p>
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;">
 <div class="row">
-<div class="col-lg-6 col-md-6">
-<div id="mc_embed_signup">
-<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-<div id="mc_embed_signup_scroll">
-<p><span class="skinny-header">Get the biggest <u class="find-a-custom-link-class-name">eslintPurity</u> stories by email</span></p>
-</br><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-<div style="position: absolute; left: -5000px;" aria-hidden="true">
-<input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value="">
+<div class="col-lg-2">
+<img src="images/doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/>
 </div>
-<div class="clear">
-<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-</div>
-</div>
-</form>
-</div>
-</div>
-<div class="col-lg-6 col-md-6">
-<div class="text-center">
-<p><img src = "images/adsense_small.jpg")></p>
+<div class="col-lg-10">
+<h4 style="font-size: 29px;">
+Build a Decision Tree Classifier in R
+</h4>
+<span style="font-size: 13.5px; padding-top:100px;">Bundle for both Regression and Classification Tree (CART)</span><span style = "float:right;"> Author: <span style="color:red;">Doyin-Elugbadebo…31st August, 2017</span><span>
 </div>
 </div>
 </div>
+<button class="accordion">
+Outline
+</button>
+<div class="panel-accordion">
+<p>
+<ul>
+<li>Intro to Decision Trees</br></li>
+<li>Advantages of method</br></li>
+<li>Disadvantages</br> – Requirements</br></li>
+<li>Recursive Partitioning Algorthms</br></li>
+<li>Algorithm pseudocode and objective</br></li>
+<li>R Example: Titanic Data</li>
+</ul>
+</p>
 </div>
-<!--End mc_embed_signup-->
+<p></br></p>
+<div style="float: right;">
+<a href="https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv">[Dataset]</a> <a href="http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW">[Download full code]</a>
+</div>
+<p></br></p>
+<div id="intro-to-xgboost-algorithm" class="section level2">
+<h2>Intro to XGBoost Algorithm</h2>
+<hr />
+<p>xtreme Gradient Boosting is among the hottest libraries in supervised machine learning these days. It supports various objective functions, including regression, classification, and ranking. It has gained much popularity and attention recently as it was the algorithm of choice for many winning teams of a number of machine learning competitions.</p>
+<p>What makes it so popular are its speed and performance. It gives among the best performances in many machine learning applications. It is optimized gradient-boosting machine learning library. The core algorithm is parallelizable and hence it can use all the processing power of your machine and the machines in your cluster. In R, according to the package documentation, since the package can automatically do parallel computation on a single machine, it could be more than 10 times faster than existing gradient boosting packages.</p>
+<p>xgboost shines when we have lots of training data where the features are numeric or a mixture of numeric and categorical fields. It is also important to note that xgboost is not the best algorithm out there when all the features are categorical or when the number of rows is less than the number of fields (columns).</p>
+<p>For other applications such as image recognition, computer vision or natural language processing, xgboost is not the ideal library. Do not use xgboost for small size dataset. It has libraries in Python, R, Julia, etc. In this post, we will see how to use it in R. This post is a continuation of my previous Machine learning with R blog post series. The first one is available here. Data exploration was performed in the first part, so I will not repeat it here. We will use the caret package for cross-validation and grid search</p>
+<p></br></p>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>In this post, we used Extreme Gradient Boosting to predict power output. We see that it has better performance than linear model we tried in the first part of the blog post series. The RMSE with the test data decreased from more 4.4 to 2.8. See you in the next part of my machine learning blog post. Why do you have to go about your</p>
+</div>
+<div id="sklearn-library-installation" class="section level3">
+<h3>sklearn Library Installation</h3>
+<p>Sklearn Library Installation Python’s sklearn library holds tons of modules that help to build predictive models. It contains tools for data splitting, pre-processing, feature selection, tuning and supervised – unsupervised learning algorithms, etc. It is similar to Caret library in R programming.</p>
+<p>For using it, we first need to install it. The best way to install data science libraries and its dependencies is by installing Anaconda package. You can also install only the most popular machine learning Python libraries.</p>
+<p>Last week, we learned about Random Forest Algorithm. Now we know it helps us reduce a model’s variance by building models on resampled data and thereby increases its generalization capability. Good!. Now, you might be wondering, what to do next for increasing a model’s prediction accuracy ? After all, an ideal model is one which is good at both generalization and prediction accuracy. This brings us to Boosting Algorithms. Developed in 1989, the family of boosting algorithms has been improved over the years. In this article, we’ll learn about XGBoost algorithm. XGBoost (Extreme Gradient Boosting) is an optimized distributed gradient boosting library. Yes, it uses gradient boosting (GBM) framework at core. Yet, does better than GBM framework alone. XGBoost was created by Tianqi Chen, PhD Student, University of Washington. It is used for supervised ML problems. Let’s look at what makes it so good:</p>
+<p>XGboost - Extreme Gradient Boosting Algorithm</p>
+<p></br></p>
+</div>
+</div>
+<div id="how-does-xgboost-work" class="section level2">
+<h2>How does XGBoost work?</h2>
+<hr />
+<p>XGBoost belongs to a family of boosting algorithms that convert weak learners into strong learners. A weak learner is one which is slightly better than random guessing. Let’s understand boosting first (in general). Boosting is a sequential process; i.e., trees are grown using the information from a previously grown tree one after the other. This process slowly learns from data and tries to improve its prediction in subsequent iterations. Let’s look at a classic classification example:</p>
+<p></br></p>
+<div id="xgboost-parameters" class="section level3">
+<h3>XGBoost parameters</h3>
+<hr />
+<ul>
+<li>Set XGBoost parameters for cross validation and training.</li>
+<li>Set a multiclass classification objective as the gradient boosting’s learning function.</li>
+<li>Set evaluation metric to <code>merror</code>, multiclass error rate.</li>
+</ul>
+<p></br></p>
+</div>
+</div>
 
 
 <!-- FAQ MODAL -->
@@ -645,110 +789,65 @@ console.log(`${zeroPad(chickens, 3)} Chickens`);
 console.log(`${zeroPad(pigs, 3)} Pigs`);
 }
 </script>
-</br></br></br>
-<!-- Begin Mailchimp Signup Form -->
+<br>
 
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-6 col-md-6">
-<div id="mc_embed_signup">
-<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-<div id="mc_embed_signup_scroll">
-<span class="skinny-header">Get the biggest <u class="find-a-custom-link-class-name">eslintPurity</u> stories by email</span>
-	
-</br><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value=""></div>
-<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-</div>
-</form>
-</div>
-</div>
-<div class="col-lg-6 col-md-6">
-
-<div class="text-center">
-
-<img src = "images/adsense_small.jpg")>
-
-</div> 
-</div>
-</div>
-</div>
-
-<!--End mc_embed_signup-->
 <hr class = "light">
 
-</br>
-
-<div class="jumbotron w3-padding-32" style="background-size: cover; padding-top: 8.5%; padding-bottom: 5.5%;">
-
-<!--<div class = "footer-sticky">
-<!-- Manipulate-->
-<div class = "text-center text-muted" style = "font-size: 21px; color:teal;">Connect with me</div>
-
-<!-- End of manipulate-->
-
-<footer>
-<div class="container">
+<div class="jumbotron w3-padding-32" style="padding-top: 8.5%; padding-bottom: 5.5%;">
+<div class = "text-center text-muted" style = "font-size: 18px; color:teal;">Interact with me</div>
 <div class="row">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links" style = "font-size: 15.5px;">
-          
-<li>
-<a href="mailto:eslintpurity@gmail.com" title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<ul class="list-inline text-center footer-links" style = "font-size: 15px;">
+<li><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&to=eslintpurity@gmail.com" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://github.com/eslintpurity" title="GitHub">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://github.com/eslintpurity" title="GitHub"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://linkedin.com/in/doyinelugbadebo" title="Linkein">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://linkedin.com/in/doyinelugbadebo" title="Linkein"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://twitter.com/eslintpurity" title="Twitter">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://twitter.com/eslintpurity" title="Twitter"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
 </li>
-          
-<li> 
-<a href="#" title="Pantheon">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-support fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://ko-fi.com/eslintpurity/" title="Ko-fi"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-support fa-stack-1x fa-inverse"></i></span></a>
 </li>
-          
 </ul>
-<p class="credits copyright text-muted text-center">
-© 2019 Doyin Elugbadebo 
-
-</p>
-<p class="credits theme-by text-muted text-center" style = "font-size:13px;">
-Built with <a href="http://eslintpurity.github.io/LintX">LintX v0.1</a> &nbsp;&bull;&nbsp; Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>.
+<p class="credits copyright text-muted text-center">© 2019 Doyin Elugbadebo</p>
+<p class="credits theme-by text-muted text-center" style = "font-size:12.5px;">Built with <a href="http://eslintpurity.github.io/LintX">LintX v0.1</a> &nbsp;&bull;&nbsp; Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>.
 </p>
 </div>
 </div>
+
+
+<div class="row">
+<ul class="list-inline footer-links" style = "font-size: 10px;">
+<li><a href="#" title="footer-about-link"><span> About</span></a>
+</li>
+
+<li><a href="#" title="footer-faq-link"><span> FAQ</span></a>
+</li>
+
+<li><a href="#" title="footer-book-link"><span> Book</span></a>
+</li>
+
+<li><a href="#" title="footer-contact-link"><span> Contact</span></a>
+</li>
+
+<li><span> | </span>
+</li>
+
+<li>
+<span class = "text-muted"> All rights reserved </span>
+</li>
+
+<li style = "float: right;">
+<a href="https://policies.google.com/privacy?hl=en&gl=US" title="footer-privacy-link">
+<span>Privacy</span></a>
+</li>
+</ul>
+</div>
 </div>
 
 
+</div>
+</div>
 
 </div>
 

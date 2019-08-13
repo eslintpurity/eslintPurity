@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Data Science Tutorial</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
@@ -173,6 +176,101 @@ $(document).ready(function () {
 </script>
 
 
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -352,111 +450,331 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Data Science Tutorial</h1>
 
 </div>
 
 
-<div class="jumbotron w3-padding-32" style="background-size: cover; margin-right: -24%; margin-left: -24%; padding-right: 24%; padding-left: 24%; padding-top: 8.5%; padding-bottom: 7.5%; margin-bottom:3px;">
-<header class="masthead text-white text-center">
-<div class="overlay">
-
-</div>
-<div class="container">
+<hr />
+<p><strong>Disclaimer:</strong> This article is meant to enlighten. You are advised to research more on the subject matter. For further enquiries, send mail to <a href="mailto:eslintpurity@gmail.com">eslintpurity@gmail.com</a> or use the comment section below. Connect with me <a href = "http://www.github.com/eslintpurity">here</a> for freelancing or remote jobs.</p>
+<div class="alert alert-info" style="padding-top:2.2%; padding-bottom: 3%;">
 <div class="row">
-<div class="col-xl-9 mx-auto">
-<h2 class="w3-wide" style="color:teal; font-size: 50px;">
-Javascript Tutorials
-</h2>
-<h4 class="w3-opacity" style="font-size: 15px; color:red;">
-Carefully crafted for you
+<div class="col-lg-2">
+<img src="images/doyin-avatar.png" alt="doyin-elugbadebo-avatar" width="94" height="90" caption = "Freelancer" class="img-circle img-responsive" style="float:left;"/>
+</div>
+<div class="col-lg-10">
+<h4 style="font-size: 29px;">
+Build a Decision Tree Classifier in R
 </h4>
-</div>
-<div class="row">
-<div class="class=&quot;col-xl-3" mx-auto"="">
-<h4 class="w3-opacity" style="font-size: 10px; color:teal;">
-Author: DOYIN-ELU
-</h4>
-</div>
-<div class="class=&quot;col-xl-3" mx-auto"="">
-<h4 class="w3-opacity" style="font-size: 10px; color:teal;">
-Editor: AMANDA VISCOTTI
-</h4>
-</div>
-<div class="class=&quot;col-xl-3" mx-auto"="">
-<h4 class="w3-opacity" style="font-size: 10px; color:teal;">
-Credits: DOYIN-ELU
-</h4>
+<span style="font-size: 13.5px; padding-top:100px;">Bundle for both Regression and Classification Tree (CART)</span><span style = "float:right;"> Author: <span style="color:red;">Doyin-Elugbadebo…31st August, 2017</span><span>
 </div>
 </div>
 </div>
+<button class="accordion">
+Outline
+</button>
+<div class="panel-accordion">
+<p>
+<ul>
+<li>Intro to Decision Trees</br></li>
+<li>Advantages of method</br></li>
+<li>Disadvantages</br> – Requirements</br></li>
+<li>Recursive Partitioning Algorthms</br></li>
+<li>Algorithm pseudocode and objective</br></li>
+<li>R Example: Titanic Data</li>
+<li>Extending to the three musketiers of ML Algorithms</li>
+</ul>
+</p>
 </div>
-<header>
+<p></br></p>
+<div style="float: right;">
+<a href="https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv">[Dataset]</a> <a href="http://www.github.com/eslintpurity/intro_to_rdbms_using_mysql_for_MARVINVIEW">[Download full code]</a>
 </div>
-<div class="row">
-<p><span class="col-xl-12 mx-auto" style="color:#f1f1f1;"> //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// </span></p>
+<p></br></p>
+<div id="what-is-a-decision-tree" class="section level2">
+<h2>What is a Decision Tree?</h2>
+<hr />
+<p>A Decision Tree is a supervised learning predictive model that uses a set of binary rules to calculate a target value.It is used for either classification (categorical target variable) or regression (continuous target variable). Hence, it is also known as CART (Classification &amp; Regression Trees). Some real-life applications of Decision Trees include:</p>
+<ol style="list-style-type: decimal">
+<li><p>Credit scoring models in which the criteria that causes an applicant to be rejected need to be clearly documented and free from bias</p></li>
+<li><p>Marketing studies of customer behaviour such as satisfaction or churn, which will be shared with management or advertising agencies</p></li>
+<li><p>Diagnosis of medical conditions based on laboratory measurements, symptoms, or the rate of disease progression</p></li>
+</ol>
+<p></br></p>
 </div>
+<div id="advantages-of-decision-trees" class="section level2">
+<h2>Advantages of Decision Trees</h2>
+<hr />
+<ul>
+<li>Simple to understand and interpret. White box.</li>
+<li>Requires little data preparation. (No need for normalization or dummy vars, works with NAs)</li>
+<li>Works with both numerical and categorical data.</li>
+<li>Handles nonlinearity (in constrast to logistic regression)</li>
+<li>Possible to validate a model using statistical tests. Gives you confidence it will work on new data sets.</li>
+<li>Robust. Performs well even if you deviate from assumptions</li>
+<li>Scales to big data</li>
+</ul>
+<p></br></p>
+</div>
+<div id="limitations-of-decision-trees" class="section level2">
+<h2>Limitations of Decision Trees</h2>
+<hr />
+<ul>
+<li>Learning globally optimal tree is NP-hard, algos rely on greedy search</li>
+<li>Easy to overfit the tree (unconstrained, prediction accuracy is 100% on training data)</li>
+<li>Complex “if-then” relationships between features inflate tree size. eg XOR gate, multiplexor</li>
+</ul>
+<p></br></p>
+</div>
+<div id="recursive-partioning-algorithms-have-two-basic-steps" class="section level2">
+<h2>Recursive partioning algorithms have two basic steps</h2>
+<hr />
+<ol style="list-style-type: decimal">
+<li>Given a subset of training data, find the best feature for predicting the labels on that subset.</li>
+<li>Find a split on that feature that best seperates the labels, and split into two new subsets</li>
+<li>Repeat steps one and two recursively until you meet a stopping criterion</li>
+</ol>
+<p>Search problem: Given a subset of the data, the algorithm must chose an ideal next split for that subset on one the features.</p>
+<p></br></p>
+</div>
+<div id="information-gain-is-a-criterion-used-for-split-search-but-leads-to-overfitting" class="section level2">
+<h2>Information gain is a criterion used for split search but leads to overfitting</h2>
+<hr />
+<ul>
+<li>Let pi be the proportion of times the label of the ith observation in the subset appears in the subset.</li>
+<li>Then maximize information gain IG=∑mi=1pilog2pi</li>
+<li>Intuition: choose a split for a given subset that minimizes entropy in the subset’s distribution of labels Caveats:</li>
+<li>Cannot distinguish between statistically significant and insignificant improvements in IG, leading to overfitting.</li>
+<li>For categorical features, IG biased in favor of features with more levels</li>
+</ul>
+<p></br></p>
+</div>
+<div id="conditional-tree-inference-approach-stops-when-splits-are-not-statistically-significant" class="section level1">
+<h1>Conditional tree inference approach stops when splits are not statistically significant</h1>
+<hr />
+<ul>
+<li>Using the observations in the subset, apply statistical test of independence between each feature and the labels.</li>
+<li>Example for feature Xj: Null Hypothesis: (Y⊥Xj)</li>
+<li>Select split on feature with lowest p-value</li>
+<li>Stop recursion if no features have significant p-values.</li>
+<li>R package party does permutation tests, parametric test available as well</li>
+</ul>
+<p></br></p>
+</div>
+<div id="conditional-tree-inference-approach-stops-when-splits-are-not-statistically-significant-1" class="section level1">
+<h1>Conditional tree inference approach stops when splits are not statistically significant</h1>
+<hr />
+<ul>
+<li>Using the observations in the subset, apply statistical test of independence between each feature and the labels.</li>
+<li>Example for feature Xj: Null Hypothesis: (Y⊥Xj)</li>
+<li>Select split on feature with lowest p-value</li>
+<li>Stop recursion if no features have significant p-values.</li>
+<li>R package party does permutation tests, parametric test available as well</li>
+</ul>
+<p></br></p>
+<ul>
+<li>readr to read in the data</li>
+<li>dplyr to process data</li>
+<li>party and rpart for the classification tree algorithms Note dplyr imports magrittr which uses the “%&gt;%” syntax used below. Google to learn more.</li>
+</ul>
+<pre class="r"><code>library(readr)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(party)</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<pre><code>## Loading required package: mvtnorm</code></pre>
+<pre><code>## Loading required package: modeltools</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: strucchange</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: sandwich</code></pre>
+<pre class="r"><code>library(rpart)
+library(rpart.plot)
+library(ROCR)</code></pre>
+<pre><code>## Loading required package: gplots</code></pre>
+<pre><code>## 
+## Attaching package: &#39;gplots&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     lowess</code></pre>
+<p></br></p>
+</div>
+<div id="before-fitting-the-model-categorical-features-should-be-made-into-factors." class="section level1">
+<h1>Before fitting the model, categorical features should be made into factors.</h1>
+<hr />
+<pre class="r"><code>titanic3 &lt;- &quot;https://goo.gl/At238b&quot; %&gt;%
+  read_csv %&gt;% # read in the data
+  select(survived, embarked, sex, 
+         sibsp, parch, fare) %&gt;%
+  mutate(embarked = factor(embarked),
+         sex = factor(sex))</code></pre>
+<p></br></p>
+<pre class="r"><code>library(readxl)
+library(tidyverse)
+library(xgboost)
+library(caret)</code></pre>
+</div>
+<div id="setting-seed-for-reproducibility" class="section level1">
+<h1>Setting seed for reproducibility</h1>
+<pre class="r"><code>set.seed(100)  # For reproducibility
+# Create index for testing and training data
+inTrain &lt;- createDataPartition(y = power_plant$PE, p = 0.8, list = FALSE)
+# subset power_plant data to training
+training &lt;- power_plant[inTrain,]
+# subset the rest to test
+ testing &lt;- power_plant[-inTrain,]</code></pre>
+<p># Specify cross-validation method and number of folds. Also enable parallel computation</p>
+<pre class="r"><code> xgb_trcontrol = trainControl(
+  method = &quot;cv&quot;,
+  number = 5,  
+  allowParallel = TRUE,
+  verboseIter = FALSE,
+  returnData = FALSE
+)</code></pre>
+<ol style="list-style-type: decimal">
+<li><strong>Gini Index:</strong> It is the measure of inequality of distribution. It says if we select two items from a population at random then they must be of same class and probability for this is 1 if population is pure.</li>
+</ol>
+<ul>
+<li>It works with categorical target variable “Success” or “Failure”.</li>
+<li>It performs only Binary splits</li>
+<li>Lower the value of Gini, higher the homogeneity.</li>
+<li>CART uses Gini method to create binary splits.</li>
+<li>Process to calculate Gini Measure:</li>
+</ul>
+<p>where P(j) is the Probability of Class j</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Entropy : Entropy is a way to measure impurity.</li>
+</ol>
+<p>Less impure node require less information to describe them and more impure node require more information. If the sample is completely homogeneous, then the entropy is zero and if the sample is an equally divided one, it has entropy of one. The entropty of the system is given as</p>
+<p><span class="math display">\[-\sum{P\left(x\right) }\log P\left(x\right)\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Information Gain : Information Gain is simply a mathematical way to capture the amount of information one gains(or reduction in randomness) by picking a particular attribute.</li>
+</ol>
+<p>In a decision algorithm, we start at the tree root and split the data on the feature that results in the largest information gain (IG). In other words, IG tells us how important a given attribute is.</p>
+<p>Information Gain (IG) is the most significant measure used to build a Decision Tree. It indicates how much “information” a particular feature/ variable gives us about the final outcome. Information Gain is important because it used to choose the variable that best splits the data at each node of a Decision Tree. The variable with the highest IG is used to split the data at the root node.</p>
+<p>The Information Gain (IG) can be defined as follows:</p>
+<p><span class="math display">\[
+IG\left(D_{p} \right)=I\left(D_{p} \right)- \frac{N_{left} }{N_{p} }I\left(D_{left} \right)- \frac{N_{right} }{N_{p} }I\left(D_{right} \right)
+\]</span></p>
+<p>Where I could be entropy or Gini index. (D_{p}, (D_{left} and (D_right are the dataset of the parent, left and right child node.</p>
+<p>In R, a parameter that controls this is minbucket. The smaller it is, the more splits will be generated However, If it is too small, overfitting will occur. And, if it is too large, model will be too simple and accuracy will be poor</p>
+<p><a href="https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv" class="uri">https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv</a></p>
+</div>
+<div id="load-the-neccessary-libraries" class="section level1">
+<h1>Load the neccessary Libraries</h1>
+<p>Understanding r-path [<a href="https://blogdown-demo.rbind.io/2018/02/27/r-file-paths/" class="uri">https://blogdown-demo.rbind.io/2018/02/27/r-file-paths/</a>]</p>
+<p>First, extract target outcome (the activity quality) from training data, so now the training data contains only the predictors (the activity monitors).</p>
+<pre class="r"><code>path &lt;- &#39;https://raw.githubusercontent.com/thomaspernet/data_csv_r/master/data/titanic_csv.csv&#39;
+titanic &lt;- read.csv(path)
+attach(titanic)</code></pre>
+<pre class="r"><code>Advertising_1 &lt;- read.csv(here(&quot;static&quot;, &quot;Advertising_1.csv&quot;))
+attach(Advertising_1)</code></pre>
+<pre class="r"><code>head(Titanic)</code></pre>
+<pre><code>## [1]  0  0 35  0  0  0</code></pre>
+<pre class="r"><code>head(Advertising_1)</code></pre>
+<pre><code>##   X    TV radio newspaper sales
+## 1 1 230.1  37.8      69.2  22.1
+## 2 2  44.5  39.3      45.1  10.4
+## 3 3  17.2  45.9      69.3   9.3
+## 4 4 151.5  41.3      58.5  18.5
+## 5 5 180.8  10.8      58.4  12.9
+## 6 6   8.7  48.9      75.0   7.2</code></pre>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<hr />
+<p>In this chapter, we learned how to use partitioning to optimize very big tables. We learned which partitioning types are supported by MariaDB and how to write a good partitioning expression. We examined a sample table and learned how we can benefit from different partitioning strategies. We discussed subpartitioning. We learned the SQL statements that can be used to maintain partitions. Finally, we discussed how the optimizer excludes the irrelevant partitions from a statement execution, and how the use can force the exclusive use of some partitions.In the next chapter, we will discuss how to distribute data across multiple servers.</p>
+<p><br></p>
+<!-- Begin Mailchimp Signup Form -->
 <div class="container-fluid">
 <div class="row">
-<div class="col-lg-6 col-md-6">
-<a href = "database.html">
-<button class="btn btn-default btn-block">
-<span style="float:left; color: teal;"> &lt;&lt;&lt; </span><span "style="float:left;color: white;">Previous Module</span>
-</button>
-<p></a></p>
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=e2845c6383ec09508617199e4&amp;id=99033aaa06" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+<p><span class="skinny-header">Get the biggest <u class="find-a-custom-link-class-name">eslintPurity</u> stories by email</span></p>
+</br><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true">
+<input type="text" name="b_e2845c6383ec09508617199e4_99033aaa06" tabindex="-1" value="">
 </div>
-<div class="col-lg-6 col-md-6">
-<a href = "ror.html">
-<button class="btn btn-default btn-block">
-<span style="float:right; color: white;">Next Module </span><span style="float:right; color: teal;"> &gt;&gt;&gt; </span>
-</button>
-<p></a></p>
+<div class="clear">
+<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 </div>
 </div>
-<p><br></p>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4119834753934649",
-    enable_page_level_ads: true
-  });
-</script>
-<p><br></p>
-<div class="row">
-<div class="col-lg-3 col-md-3">
-<div class="quarterContainer">
-<p><img src="images/historian3.png" alt="sample image"/></p>
+</form>
 </div>
 </div>
-<div class="col-lg-9 col-md-9">
-<span>
-<h6>
-jQuery, Mocha, Bootstrap
-</h6>
-<span sytle="float:right;">Author: DOYIN ELUGBADEBO</span></span>
-<div style="color:#3388cd; font-size:18px;">
-<a href = "elements_of_react_with_gatsby_and_contentful.html">Demystifying the JAMStack rave with React-Gastby, DotCMS and [Netlify, Amazon, CircleCI]</a>
 </div>
-<p>In this lesson, you will use R-language to analyze and map geospatial data. It is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.</p>
-</div>
-</div>
+<!--End mc_embed_signup-->
 <hr />
+<div class="container-fluid">
+<div class="row text-center text-muted">
+<div>
+<span style="font-size:20px;"><a href = "database.html"><span class="glyphicon glyphicon-fast-backward"></span></a> <a href = "database.html"><span class="glyphicon glyphicon-backward"></span></a>  <span class="glyphicon glyphicon-cd"></span>  <a href = "database.html"><span class="glyphicon glyphicon-forward"></span></a> <a href = "database.html"><span class="glyphicon glyphicon-fast-forward"></span></a></span>
+</div>
+</div>
+</div>
+<p></br></p>
+<hr />
+<div class="alert alert-info">
 <div class="row">
-<div class="col-lg-3 col-md-3">
-<div class="quarterContainer">
-<p><img src="images/historian1.png" alt="sample image"/></p>
+<div class="col-lg-2 col-md-2">
+<p><img src='images/doyin-avatar.png' alt='Doyin Elugbadebo'
+float='left' width="160" height=250" caption = "Doyin-Software_Developer_and_Deep_Learning_Practitioner" class = "img-circle img-responsive" style="padding-top: 3px; padding-bottom: 2px; padding-right: 2px; padding-left: 5px;"></p>
+</div>
+<div class="col-lg-10 col-md-10">
+<p><span><span style="color: grey;">DOYIN ELUGBADEBO:</span> Doyin is a Freelancer, Software Developer and Deep Learning Practitioner <a href = "http://www.krystalnet.com"><span class="citation">@Krystalnet</span> Solutions Inc.</a>. He has served in various capacities either as a consultant, developer or a machine learning expert. <span style="color: purple;">A lover of nature and an ICT fanatics who hope sticking around witnessing what transpires between human and machines when the latter develops true intelligence.</span></span></p>
+<p>Reach him via: <span style="color: purple; font-size:10px;">Email: </span><a href="mailto:eslintpurity@gmail.com">eslintpurity@gmail.com</a> –|– <span style="color: purple; font-size:10px;">Whatzapp: </span> 08084185154 –|– <span style="color: purple; font-size:10px;"> Web:</span> <a href="https://doyinelugbadebo.com">doyinelugbadebo.com</a> <br> <span class="label label-primary"><a href = "http://www.linkedin/elugbadebo-doyin/" style = "color: white;">LinkedIn</a></span> <span class="label label-success" style="color: white;"><a href = "http://www.twitter.com/eslintpurity/" style = "color: white;">Twitter</a></span> <span class="label label-warning" style="color: white;"><a href = "http://www.github.com/eslintpurity/" style = "color: white;">Github</a></span></p>
 </div>
 </div>
-<div class="col-lg-9 col-md-9">
-<span>
-<h6>
-jQuery, Mocha, Bootstrap
-</h6>
-</span><span sytle="float:  right;">Author: DOYIN ELUGBADEBO</span>
-<div style="color:#3388cd; font-size:18px;">
-<a href = "elements_of_react_with_gatsby_and_contentful.html">Mastery the Elements of React using Gatsby and Contentful</a>
 </div>
-<p>This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.</p>
+<p><br></p>
+<div style="font-size:14.5px;">
+If you love my content, plz consider buying me a coffea <span>
+<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+<script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'G2G0UIGX');kofiwidget2.draw();</script>
+</span><span> OR <a href = "https://docs.google.com/forms/d/e/1FAIpQLSePs6HAZiFjcHBNhTN4lSXbQuylzx_cZPbftGQq0aoMLungTQ/viewform?usp=sf_link">
+<button class="w3-button w3-black w3-margin-bottom">
+Hire Me
+</button>
+</a> for your next project</span>
 </div>
+<!--Beginning Disqus-->
+<div id="disqus_thread">
+
+</div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://eslintpurity.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>
+Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<!--End Disqus-->
 </div>
 </div>
 
@@ -778,6 +1096,8 @@ console.log(`${zeroPad(pigs, 3)} Pigs`);
 </div>
 
 
+</div>
+</div>
 
 </div>
 

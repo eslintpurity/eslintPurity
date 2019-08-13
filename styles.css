@@ -96,4 +96,15 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
     transition: 0.4s;
 }
 
+.media {
+    align-items: flex-start;
+    display: flex;
+    text-align: left
+}
 
+.media-content {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left
+}

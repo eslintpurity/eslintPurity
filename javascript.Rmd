@@ -57,7 +57,7 @@ output:
 </div>
 <div class = "col-lg-9 col-md-9">
 <span><h6>jQuery, Mocha, Bootstrap</h6><span sytle = "float:right;">Author: DOYIN ELUGBADEBO</span></span>
-<div style = "color:#3388cd; font-size:18px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART1-intro_to_rdbms_using_mysql_for_KRYSTALVIEW.html">Using Geospatial Data to Inform Historical Research in R</a></div>
+<div style = "color:#3388cd; font-size:18px;"><a href = "elements_of_react_with_gatsby_and_contentful.html">Demystifying the JAMStack rave with React-Gastby, DotCMS and [Netlify, Amazon, CircleCI]</a></div>
 
 In this lesson, you will use R-language to analyze and map geospatial data. It is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
 </div>
@@ -73,25 +73,9 @@ In this lesson, you will use R-language to analyze and map geospatial data. It i
 </div>
 <div class = "col-lg-9 col-md-9">
 <span><h6>jQuery, Mocha, Bootstrap</h6></span><span sytle = "float:  right;">Author: DOYIN ELUGBADEBO</span>
-<div style = "color:#3388cd; font-size:18px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART2-designing_database_tables.html">Using Geospatial Data to Inform Historical Research in R</a></div>
+<div style = "color:#3388cd; font-size:18px;"><a href = "elements_of_react_with_gatsby_and_contentful.html">Mastery the Elements of React using Gatsby and Contentful</a></div>
 
 This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet, or optical head-mounted display.
-</div>
-</div>
-
-***
-
-<div class="row">
-<div class = "col-lg-3 col-md-3">
-<div class="quarterContainer">
-<img src="images/historian2.png" alt="sample image"/>
-</div>
-</div>
-<div class = "col-lg-9 col-md-9">
-<span><h6>jQuery, Mocha, Bootstrap</h6></span><span sytle = "float:  right;">Author: DOYIN ELUGBADEBO</span>
-<div style = "color:#3388cd; font-size:18px;"><a href = "a_tutorial_series_on_mastering_mysql_with_php_PART3-mysql-database-query.html">Using Geospatial Data to Inform Historical Research in R</a></div> 
-
-This lesson serves as an introduction to creating mobile augmented reality applications. Augmented reality (AR) can be defined as the overlaying of digital content (images, video, text, sound, etc.) onto physical objects or locations, and it is typically experienced by looking through the camera lens of an electronic device such as a smartphone, tablet
 </div>
 </div>
 </div>

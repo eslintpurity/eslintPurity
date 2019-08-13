@@ -1,72 +1,55 @@
+<br>
+
 <hr class = "light">
 
-</br>
-
-<div class="jumbotron w3-padding-32" style="background-size: cover; padding-top: 8.5%; padding-bottom: 5.5%;">
-
-<!--<div class = "footer-sticky">
-<!-- Manipulate-->
-<div class = "text-center text-muted" style = "font-size: 21px; color:teal;">Connect with me</div>
-
-<!-- End of manipulate-->
-
-<footer>
-<div class="container">
+<div class="jumbotron w3-padding-32" style="padding-top: 8.5%; padding-bottom: 5.5%;">
+<div class = "text-center text-muted" style = "font-size: 18px; color:teal;">Interact with me</div>
 <div class="row">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links" style = "font-size: 15.5px;">
-          
-<li>
-<a href="mailto:eslintpurity@gmail.com" title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<ul class="list-inline text-center footer-links" style = "font-size: 15px;">
+<li><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&to=eslintpurity@gmail.com" title="Email me"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://github.com/eslintpurity" title="GitHub">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://github.com/eslintpurity" title="GitHub"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://linkedin.com/in/doyinelugbadebo" title="Linkein">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://linkedin.com/in/doyinelugbadebo" title="Linkein"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span></a>
 </li>
-<li>
-<a href="https://twitter.com/eslintpurity" title="Twitter">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://twitter.com/eslintpurity" title="Twitter"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
 </li>
-          
-<li> 
-<a href="#" title="Pantheon">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-support fa-stack-1x fa-inverse"></i>
-</span>
-</a>
+<li><a href="https://ko-fi.com/eslintpurity/" title="Ko-fi"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-support fa-stack-1x fa-inverse"></i></span></a>
 </li>
-          
 </ul>
-<p class="credits copyright text-muted text-center">
-© 2019 Doyin Elugbadebo 
-
-</p>
-<p class="credits theme-by text-muted text-center" style = "font-size:13px;">
-Built with <a href="http://eslintpurity.github.io/LintX">LintX v0.1</a> &nbsp;&bull;&nbsp; Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>.
+<p class="credits copyright text-muted text-center">© 2019 Doyin Elugbadebo</p>
+<p class="credits theme-by text-muted text-center" style = "font-size:12.5px;">Built with <a href="http://eslintpurity.github.io/LintX">LintX v0.1</a> &nbsp;&bull;&nbsp; Powered by <a href = "https://rmarkdown.rstudio.com/rmarkdown_websites.html">Rmarkdown</a>, <a href = "https://yihui.name/knitr/">Knitr</a> and <a href = "https://getbootstrap.com/">Bootstrap</a>.
 </p>
 </div>
 </div>
-</div>
 
+
+<div class="row">
+<ul class="list-inline footer-links" style = "font-size: 10px;">
+<li><a href="#" title="footer-about-link"><span> About</span></a>
+</li>
+
+<li><a href="#" title="footer-faq-link"><span> FAQ</span></a>
+</li>
+
+<li><a href="#" title="footer-book-link"><span> Book</span></a>
+</li>
+
+<li><a href="#" title="footer-contact-link"><span> Contact</span></a>
+</li>
+
+<li><span> | </span>
+</li>
+
+<li>
+<span class = "text-muted"> All rights reserved </span>
+</li>
+
+<li style = "float: right;">
+<a href="https://policies.google.com/privacy?hl=en&gl=US" title="footer-privacy-link">
+<span>Privacy</span></a>
+</li>
+</ul>
+</div>
+</div>
